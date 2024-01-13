@@ -12,6 +12,18 @@
    --maxWidthContainer: 1600px;
    --font-primary: 'Montserrat', sans-serif;
 
+   /*COLORS*/
+   --color-orange: #f95400;
+   --color-gray: #9d9d9c;
+   --color-dark-blue: #2b3944;
+   --color-dark-gray: #2e2e2e;
+   --color-light-gray: #f4f4f4;
+   --color-white: #fff;
+   --color-black: #000;
+
+   --color-primary: var(--color-orange);
+   --color-secondary: var(--color-dark-blue);
+
    /*COMPONENTS*/
    --headerHeight: 100px;
 
