@@ -12,12 +12,14 @@
    --maxWidthContainer: 1600px;
 
    --font-primary: 'Montserrat', sans-serif;
+   --font-secondary: 'Montserrat', sans-serif;
+
 
    /*COLORS*/
-   --color-orange: #f95400;
-   --color-gray: #9d9d9c;
-   --color-dark-blue: #2b3944;
-   --color-dark-gray: #2e2e2e;
+   --color-orange: #F95500;
+   --color-gray: #9D9D9D;
+   --color-dark-blue: #2B3944;
+   --color-dark-gray: #2C2C2C;
    --color-light-gray: #f4f4f4;
    --color-white: #fff;
    --color-black: #000;
