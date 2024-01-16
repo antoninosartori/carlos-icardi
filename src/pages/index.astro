@@ -3,6 +3,7 @@ import '../index.css'
 import MainLayout from '../layouts/MainLayout.astro'
 import ReachesCard from '../components/ReachesCard/ReachesCard.astro'
 import Button from '../components/Button/Button.astro'
+import {REACHES_CARDS_INFO} from '../utils/reaches-card-info'
 ---
 
 <MainLayout>
@@ -14,5 +15,32 @@ import Button from '../components/Button/Button.astro'
    <!-- < Reaches /> -->
    <!-- < Contact /> -->
    <!-- < Footer /> -->
+   <section>
+      {REACHES_CARDS_INFO.map(item => (
+         <ReachesCard
+            title={item.title}
+            text={item.text}
+            image={item.image}
+            bgColor={item.bgCardColor}
+            textColor={item.textCardColor}
+            >
+            <Button
+               padding="12px 16px"
+               bgColor={item.bgButtonColor}
+               textColor={item.textButtonColor}
+               >
+               Ver más
+            </Button>   
+         </ReachesCard>
+      ))}
+   </section>
 </MainLayout>
 
+<style>
+   section{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+   }
+</style>
