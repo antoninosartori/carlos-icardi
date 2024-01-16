@@ -1,0 +1,29 @@
+---
+import Container from '../Container.astro'
+---
+
+<header>
+
+   <Container class='navbar-container'>
+      Carlos Icardi
+   </Container>
+
+</header>
+
+<style>
+
+   header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--headerHeight);
+   }
+
+   .navbar-container{
+      max-width: var(--maxWidthContainer);
+      margin: 0 auto;
+      height: 100%;
+   }
+
+</style>
