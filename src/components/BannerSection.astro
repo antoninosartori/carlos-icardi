@@ -5,10 +5,10 @@ const { withButton, textButton, title, text, bgColor, image, imageFirst } =
 
 <div class=`bannerSectionContainer ${bgColor} imageFirst:${imageFirst}`>
 	<article>
-	  <div>
+	  <div class={imageFirst ? 'order-0' : 'order-1'}>
 	    <img src={image} alt=`${title} image` />
 	  </div>
-	  <div class='section-data'>
+	  <div class='section-data' class={!imageFirst ? 'order-0' : 'order-1'}>
 	    <h2>{title}</h2>
 	    <p>{text}</p>
 	    {withButton && <button>{textButton}</button>}
@@ -28,6 +28,14 @@ const { withButton, textButton, title, text, bgColor, image, imageFirst } =
       width: 640px;
       height: 100%;
     }
+  }
+
+  .order-1{
+   order: 1;
+  }
+
+  .order-0{
+   order: 0;
   }
 
   .section-data {
