@@ -1,0 +1,28 @@
+---
+const { color, icon, text, href } = Astro.props
+
+const styles = {
+  div: {
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  img: {
+    width: '287px',
+    height: '337px'
+  },
+  p: {
+    color: color,
+    fontSize: 'var(--fs-body)'
+  }
+}
+---
+
+<!--<NavBigIcon /> - color - icon - text - Href-->
+<div style={styles.div}>
+  <a href={href}>
+    <img style={styles.img} src={icon} alt=`${text} logo` />
+    <p style={styles.p}>{text}</p>
+  </a>
+</div>
