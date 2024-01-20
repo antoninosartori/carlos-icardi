@@ -10,15 +10,6 @@ export default function Button({
    className = '',
    ...others}) {
 
-   // const {
-   //    bgColor = 'var(--color-primary)',
-   //    textColor = 'var(--color-white)',
-   //    radius = '0px',
-   //    width = 'max-content',
-   //    padding = '8px 12px',
-   //    fontSize = 'var(--fs-body)',
-   // } = Astro.props
-
    const styles = {
       backgroundColor: bgColor,
       color: textColor,
