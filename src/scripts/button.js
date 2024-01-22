@@ -4,9 +4,10 @@
 // ⚠ El nombre que le demos debe coincidir con el data-function puesto en el Button. 
 
 const BUTTON_FUNCTIONS = {
-   redirect: () => console.log('redirect'),
-   nothing: () => console.log('nothing'),
-   call: () => console.log('call'),
+   see_more: (event) => {
+      const card = event.currentTarget.closest('article')
+      card.classList.toggle('reaches-card--active')
+   }
 }
 
 const Allbuttons = document.querySelectorAll('.button')

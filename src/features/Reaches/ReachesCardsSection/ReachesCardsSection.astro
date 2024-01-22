@@ -1,0 +1,36 @@
+---
+import { REACHES_CARDS_INFO } from '../../../utils/reaches-card-info'
+import ReachesCard from '../../../components/ReachesCard/ReachesCard.astro'
+import Button from '../../../components/Button/Button'
+---
+
+<div class="reaches-cards-section">
+   {REACHES_CARDS_INFO.map(item => (
+      <ReachesCard
+         bgColor={item.bgCardColor}
+         textColor={item.textCardColor}
+         image={item.image}
+         title={item.title}
+         text={item.text}   
+         id={item.id}
+      >
+         <Button
+            data-function="see_more"
+            bgColor={item.bgButtonColor}
+            textColor={item.textButtonColor}
+         >Ver mas</Button>   
+      </ReachesCard>
+   ))}
+</div>
+
+<style>
+   .reaches-cards-section{
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      /* flex-wrap: wrap; */
+      gap: 40px;
+   }
+</style>

@@ -22,7 +22,7 @@
 	--color-light-gray: #f4f4f4;
 	--color-white: #fff;
 	--color-black: #000;
-	--color-black-opacity: #0000006c;
+	--color-black-opacity: #000000af;
 
 
 	--color-primary: var(--color-orange);
@@ -116,3 +116,12 @@ button{
    cursor: pointer;
    font-family: var(--font-primary);
 }
+
+   /* click on Ver mas */
+   
+
+   /* .reaches-card--active .reaches-card--container .button{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+   } */

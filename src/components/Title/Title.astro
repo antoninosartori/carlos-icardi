@@ -1,0 +1,20 @@
+---
+const { title, colorTitle, paragraph, colorParagraph } = Astro.props
+---
+
+<div>
+  <h1 class={colorTitle}>{title}</h1>
+  {paragraph && <p class={colorParagraph}>{paragraph}</p>}
+</div>
+
+<style>
+  .blue {
+    color: var(--color-dark-blue);
+  }
+  .orange {
+    color: var(--color-orange);
+  }
+  .gray {
+    color: var(--dark-gray);
+  }
+</style>
