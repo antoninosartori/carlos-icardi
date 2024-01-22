@@ -1,0 +1,100 @@
+---
+import heroBackground from '../assets/hero/bgHeader.jpg'
+import Title from './Title.astro'
+import Email from '../assets/icons/Email.astro'
+import LinkedIn from '../assets/icons/LinkedIn.astro'
+import Instagram from '../assets/icons/Instagram.astro'
+import Whatsapp from '../assets/icons/Whatsapp.astro'
+---
+
+<div class='hero-section'>
+  <aside>
+    <nav>
+      <ul>
+        <li>
+          <a href=''>
+            <Email />
+          </a>
+        </li>
+        <li>
+          <a href=''>
+            <LinkedIn />
+          </a>
+        </li>
+        <li>
+          <a href=''>
+            <Instagram />
+          </a>
+        </li>
+
+        <li>
+          <a href=''>
+            <Whatsapp />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class='container'>
+    <section>
+      <!--NavBar-->
+    </section>
+    <body>
+      <Title
+        width='660px'
+        ,
+        height='auto'
+        ,
+        class='title-container'
+        title='organizar y mejorar procesos acelerando el camino al exito'
+        ,
+        colorTitle='var(--color-white)'
+        ,
+        paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
+        ,
+        colorParagraph='var(--color-white)'
+        ,
+        fontSizeP='1.2em'
+      />
+    </body>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    display: flex;
+    background-image: url('../assets/hero/bgHeader.jpg'); /* Reemplaza 'imagen-hero.jpg' con la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+  }
+  aside {
+    background: var(--color-orange);
+    border-radius: 8px;
+    /*height: 160px;*/
+    margin: auto;
+    nav {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: space-between;
+
+      ul {
+        list-style: none;
+        li {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    width: var(--maxWidthContent);
+  }
+</style>
