@@ -26,7 +26,6 @@ import Whatsapp from '../assets/icons/Whatsapp.astro'
             <Instagram />
           </a>
         </li>
-
         <li>
           <a href=''>
             <Whatsapp />
@@ -73,20 +72,22 @@ import Whatsapp from '../assets/icons/Whatsapp.astro'
   }
   aside {
     background: var(--color-orange);
-    border-radius: 8px;
-    /*height: 160px;*/
-    margin: auto;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: fit-content;
+    margin: auto 0;
     nav {
       display: flex;
       flex-direction: column;
       text-align: center;
       justify-content: space-between;
+      padding: 8px;
 
       ul {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
         list-style: none;
-        li {
-          margin-bottom: 4px;
-        }
       }
     }
   }
