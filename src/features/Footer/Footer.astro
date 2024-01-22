@@ -1,0 +1,88 @@
+---
+import Container from '../../components/Container.astro'
+import { Image } from 'astro:assets'
+---
+
+<footer>
+   <Container class="footer-main-container">
+      <figure class="footer-logo-container">
+         <img class='logo' src='./logo.svg' alt="logo del sitio web Carlos Icardi">
+      </figure>
+
+      <div class="footer-content">
+         <h4>Información Contacto</h4>
+         <div class="footer-content-items">
+            <div class="footer-content--itemGroup">
+               <span>Entre Ríos</span>
+            </div>
+            <div class="footer-content--itemGroup">
+               <span>cicardi.arg@gmail.com</span>
+            </div>
+            <div class="footer-content--itemGroup">
+               <span>+54 9 3442490242</span>
+            </div>
+         </div>
+      </div>
+
+      <div class="footer--last-container">
+         <span>© Lorem ipsum dolor sit amet, consectetuer </span>
+         <a href="">Privacidad y condiciones</a>
+      </div>
+   </Container>
+</footer>
+
+
+<style>
+   .footer-main-container{
+      background-color: var(--color-dark-gray);
+      gap: 40px;
+      color: var(--color-light-gray);
+   }
+   figure{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   figure .logo{
+      height: 130px;
+      width: auto;
+      object-fit: cover;
+   }
+
+   .footer-content{
+      
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+   }
+
+   h4{
+      color: var(--color-primary);
+   }
+
+   .footer-content-items{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+   }
+
+   .footer-content--itemGroup{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: var(--fs-body);
+   }
+
+   .footer--last-container{
+      width: 100%;
+      margin: 0 auto;
+      max-width: 992px;
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+   }
+</style>
