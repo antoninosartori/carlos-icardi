@@ -1,0 +1,77 @@
+---
+// import Button from '../../../components/Button/Button.jsx'
+---
+
+<form>
+   <div class="form--content">
+      <div class="contact-form--row">
+         <div class="contact-form--inputGroup">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" />
+         </div>
+   
+         <div class="contact-form--inputGroup">
+            <label for="email">Email</label>
+            <input type="text" name="email" />
+         </div>
+      </div>
+   
+      <div class="contact-form--inputGroup">
+         <label for="subject">Asunto</label>
+         <input type="text" name="subject" />
+      </div>
+   
+      <div class="contact-form--inputGroup">
+         <label for="message">Mensaje</label>
+         <textarea rows="10" name="message" />
+      </div>
+   </div>
+
+   <!-- <Button></Button> -->
+   <button>Enviar</button>
+
+</form>
+
+<style>
+   form{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      font-size: var(--fs-body);
+   }
+
+   .form--content{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   }
+
+   .contact-form--row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+   }
+
+   .contact-form--inputGroup{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+   }
+
+   input{
+      padding: 10px;
+      width: 100%;
+      font-size: var(--fs-body);
+   }
+
+   textarea{
+      resize: none;
+   }
+
+   @media (width <= 768px) {
+      
+   }
+</style>
