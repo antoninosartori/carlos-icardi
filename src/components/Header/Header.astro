@@ -1,29 +1,41 @@
 ---
-import Container from '../Container.astro'
+import { Image } from 'astro:assets'
+import logo from '../../assets/logo/logo.svg'
+
+const styles = {
+  header: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    background: 'black'
+  }
+}
 ---
 
-<header>
-
-   <Container class='navbar-container'>
-      Carlos Icardi
-   </Container>
-
+<header style={styles.header}>
+  <div>
+    <Image src={logo} alt='Carlos Icardi Logo' />
+  </div>
+  <div>
+    <nav class='menu'>
+      <ul>
+        <li><a href='#'>Inicio</a></li>
+        <li><a href='#'>Nuestros Servicios</a></li>
+        <li><a href='#'>Alcances</a></li>
+        <li><a href='#'>Contactanos</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <style>
-
-   header{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--headerHeight);
-   }
-
-   .navbar-container{
-      max-width: var(--maxWidthContainer);
-      margin: 0 auto;
-      height: 100%;
-   }
-
+  nav ul {
+    display: flex;
+    gap: 64px;
+    list-style: none;
+  }
+  nav li {
+    color: var(--color-white);
+    font-weight: bold;
+  }
 </style>
