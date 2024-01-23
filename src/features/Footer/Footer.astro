@@ -3,12 +3,14 @@ import Container from '../../components/Container.astro'
 import Email from '../../assets/icons/Email.astro'
 import Mobile from '../../assets/icons/Mobile.astro'
 import Location from '../../assets/icons/Location.astro'
+import { Image } from 'astro:assets'
+import logo from '../../assets/logo/logo.svg'
 ---
 
 <footer>
    <Container class="footer-main-container">
       <figure class="footer-logo-container">
-         <img class='logo' src='./logo.svg' alt="logo del sitio web Carlos Icardi">
+         <Image src={logo} alt='Carlos Icardi Logo' />
       </figure>
 
       <div class="footer-content">
