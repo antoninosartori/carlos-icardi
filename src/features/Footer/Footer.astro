@@ -3,9 +3,11 @@ import Container from '../../components/Container.astro'
 import Email from '../../assets/icons/Email.astro'
 import Mobile from '../../assets/icons/Mobile.astro'
 import Location from '../../assets/icons/Location.astro'
+import WhatsAppButton from '../../components/WhatsAppButton/WhatsAppButton.astro'
 ---
 
 <footer>
+   <WhatsAppButton/>
    <Container class="footer-main-container">
       <figure class="footer-logo-container">
          <img class='logo' src='./logo.svg' alt="logo del sitio web Carlos Icardi">
@@ -45,6 +47,9 @@ import Location from '../../assets/icons/Location.astro'
 </script>
 
 <style>
+   footer{
+      position: relative;
+   }
    .footer-main-container{
       background-color: var(--color-dark-gray);
       gap: 60px;
