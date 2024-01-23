@@ -1,5 +1,5 @@
 ---
-// import Button from '../../../components/Button/Button.jsx'
+import Button from "../../../components/Button/Button.jsx";
 ---
 
 <form>
@@ -9,31 +9,37 @@
             <label for="name">Nombre</label>
             <input type="text" name="name" />
          </div>
-   
+
          <div class="contact-form--inputGroup">
             <label for="email">Email</label>
             <input type="text" name="email" />
          </div>
       </div>
-   
+
       <div class="contact-form--inputGroup">
          <label for="subject">Asunto</label>
          <input type="text" name="subject" />
       </div>
-   
+
       <div class="contact-form--inputGroup">
          <label for="message">Mensaje</label>
-         <textarea rows="10" name="message" />
+         <textarea rows="10" name="message"></textarea>
       </div>
    </div>
 
-   <!-- <Button></Button> -->
-   <button>Enviar</button>
-
+   <div class="contact-form-button-container">
+      <Button 
+         class="contact-form--button" 
+         width="130px"
+         padding="16px 12px"
+         bgColor="var(--color-secondary)"
+         >Enviar
+      </Button>
+   </div>
 </form>
 
 <style>
-   form{
+   form {
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -41,37 +47,68 @@
       font-size: var(--fs-body);
    }
 
-   .form--content{
+   .form--content {
       display: flex;
       flex-direction: column;
       gap: 20px;
    }
 
-   .contact-form--row{
+   .contact-form--row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
    }
 
-   .contact-form--inputGroup{
+   .contact-form--inputGroup {
       display: flex;
       flex-direction: column;
       gap: 10px;
       width: 100%;
    }
 
-   input{
+   input {
       padding: 10px;
       width: 100%;
       font-size: var(--fs-body);
+      font-family: var(--font-secondary);
+      color: var(--color-secondary);
    }
 
-   textarea{
+   input:active {
+      outline: 1px solid var(--color-secondary);
+   }
+
+   textarea {
       resize: none;
+      font-size: var(--fs-body);
+      font-family: var(--font-secondary);
+      padding: 10px;
    }
 
-   @media (width <= 768px) {
+   textarea:active, textarea:focus{
+      outline: 1px solid var(--color-secondary);
       
+   }
+
+   label {
+      font-family: var(--font-secondary);
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--color-secondary);
+   }
+
+   .contact-form-button-container{
+      display: flex;
+      justify-content: center;
+   }
+
+   .contact-form--button {
+   }
+
+   @media (width <= 576px) {
+      .contact-form--row{
+         flex-direction: column;
+      }
    }
 </style>
