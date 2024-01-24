@@ -61,7 +61,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
             ,
             colorParagraph='var(--color-white)'
             ,
-            fontSizeP='1.2em'
+            fontSizeP='var(--fs-h4)'
           />
         </div>
       </body>
@@ -72,7 +72,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     <div class='circle'>
       <Image src={circle} alt='rectangle' />
     </div>
-    <aside>
+    <aside class='aside-arrow-btn'>
       <button class='arrow-btn'>
         <Image src={arrow} alt='Boton siguiente' />
       </button>
@@ -91,6 +91,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     text-align: center;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
   }
 
   .container-hero {
@@ -100,7 +101,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     margin-top: 12em;
   }
   .nav-social {
-    position: fixed;
+    position: absolute;
     top: 40%;
     background: var(--color-orange);
     border-top-right-radius: 8px;
@@ -123,13 +124,17 @@ import arrow from '../assets/hero/arrow_badge.svg'
     }
   }
 
-  .arrow-btn {
+  .aside-arrow-btn {
     position: absolute;
     left: 1650px;
-    bottom: 180px;
+  }
+
+  .arrow-btn {
     padding: 5em;
     border-radius: 50%;
     background-color: var(--color-primary);
+    cursor: pointer;
+    border: none;
     img {
       position: relative;
       right: 60px;
