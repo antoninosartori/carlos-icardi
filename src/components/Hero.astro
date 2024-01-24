@@ -1,67 +1,89 @@
 ---
+import { Image } from 'astro:assets'
 import heroBackground from '../assets/hero/bgHeader.jpg'
 import Title from './Title.astro'
 import Email from '../assets/icons/Email.astro'
 import LinkedIn from '../assets/icons/LinkedIn.astro'
 import Instagram from '../assets/icons/Instagram.astro'
 import Whatsapp from '../assets/icons/Whatsapp.astro'
+import Header from './Header/Header.astro'
+import rectangle from '../assets/hero/tiny_points_rectangule.svg'
+import circle from '../assets/hero/tiny_points.svg'
+import arrow from '../assets/hero/arrow_badge.svg'
 ---
 
 <div class='hero-section'>
-  <aside>
-    <nav>
-      <ul>
-        <li>
-          <a href=''>
-            <Email />
-          </a>
-        </li>
-        <li>
-          <a href=''>
-            <LinkedIn />
-          </a>
-        </li>
-        <li>
-          <a href=''>
-            <Instagram />
-          </a>
-        </li>
-        <li>
-          <a href=''>
-            <Whatsapp />
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
-  <div class='container'>
-    <section>
-      <!--NavBar-->
-    </section>
-    <body>
-      <Title
-        width='660px'
-        ,
-        height='auto'
-        ,
-        class='title-container'
-        title='organizar y mejorar procesos acelerando el camino al exito'
-        ,
-        colorTitle='var(--color-white)'
-        ,
-        paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
-        ,
-        colorParagraph='var(--color-white)'
-        ,
-        fontSizeP='1.2em'
-      />
-    </body>
+  <Header />
+  <div class='container-hero'>
+    <aside class='nav-social'>
+      <nav>
+        <ul>
+          <li>
+            <a href=''>
+              <Email />
+            </a>
+          </li>
+          <li>
+            <a href=''>
+              <LinkedIn />
+            </a>
+          </li>
+          <li>
+            <a href=''>
+              <Instagram />
+            </a>
+          </li>
+          <li>
+            <a href=''>
+              <Whatsapp />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <div class='container-data'>
+      <body class='data-body'>
+        <div>
+          <h3>NUESTRO OBJETIVO ES</h3>
+        </div>
+        <div>
+          <Title
+            width='660px'
+            ,
+            height='auto'
+            ,
+            class='title-container'
+            title='organizar y mejorar procesos acelerando el camino al exito'
+            ,
+            colorTitle='var(--color-white)'
+            ,
+            paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
+            ,
+            colorParagraph='var(--color-white)'
+            ,
+            fontSizeP='1.2em'
+          />
+        </div>
+      </body>
+    </div>
+    <div class='rectangle'>
+      <Image src={rectangle} alt='rectangle' />
+    </div>
+    <div class='circle'>
+      <Image src={circle} alt='rectangle' />
+    </div>
+    <aside>
+      <button class='arrow-btn'>
+        <Image src={arrow} alt='Boton siguiente' />
+      </button>
+    </aside>
   </div>
 </div>
 
 <style>
   .hero-section {
     display: flex;
+    flex-direction: column;
     background-image: url('../assets/hero/bgHeader.jpg'); /* Reemplaza 'imagen-hero.jpg' con la ruta de tu imagen de fondo */
     background-size: cover;
     background-position: center;
@@ -70,7 +92,16 @@ import Whatsapp from '../assets/icons/Whatsapp.astro'
     width: 100%;
     height: 100vh;
   }
-  aside {
+
+  .container-hero {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    margin-top: 12em;
+  }
+  .nav-social {
+    position: fixed;
+    top: 40%;
     background: var(--color-orange);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -91,11 +122,38 @@ import Whatsapp from '../assets/icons/Whatsapp.astro'
       }
     }
   }
-  .container {
+
+  .arrow-btn {
+    position: absolute;
+    left: 1650px;
+    bottom: 180px;
+    padding: 5em;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    img {
+      position: relative;
+      right: 60px;
+    }
+  }
+
+  .container-data {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 4em;
+    align-items: start;
+    margin: 0 auto;
     width: var(--maxWidthContent);
+    position: relative;
+  }
+  .rectangle {
+    position: absolute;
+    left: 1600px;
+    top: 150px;
+  }
+  .circle {
+    position: absolute;
+    bottom: 90px;
+    /*top: 100px;*/
+    left: 1200px;
   }
 </style>
