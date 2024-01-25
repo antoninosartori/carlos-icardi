@@ -1,0 +1,39 @@
+---
+import Whatsapp from '../../assets/icons/Whatsapp.astro'
+
+
+---
+
+<a class='whatsapp-button-container' target="_blank" href=`https://wa.me/5493442490242?text='Hola'` >
+   <div class="wap-content">
+      <Whatsapp color='var(--color-light-gray)' size={30}/>
+      <span>Trabajemos juntos</span>
+   </div>
+</a>
+
+<style>
+   .whatsapp-button-container{
+      position: absolute;
+      right: 0;
+      top: -25px;
+      background-color: var(--color-primary);
+      width: 250px;
+      padding: 10px 20px;
+      border-top-left-radius: 25px ; 
+      border-bottom-left-radius: 25px ; 
+   }
+
+   .wap-content{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   
+   span{
+      font-family: var(--font-secondary);
+      color: var(--color-light-gray);
+      font-size: var(--fs-small);
+      font-weight: 600;
+   }
+
+</style>
