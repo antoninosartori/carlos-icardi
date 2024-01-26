@@ -1,27 +1,27 @@
 ---
 import Container from '../Container.astro'
+import { Image } from 'astro:assets'
 
 const {
   withButton = false,
   textButton,
   title,
   text,
-  bgColor = 'var(--color-dark-gray)',
-  articleBgColor = 'var(--color-light-gray)',
+  bgColor,
+  articleBgColor,
   image,
-  imageFirst = true
+  imageFirst = true,
+  list = false
 } = Astro.props
 
 const styles = {
   bannerContainer: {
     maxWidth: '1920px',
     padding: '25px 154px',
+    margin: '0 auto',
     backgroundColor: bgColor
   },
   article: {
-    borderRadius: '4px',
-    display: 'flex',
-    gap: '2em',
     backgroundColor: articleBgColor
   },
   imgDiv: {
@@ -29,17 +29,9 @@ const styles = {
     width: '40%'
   },
   img: {
-    width: '672px',
-    height: '100%'
-  },
-  sectionData: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'start',
-    flexGrow: '1',
-    padding: '0 32px',
-    gap: '4em'
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover'
   },
   button: {
     padding: '16px 32px',
@@ -52,20 +44,82 @@ const styles = {
 ---
 
 <div style={styles.bannerContainer}>
-  <article style={styles.article}>
-    <div class={!imageFirst ? 'imageFirst' : ''}>
-      <img style={styles.img} src={image} alt=`${title} image` />
+  <article class='article' style={styles.article}>
+    <div class:list={[{ imageFirst: imageFirst ? 'imageFirst' : '' }]}>
+      <Image
+        class='image'
+        style={styles.img}
+        src={image}
+        alt=`${title} image`
+      />
     </div>
-    <div style={styles.sectionData}>
-      <h2>{title}</h2>
-      <p>{text}</p>
+    <div class='section-data'>
+      <h2 class='title-section'>{title}</h2>
+      {
+        list ? (
+          <ul>
+            {text.map((text) => (
+              <li>> {text}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class='text-description'>{text}</p>
+        )
+      }
       {withButton && <button style={styles.button}>{textButton}</button>}
     </div>
   </article>
 </div>
 
 <style>
+  .article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 4px;
+    gap: 1em;
+  }
+
+  .section-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    aligni-tems: start;
+    flex-grow: 1;
+    padding: 0 32px;
+    gap: 1em;
+  }
+  ,
   .imageFirst {
     order: 1;
+  }
+
+  .title-section {
+    font-weight: bold;
+    font-size: var(--fs-h1);
+  }
+  .text-description {
+    line-height: 1.5;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 2em;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .article {
+      grid-template-columns: 1fr;
+      place-items: center;
+      img {
+        width: 320px;
+        height: 320px;
+      }
+
+      .section-data {
+        padding: 1em;
+        text-align: start;
+      }
+    }
   }
 </style>
