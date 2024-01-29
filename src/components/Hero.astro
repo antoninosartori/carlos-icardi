@@ -10,6 +10,7 @@ import Header from './Header/Header.astro'
 import rectangle from '../assets/hero/tiny_points_rectangule.svg'
 import circle from '../assets/hero/tiny_points.svg'
 import arrow from '../assets/hero/arrow_badge.svg'
+import ColorBar from './Header/ColorBar.astro'
 ---
 
 <div class='hero-section'>
@@ -52,22 +53,16 @@ import arrow from '../assets/hero/arrow_badge.svg'
               </div>
               <Title
                 width='660px'
-                ,
                 height='auto'
-                ,
                 class='title-container'
                 title='organizar y mejorar procesos acelerando el camino al exito'
-                ,
                 colorTitle='var(--color-white)'
-                ,
                 paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
-                ,
                 colorParagraph='var(--color-white)'
-                ,
                 fontSizeP='var(--fs-h4)'
               />
             </div>
-            <div>01</div>
+            <div class='slide-number'>01.</div>
           </div>
           <div class='slider slider-02'>
             <div class='slider-data'>
@@ -91,7 +86,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
                 fontSizeP='var(--fs-h4)'
               />
             </div>
-            <div>02</div>
+            <div class='slide-number'>02.</div>
           </div>
         </div>
       </body>
@@ -108,6 +103,8 @@ import arrow from '../assets/hero/arrow_badge.svg'
         <Image src={arrow} alt='Boton siguiente' />
       </button>
     </aside>
+
+    <ColorBar />
   </div>
 </div>
 
@@ -243,6 +240,15 @@ import arrow from '../assets/hero/arrow_badge.svg'
     flex-direction: column;
     align-items: start;
     justify-content: center;
+  }
+
+  .slide-number {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px var(--color-white);
+    font-weight: bold;
+    font-family: var(--font-secondary);
+
+    font-size: 164px;
   }
 
   .rectangle {
