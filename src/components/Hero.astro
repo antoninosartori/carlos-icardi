@@ -43,29 +43,59 @@ import arrow from '../assets/hero/arrow_badge.svg'
     </aside>
     <div class='container-data'>
       <body class='data-body'>
-        <div>
-          <h3>NUESTRO OBJETIVO ES</h3>
-        </div>
-        <div>
-          <Title
-            width='660px'
-            ,
-            height='auto'
-            ,
-            class='title-container'
-            title='organizar y mejorar procesos acelerando el camino al exito'
-            ,
-            colorTitle='var(--color-white)'
-            ,
-            paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
-            ,
-            colorParagraph='var(--color-white)'
-            ,
-            fontSizeP='var(--fs-h4)'
-          />
+        <div class='container-slider'>
+          <div class='slider slider-01'>
+            <div class='slider-data'>
+              <div>
+                <h3>NUESTRO OBJETIVO ES</h3>
+              </div>
+              <Title
+                width='660px'
+                ,
+                height='auto'
+                ,
+                class='title-container'
+                title='organizar y mejorar procesos acelerando el camino al exito'
+                ,
+                colorTitle='var(--color-white)'
+                ,
+                paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
+                ,
+                colorParagraph='var(--color-white)'
+                ,
+                fontSizeP='var(--fs-h4)'
+              />
+            </div>
+            <div>01</div>
+          </div>
+          <div class='slider slider-02'>
+            <div class='slider-data'>
+              <div>
+                <h3>NUESTRO OBJETIVO ES</h3>
+              </div>
+              <Title
+                width='660px'
+                ,
+                height='auto'
+                ,
+                class='title-container'
+                title='lograr impactar positivamente en tus resultados con los recursos existentes'
+                ,
+                colorTitle='var(--color-white)'
+                ,
+                paragraph='Potenciamos y profesionalizamos equipos de trabajo.'
+                ,
+                colorParagraph='var(--color-white)'
+                ,
+                fontSizeP='var(--fs-h4)'
+              />
+            </div>
+            <div>02</div>
+          </div>
         </div>
       </body>
     </div>
+
     <div class='rectangle'>
       <Image src={rectangle} alt='rectangle' />
     </div>
@@ -150,6 +180,30 @@ import arrow from '../assets/hero/arrow_badge.svg'
     width: var(--maxWidthContent);
     position: relative;
   }
+
+  .container-slider {
+    width: 200%;
+    justify-content: start;
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    transition: all 0.5s ease;
+    /*transform: translateX(-50%);*/
+  }
+
+  .slider {
+    width: calc(100% / 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .slider-data {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
   .rectangle {
     position: absolute;
     left: 1600px;
