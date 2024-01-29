@@ -1,133 +1,138 @@
 ---
-import Container from '../../components/Container.astro'
+import Container from '../../components/Container/Container.astro'
 import Email from '../../assets/icons/Email.astro'
 import Mobile from '../../assets/icons/Mobile.astro'
 import Location from '../../assets/icons/Location.astro'
+import logo from '../../../public/logo.svg'
+import { Image } from 'astro:assets'
 ---
 
 <footer>
-   <Container class="footer-main-container">
-      <figure class="footer-logo-container">
-         <img class='logo' src='./logo.svg' alt="logo del sitio web Carlos Icardi">
-      </figure>
+  <Container class='footer-main-container'>
+    <figure class='footer-logo-container'>
+      <Image class='logo' src={logo} alt='Logo del sitio web Carlos Icardi' />
+    </figure>
 
-      <div class="footer-content">
-         <h4>Información Contacto</h4>
-         <div class="footer-content-items">
-            <div class="footer-content--itemGroup">
-               <Location />
-               <span>Entre Ríos</span>
-            </div>
-            <div class="footer-content--itemGroup emailGroup" >
-               <Email/>
-               <span>cicardi.arg@gmail.com</span>
-            </div>
-            <div class="footer-content--itemGroup">
-               <Mobile/>
-               <a  href=`https://wa.me/5493442490242?text='Hola'` target="_blank">+54 9 3442490242</a>
-            </div>
-         </div>
+    <div class='footer-content'>
+      <h4>Información Contacto</h4>
+      <div class='footer-content-items'>
+        <div class='footer-content--itemGroup'>
+          <Location />
+          <span>Entre Ríos</span>
+        </div>
+        <div class='footer-content--itemGroup emailGroup'>
+          <Email />
+          <span>cicardi.arg@gmail.com</span>
+        </div>
+        <div class='footer-content--itemGroup'>
+          <Mobile />
+          <a href=`https://wa.me/5493442490242?text='Hola'` target='_blank'
+            >+54 9 3442490242</a
+          >
+        </div>
       </div>
+    </div>
 
-      <div class="footer--last-container">
-         <span class="footer-last--copyright">© Lorem ipsum dolor sit amet, consectetuer </span>
-         <span class="footer-last--privacity">Privacidad y condiciones</span>
-      </div>
-   </Container>
+    <div class='footer--last-container'>
+      <span class='footer-last--copyright'
+        >© Lorem ipsum dolor sit amet, consectetuer
+      </span>
+      <span class='footer-last--privacity'>Privacidad y condiciones</span>
+    </div>
+  </Container>
 </footer>
 
 <script>
-   import {emailTo} from '../../utils/emailTo'
-   const emailContainer = document.querySelector('.emailGroup')
-   emailContainer.addEventListener('click', () => {
-      emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
-   })
+  import { emailTo } from '../../utils/emailTo'
+  const emailContainer = document.querySelector('.emailGroup')
+  emailContainer.addEventListener('click', () => {
+    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
+  })
 </script>
 
 <style>
-   .footer-main-container{
-      background-color: var(--color-dark-gray);
-      gap: 60px;
-      color: var(--color-light-gray);
-      font-family: var(--font-secondary);
-   }
-   figure{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-   }
+  .footer-main-container {
+    background-color: var(--color-dark-gray);
+    gap: 60px;
+    color: var(--color-light-gray);
+    font-family: var(--font-secondary);
+  }
+  figure {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-   figure .logo{
-      height: 130px;
-      width: auto;
-      object-fit: cover;
-   }
+  figure .logo {
+    height: 130px;
+    width: auto;
+    object-fit: cover;
+  }
 
-   .footer-content{
-      
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
-   }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
 
-   h4{
-      color: var(--color-primary);
-   }
+  h4 {
+    color: var(--color-primary);
+  }
 
-   .footer-content-items{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-   }
+  .footer-content-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
 
-   .footer-content--itemGroup{
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      font-size: var(--fs-body);
-   }
+  .footer-content--itemGroup {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: var(--fs-body);
+  }
 
-   .emailGroup{
-      cursor: pointer;
-   }
+  .emailGroup {
+    cursor: pointer;
+  }
 
-   .footer--last-container{
-      width: 100%;
-      margin: 0 auto;
-      max-width: 992px;
-      display: flex;
-      align-items:center;
-      justify-content: space-between;
-   }
+  .footer--last-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 992px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-   @media (width <= 768px) {
-      figure .logo{
+  @media (max-width: 768px) {
+    figure .logo {
       height: auto;
       width: 100%;
       object-fit: cover;
-   }
+    }
 
-      .footer-content-items{
-         flex-direction: column;
-      }
+    .footer-content-items {
+      flex-direction: column;
+    }
 
-      .footer-content--itemGroup{
-         flex-direction: column;
-      }
+    .footer-content--itemGroup {
+      flex-direction: column;
+    }
 
-      .footer--last-container{
-         flex-direction: column;
-         gap: 20px;
-      }
+    .footer--last-container {
+      flex-direction: column;
+      gap: 20px;
+    }
 
-      .footer-last--privacity{
-         order: 1;
-      }
-      .footer-last--copyright{
-         order: 2;
-      }
-   }
+    .footer-last--privacity {
+      order: 1;
+    }
+    .footer-last--copyright {
+      order: 2;
+    }
+  }
 </style>

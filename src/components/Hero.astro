@@ -41,6 +41,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
         </ul>
       </nav>
     </aside>
+
     <div class='container-data'>
       <body class='data-body'>
         <div class='container-slider'>
@@ -103,12 +104,14 @@ import arrow from '../assets/hero/arrow_badge.svg'
       <Image src={circle} alt='rectangle' />
     </div>
     <aside class='aside-arrow-btn'>
-      <button class='arrow-btn'>
+      <button data-function='slide' class='button arrow-btn'>
         <Image src={arrow} alt='Boton siguiente' />
       </button>
     </aside>
   </div>
 </div>
+
+<script></script>
 
 <style>
   .hero-section {
@@ -150,13 +153,24 @@ import arrow from '../assets/hero/arrow_badge.svg'
         flex-direction: column;
         gap: 6px;
         list-style: none;
+        li {
+          transition: transform 0.3s ease; /* Agregar una transición suave */
+        }
+        li:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
 
   .aside-arrow-btn {
     position: absolute;
+    top: 40%;
     left: 1650px;
+    transition: transform 0.3s ease; /* Agregar una transición suave */
+  }
+  .aside-arrow-btn:hover {
+    transform: scale(1.08);
   }
 
   .arrow-btn {
@@ -178,7 +192,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     align-items: start;
     margin: 0 auto;
     width: var(--maxWidthContent);
-    position: relative;
+    /*position: relative;*/
   }
 
   .container-slider {
@@ -191,11 +205,38 @@ import arrow from '../assets/hero/arrow_badge.svg'
     /*transform: translateX(-50%);*/
   }
 
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   .slider {
     width: calc(100% / 2);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    animation:
+      fade 0.5s ease,
+      slideIn 0.5s ease;
+  }
+
+  .slider-02 {
+    display: none;
   }
   .slider-data {
     display: flex;

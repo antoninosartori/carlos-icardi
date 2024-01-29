@@ -8,6 +8,17 @@ const BUTTON_FUNCTIONS = {
    redirect: () => console.log('redirect'),
    nothing: () => console.log('nothing'),
    call: () => console.log('call'),
+	 slide: () => {
+			const slider01 = document.querySelector('.slider-01');
+			const slider02 = document.querySelector('.slider-02');
+			if (slider01.style.display !== 'none') {
+				 slider01.style.display = 'none';
+				 slider02.style.display = 'flex';
+			} else {
+				 slider01.style.display = 'flex';
+				 slider02.style.display = 'none';
+			}
+		},
 }
 
 const Allbuttons = document.querySelectorAll('.button')
