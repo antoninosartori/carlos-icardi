@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets'
-import logo from '../../assets/logo/logo.svg'
+import logo from '../../../public/logo.svg'
 
 const styles = {
   header: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    background: 'black'
+    margin: '2em auto',
+    width: 'var(--maxWidthContent)'
   }
 }
 ---
@@ -36,6 +37,11 @@ const styles = {
   }
   nav li {
     color: var(--color-white);
+    font-size: var(--fs-body);
     font-weight: bold;
+    transition: transform 0.3s ease; /* Agregar una transición suave */
+  }
+  nav li:hover {
+    transform: scale(1.2);
   }
 </style>
