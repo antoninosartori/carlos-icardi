@@ -1,0 +1,42 @@
+---
+import ReachesCard from '../../../components/ReachesCard/ReachesCard.astro'
+import Button from '../../../components/Button/Button.jsx'
+
+const {bgCardColor, textCardColor, image, title, text, id, bgButtonColor, textButtonColor} = Astro.props
+
+---
+
+<section>
+   <div class="reaches-card-modal--content">
+      <ReachesCard
+      bgColor={bgCardColor}
+      textColor={textCardColor}
+      image={image}
+      title={title}
+      text={text}   
+      id={id}
+   >
+      <Button
+         data-function="see_more"
+         bgColor={bgButtonColor}
+         textColor={textButtonColor}
+      >Ver menos</Button>
+   </ReachesCard>
+   </div>
+</section>
+
+<style>
+   section{
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #0000005b;
+   }
+
+   .reaches-card-modal--content{
+      width: 100%;
+      max-width: 800px;
+   }
+</style>

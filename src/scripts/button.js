@@ -3,11 +3,14 @@
 // 1) La idea seria agregar todas las funciones onClick en BUTTON_FUNCTIONS.
 // ⚠ El nombre que le demos debe coincidir con el data-function puesto en el Button. 
 
+import {sendEmail} from '../utils/sendEmail.js'
 
 const BUTTON_FUNCTIONS = {
-   redirect: () => console.log('redirect'),
-   nothing: () => console.log('nothing'),
-   call: () => console.log('call'),
+   send_email: (event) => {
+      event.preventDefault()
+      sendEmail(event)
+      
+   }
 }
 
 const Allbuttons = document.querySelectorAll('.button')

@@ -1,39 +1,66 @@
 ---
+import { Resend } from "resend";
 import Button from "../../../components/Button/Button.jsx";
+
+if (Astro.request.method === "POST") {
+   const resend = new Resend("re_VhEnPimc_5R91PVT2kb2jvsrJ6X6eQoDi");
+   const formData = await Astro.request.formData();
+   const name = formData.get('name').toString()
+   const email = formData.get('email').toString()
+   const subject = formData.get('subject').toString()
+   const message = formData.get('message').toString()
+
+   try {
+      resend.emails.send({
+         from: email,
+         to: "sartoriantonino@gmail.com",
+         subject: subject,
+         html: `<p>${message}</p>`,
+      });
+   } catch (error) {
+      if (error instanceof Error) {
+         console.error(error.message);
+      }
+   }
+}
 ---
 
-<form>
+<form method="POST">
    <div class="form--content">
       <div class="contact-form--row">
          <div class="contact-form--inputGroup">
             <label for="name">Nombre</label>
-            <input type="text" name="name" />
+            <input id="form--name" type="text" name="name" required />
          </div>
 
          <div class="contact-form--inputGroup">
             <label for="email">Email</label>
-            <input type="text" name="email" />
+            <input id="form--email" type="text" name="email" required />
          </div>
       </div>
 
       <div class="contact-form--inputGroup">
          <label for="subject">Asunto</label>
-         <input type="text" name="subject" />
+         <input id="form--subject" type="text" name="subject" required />
       </div>
 
       <div class="contact-form--inputGroup">
          <label for="message">Mensaje</label>
-         <textarea rows="10" name="message"></textarea>
+         <textarea id="form--message" rows="10" name="message" required
+         ></textarea>
       </div>
    </div>
 
    <div class="contact-form-button-container">
-      <Button 
-         class="contact-form--button" 
+      <Button
+         class="contact-form--button"
          width="130px"
          padding="16px 12px"
          bgColor="var(--color-secondary)"
-         >Enviar
+         type="submit"
+         data-function="send_email"
+      >
+         Enviar
       </Button>
    </div>
 </form>
@@ -86,9 +113,9 @@ import Button from "../../../components/Button/Button.jsx";
       padding: 10px;
    }
 
-   textarea:active, textarea:focus{
+   textarea:active,
+   textarea:focus {
       outline: 1px solid var(--color-secondary);
-      
    }
 
    label {
@@ -98,7 +125,7 @@ import Button from "../../../components/Button/Button.jsx";
       color: var(--color-secondary);
    }
 
-   .contact-form-button-container{
+   .contact-form-button-container {
       display: flex;
       justify-content: center;
    }
@@ -107,7 +134,7 @@ import Button from "../../../components/Button/Button.jsx";
    }
 
    @media (width <= 576px) {
-      .contact-form--row{
+      .contact-form--row {
          flex-direction: column;
       }
    }
