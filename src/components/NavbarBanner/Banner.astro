@@ -1,0 +1,60 @@
+---
+import dedicated from '../../assets/navBarBanner/dedicated.svg'
+import different from '../../assets/navBarBanner/different.svg'
+import objectives from '../../assets/navBarBanner/objectives.svg'
+import reaches from '../../assets/navBarBanner/reaches.svg'
+import BannerItem from './BannerItem.astro'
+
+const BANNERS = [
+  {
+    img: dedicated,
+    title: '¿A qué nos dedicamos?'
+  },
+  {
+    img: different,
+    title: '¿Qué nos hace diferentes?'
+  },
+  {
+    img: objectives,
+    title: 'Nuestros objetivos'
+  },
+  {
+    img: reaches,
+    title: 'Alcances'
+  }
+]
+---
+
+<section class='banner'>
+  <div class='banner-container'>
+    {BANNERS.map((banner) => <BannerItem {...banner} />)}
+  </div>
+</section>
+
+<style>
+  .banner-container {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 96px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .banner-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .banner-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+</style>
