@@ -3,7 +3,6 @@
 // 1) La idea seria agregar todas las funciones onClick en BUTTON_FUNCTIONS.
 // ⚠ El nombre que le demos debe coincidir con el data-function puesto en el Button. 
 
-
 const BUTTON_FUNCTIONS = {
    redirect: () => console.log('redirect'),
    nothing: () => console.log('nothing'),
