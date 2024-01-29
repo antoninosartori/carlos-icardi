@@ -58,7 +58,6 @@ const styles = {
       height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
       align-items: flex-start;
       justify-content: space-between;
    }
@@ -71,5 +70,34 @@ const styles = {
 
    .reaches-card-content-container p{
       line-height: 1.5rem;
+   }
+
+   @media (width < 992px) {
+      article{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      figure{
+      width: auto;
+      height: unset;
+      }
+
+      figure img{
+      object-fit: cover;
+      max-height: 200px;
+      height: 200px;
+      width: auto;
+   }
+
+   .reaches-card-content-container{
+      align-items: center;
+      gap: 40px;
+   }
+
+   .reaches-card-content-container p{
+      text-align: center;
+   }
    }
 </style>
