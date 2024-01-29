@@ -1,25 +1,37 @@
 ---
-const { title, colorTitle, paragraph, colorParagraph } = Astro.props
+const {
+  width,
+  height,
+  title,
+  colorTitle,
+  paragraph,
+  colorParagraph,
+  fontSizeP
+} = Astro.props
+
+const styles = {
+  div: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2em',
+    width: width,
+    height: height
+  },
+  title: {
+    color: colorTitle,
+    textAlign: 'start',
+    textWrap: 'pretty'
+  },
+  paragraph: {
+    color: colorParagraph,
+    fontSize: fontSizeP,
+    textAlign: 'start',
+    textWrap: 'pretty'
+  }
+}
 ---
 
-<div>
-  <h1 class={colorTitle}>{title}</h1>
-  {paragraph && <p class={colorParagraph}>{paragraph}</p>}
+<div style={styles.div}>
+  <h1 style={styles.title}>{title}</h1>
+  {paragraph && <p style={styles.paragraph}>{paragraph}</p>}
 </div>
-
-<style>
-  .blue {
-    color: var(--color-dark-blue);
-  }
-  .orange {
-    color: var(--color-orange);
-  }
-  .gray {
-    color: var(--dark-gray);
-  }
-
-  h1{
-   font-family: var(--font-secondary);
-   font-weight: bolder;
-  }
-</style>
