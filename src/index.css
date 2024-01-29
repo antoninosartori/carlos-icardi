@@ -85,7 +85,6 @@ body {
 
 a {
 	text-decoration: none;
-	color: inherit;
 }
 
 h1 {
@@ -110,4 +109,10 @@ h5 {
 
 h6 {
 	font-size: var(--fs-h6);
+}
+
+button{
+   border: none;
+   cursor: pointer;
+   font-family: var(--font-primary);
 }
