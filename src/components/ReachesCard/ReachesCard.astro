@@ -1,103 +1,117 @@
 ---
-
 const {
-   bgColor = "var(--color-primary)",
-   textColor = "var(--color-white)",
-   image,
-   title,
-   text,
-} = Astro.props;
+  bgColor = 'var(--color-primary)',
+  textColor = 'var(--color-white)',
+  image,
+  title,
+  text,
+  fontFamily = 'var(--font-primary)',
+  fontWeight = 'regular'
+} = Astro.props
 
 const styles = {
-   backgroundColor: bgColor,
-   color: textColor,
+  article: {
+    backgroundColor: bgColor,
+    color: textColor
+  },
+  h3: {
+    fontFamily: fontFamily,
+    fontWeight: fontWeight
+  },
+  p: {
+    fontFamily: fontFamily,
+    fontWeight: fontWeight
+  }
 }
 ---
 
-<article style={styles}>
-   {image && 
+<article style={styles.article}>
+  {
+    image && (
       <figure>
-         <img src={image} alt='icono' />
-      </figure>}
+        <img src={image} alt='icono' />
+      </figure>
+    )
+  }
 
-   <div class="reaches-card-content-container">
-      <div class="reaches-card-content--texts">
-         <h3>{title}</h3>
-         <p>{text}</p>
-      </div>
-      <slot />
-   </div>
+  <div class='reaches-card-content-container'>
+    <div class='reaches-card-content--texts'>
+      <h3 style={styles.h3}>{title}</h3>
+      <p style={styles.p}>{text}</p>
+    </div>
+    <slot />
+  </div>
 </article>
 
 <style>
-   article {
-      width: 100%;
-      min-height:275px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      align-items: flex-start;
-      gap: 40px;
-   }
+  article {
+    width: 100%;
+    min-height: 275px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: flex-start;
+    gap: 40px;
+  }
 
-   figure{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-   }
+  figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
-   figure img{
-      object-fit: cover;
-      max-height: 60%;
-      width: auto;
-   }
-   
-   .reaches-card-content-container {
-      height: 100%;
+  figure img {
+    object-fit: cover;
+    max-height: 60%;
+    width: auto;
+  }
+
+  .reaches-card-content-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .reaches-card-content--texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .reaches-card-content-container p {
+    line-height: 1.5rem;
+  }
+
+  @media (width < 992px) {
+    article {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-   }
+      align-items: center;
+    }
 
-   .reaches-card-content--texts{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-   }
-
-   .reaches-card-content-container p{
-      line-height: 1.5rem;
-   }
-
-   @media (width < 992px) {
-      article{
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-      }
-
-      figure{
+    figure {
       width: auto;
       height: unset;
-      }
+    }
 
-      figure img{
+    figure img {
       object-fit: cover;
       max-height: 200px;
       height: 200px;
       width: auto;
-   }
+    }
 
-   .reaches-card-content-container{
+    .reaches-card-content-container {
       align-items: center;
       gap: 40px;
-   }
+    }
 
-   .reaches-card-content-container p{
+    .reaches-card-content-container p {
       text-align: center;
-   }
-   }
+    }
+  }
 </style>
