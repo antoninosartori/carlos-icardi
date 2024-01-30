@@ -6,7 +6,9 @@ const {
   colorTitle,
   paragraph,
   colorParagraph,
-  fontSizeP
+  fontSizeP,
+  fontFamily = 'var(--font-primary)',
+  fontWeight = 'regular'
 } = Astro.props
 
 const styles = {
@@ -20,13 +22,17 @@ const styles = {
   title: {
     color: colorTitle,
     textAlign: 'start',
-    textWrap: 'pretty'
+    textWrap: 'pretty',
+    fontFamily: fontFamily,
+    fontWeight: fontWeight
   },
   paragraph: {
     color: colorParagraph,
     fontSize: fontSizeP,
     textAlign: 'start',
-    textWrap: 'pretty'
+    textWrap: 'pretty',
+    fontFamily: fontFamily,
+    fontWeight: fontWeight
   }
 }
 ---

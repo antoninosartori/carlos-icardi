@@ -24,6 +24,8 @@
 	--color-light-gray: #f4f4f4;
 	--color-white: #fff;
 	--color-black: #000;
+	--color-black-opacity: #0000006c;
+
 
 	--color-primary: var(--color-orange);
 	--color-secondary: var(--color-dark-blue);
