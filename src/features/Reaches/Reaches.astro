@@ -1,0 +1,57 @@
+---
+import Button from '../../components/Button/Button.jsx'
+import Container from '../../components/Container/Container.astro'
+import ReachesCard from '../../components/ReachesCard/ReachesCard.astro'
+import Title from '../../components/Title.astro'
+import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
+---
+
+<Container class='reaches-section'>
+  <Title
+    title='Alcances'
+    paragraph='Nuestra empresa está dirigida a organizaciones que necesiten:'
+    colorTitle='var(--color-orange)'
+    colorParagraph='gray'
+    fontFamily='var(--font-secondary)'
+    fontWeight='bold'
+  />
+
+  <section class='reaches-grid-container'>
+    {
+      REACHES_CARDS_INFO.map((item) => (
+        <ReachesCard
+          bgColor={item.bgCardColor}
+          textColor={item.textCardColor}
+          title={item.title}
+          image={item.image}
+          text={item.text}
+          fontFamily='var(--font-secondary)'
+          fontWeight='bold'
+        >
+          <Button bgColor={item.bgButtonColor} textColor={item.textButtonColor}>
+            Ver mas
+          </Button>
+        </ReachesCard>
+      ))
+    }
+  </section>
+</Container>
+
+<style>
+  .reaches-section {
+    gap: 40px;
+    margin: 0 auto;
+  }
+  .reaches-grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (width < 992px) {
+    .reaches-grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
