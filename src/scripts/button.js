@@ -21,8 +21,20 @@ const BUTTON_FUNCTIONS = {
 		},
 }
 
-const Allbuttons = document.querySelectorAll('.button')
-Array.from(Allbuttons).map(btn => {
-   btn.addEventListener('click', BUTTON_FUNCTIONS[btn.dataset.function])
-   // console.log(btn.dataset.function)
-})
+//const Allbuttons = document.querySelectorAll('.button')
+//Array.from(Allbuttons).map(btn => {
+//   btn.addEventListener('click', BUTTON_FUNCTIONS[btn.dataset.function])
+//   // console.log(btn.dataset.function)
+//})
+
+const Allbuttons = document.querySelectorAll('.button');
+Allbuttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const functionName = btn.dataset.function;
+    if (BUTTON_FUNCTIONS[functionName]) {
+      BUTTON_FUNCTIONS[functionName]();
+    } else {
+      console.error(`Function ${functionName} is not defined in BUTTON_FUNCTIONS`);
+    }
+  });
+});

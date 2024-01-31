@@ -43,7 +43,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     <div class='container-data'>
       <body class='data-body'>
         <div class='container-slider'>
-          <!--<div class='slider slider-01'>
+          <div class='slider slider-01'>
             <div class='slider-data'>
               <div>
                 <h3>NUESTRO OBJETIVO ES</h3>
@@ -64,8 +64,8 @@ import arrow from '../assets/hero/arrow_badge.svg'
               </div>
             </div>
             <div class='slide-number'>01.</div>
-          </div>-->
-          <div class='slider slider-03'>
+          </div>
+          <div class='slider slider-02'>
             <div class='slider-data-02'>
               <div>
                 <h3>NUESTRO OBJETIVO ES</h3>
@@ -105,12 +105,12 @@ import arrow from '../assets/hero/arrow_badge.svg'
     </div>
     <div class='circle'>
       <Image src={circle} alt='rectangle' />
-    </div>
-    <aside class='aside-arrow-btn'>
-      <button data-function='slide' class='button arrow-btn'>
-        <Image src={arrow} alt='Boton siguiente' />
-      </button>
-    </aside> -->
+    </div>-->
+  <aside class='aside-arrow-btn'>
+    <button data-function='slide' class='button arrow-btn'>
+      <Image src={arrow} alt='Boton siguiente' />
+    </button>
+  </aside>
 </div>
 
 <style>
@@ -166,8 +166,8 @@ import arrow from '../assets/hero/arrow_badge.svg'
 
   .aside-arrow-btn {
     position: absolute;
-    top: 40%;
-    left: 1650px;
+    top: 35%;
+    right: -150px;
     transition: transform 0.3s ease; /* Agregar una transición suave */
   }
   .aside-arrow-btn:hover {
