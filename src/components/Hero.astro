@@ -6,7 +6,6 @@ import Email from '../assets/icons/Email.astro'
 import LinkedIn from '../assets/icons/LinkedIn.astro'
 import Instagram from '../assets/icons/Instagram.astro'
 import Whatsapp from '../assets/icons/Whatsapp.astro'
-import Header from './Header/Header.astro'
 import rectangle from '../assets/hero/tiny_points_rectangule.svg'
 import circle from '../assets/hero/tiny_points.svg'
 import arrow from '../assets/hero/arrow_badge.svg'
@@ -14,7 +13,6 @@ import ColorBar from './Header/ColorBar.astro'
 ---
 
 <div class='hero-section'>
-  <Header />
   <div class='container-hero'>
     <aside class='nav-social'>
       <nav>
@@ -71,18 +69,18 @@ import ColorBar from './Header/ColorBar.astro'
               </div>
               <Title
                 width='660px'
-                ,
+                
                 height='auto'
-                ,
+                
                 class='title-container'
                 title='lograr impactar positivamente en tus resultados con los recursos existentes'
-                ,
+                
                 colorTitle='var(--color-white)'
-                ,
+                
                 paragraph='Potenciamos y profesionalizamos equipos de trabajo.'
-                ,
+                
                 colorParagraph='var(--color-white)'
-                ,
+                
                 fontSizeP='var(--fs-h4)'
               />
             </div>
@@ -92,7 +90,7 @@ import ColorBar from './Header/ColorBar.astro'
       </body>
     </div>
 
-    <div class='rectangle'>
+    <!-- <div class='rectangle'>
       <Image src={rectangle} alt='rectangle' />
     </div>
     <div class='circle'>
@@ -102,7 +100,7 @@ import ColorBar from './Header/ColorBar.astro'
       <button data-function='slide' class='button arrow-btn'>
         <Image src={arrow} alt='Boton siguiente' />
       </button>
-    </aside>
+    </aside> -->
 
     <ColorBar />
   </div>
@@ -122,6 +120,7 @@ import ColorBar from './Header/ColorBar.astro'
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    padding-top: var(--headerHeight);
   }
 
   .container-hero {

@@ -1,47 +1,136 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../../../public/logo.svg'
+import { Image } from "astro:assets";
+import logo from "../../../public/logo.svg";
+import Button from "../Button/Button";
+import MenuIcon from "../../assets/icons/MenuIcon.astro";
 
-const styles = {
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    margin: '2em auto',
-    width: 'var(--maxWidthContent)'
-  }
-}
+
+// const styles = {
+//   header: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     margin: '2em auto',
+//     width: 'var(--maxWidthContent)'
+//   }
+// }
 ---
 
-<header style={styles.header}>
-  <div>
-    <Image src={logo} alt='Carlos Icardi Logo' />
-  </div>
-  <div>
-    <nav class='menu'>
-      <ul>
-        <li><a href='#'>Inicio</a></li>
-        <li><a href='#'>Nuestros Servicios</a></li>
-        <li><a href='#'>Alcances</a></li>
-        <li><a href='#'>Contactanos</a></li>
-      </ul>
-    </nav>
-  </div>
+<header>
+   <div class="header-container">
+      <nav>
+         <figure>
+            <Image src={logo} alt="Carlos Icardi Logo" />
+         </figure>
+   
+         <Button bgColor="transparent" data-function='toggle_navbar'>
+            <MenuIcon size={50} />
+         </Button>
+   
+         <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Nuestros Servicios</a></li>
+            <li><a href="#">Alcances</a></li>
+            <li><a href="#">Contactanos</a></li>
+         </ul>
+      </nav>
+   </div>
 </header>
 
 <style>
-  nav ul {
-    display: flex;
-    gap: 64px;
-    list-style: none;
-  }
-  nav li {
-    color: var(--color-white);
-    font-size: var(--fs-body);
-    font-weight: bold;
-    transition: transform 0.3s ease; /* Agregar una transición suave */
-  }
-  nav li:hover {
-    transform: scale(1.2);
-  }
+   header {
+      height: var(--headerHeight);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+   }
+
+   .header-container{
+      width: 100%;
+      max-width: var(--maxWidthContainer);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      background-color: var(--color-secondary);
+   }
+
+   nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      max-width: var(--maxWidthContent);
+      margin: 0 auto;
+   }
+
+   figure {
+      max-width: 250px;
+      width: 100%;
+   }
+
+   figure img {
+      height: 80%;
+      width: auto;
+      object-fit: cover;
+   }
+
+   .menu {
+      width: 100%;
+      display: flex;
+      /* gap: 64px; */
+      list-style: none;
+      gap: 5%;
+      flex-grow: 1;
+      justify-content: flex-end;
+   }
+   li {
+      text-wrap: nowrap;
+      color: var(--color-white);
+      font-size: var(--fs-body);
+      font-weight: bold;
+      transition: transform 0.3s ease; /* Agregar una transición suave */
+   }
+   li:hover {
+      transform: scale(1.2);
+   }
+
+   button {
+      display: none;
+   }
+
+   @media (width <= 768px) {
+      button {
+         display: block;
+         background-color: red;
+      }
+
+      nav{
+         justify-content: space-between;
+      }
+
+      figure{
+         padding-left: 20px;
+      }
+
+      .menu{
+         position: absolute;
+         top: var(--headerHeight);
+         left: 100%;
+         background-color: var(--color-dark-gray);
+         flex-direction: column;
+         align-items: center;
+         justify-content: flex-start;
+         gap: 50px;
+         padding-top: 50px;
+         height: calc(100vh - var(--headerHeight));
+         transition: .4s all
+      }
+
+      .menu.navbar-active{
+         left: 0;
+         transition: .4s all
+      }
+   }
 </style>
