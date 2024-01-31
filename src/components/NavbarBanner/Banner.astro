@@ -5,6 +5,7 @@ import objectives from '../../assets/navBarBanner/objectives.svg'
 import reaches from '../../assets/navBarBanner/reaches.svg'
 import BannerItem from './BannerItem.astro'
 
+import ColorBar from "../Header/ColorBar.astro";
 const BANNERS = [
   {
     img: dedicated,
@@ -29,9 +30,13 @@ const BANNERS = [
   <div class='banner-container'>
     {BANNERS.map((banner) => <BannerItem {...banner} />)}
   </div>
+  <ColorBar/>
 </section>
 
 <style>
+   .banner{
+      position: relative;
+   }
   .banner-container {
     padding: 2em;
     display: flex;

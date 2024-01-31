@@ -25,6 +25,7 @@
 	--color-white: #fff;
 	--color-black: #000;
 	--color-black-opacity: #0000006c;
+	--color-background-out-layout: #ffffff;
 
 
 	--color-primary: var(--color-orange);
@@ -83,6 +84,7 @@
 
 body {
 	font-family: var(--font-primary);
+   background-color: var(--color-background-out-layout);
 }
 
 a {
