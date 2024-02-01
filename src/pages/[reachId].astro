@@ -27,12 +27,13 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
          <Button
             bgColor={reachCard.bgButtonColor}
             textColor={reachCard.textButtonColor}
-            href="/"
+            href='./#alcances'
          >
             Volver atrás
          </Button>
 
          <ReachesCard
+            transition:name={`reaches ${reachCard.id} image`}
             fontFamily="var(--font-secondary)"
             bgColor={reachCard.bgCardColor}
             textColor={reachCard.textCardColor}

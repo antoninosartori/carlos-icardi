@@ -8,6 +8,9 @@ const BUTTON_FUNCTIONS = {
       const navbar = document.querySelector('.menu')
       navbar.classList.toggle('navbar-active')
    },
+   goBack_reach: () => {
+      window.location.href = './#alcances'
+   },
 	 slide: () => {
 			const slider01 = document.querySelector('.slider-01');
 			const slider02 = document.querySelector('.slider-02');
