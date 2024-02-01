@@ -3,6 +3,8 @@ import BannerComponent from './BannerComponent.astro'
 import dedicated from '../../assets/banners/dedicated.jpg'
 import different from '../../assets/banners/different.jpg'
 import objectives from '../../assets/banners/objectives.jpg'
+import Container from '../Container/Container.astro'
+import ContainerSection from '../Container/ContainerSection.astro'
 const DATA_CARDS = [
   {
     image: dedicated,
@@ -22,7 +24,7 @@ const DATA_CARDS = [
     p2: 'Conocer en profundidad los puntos claves de resolución de problemas estableciendo prioridades, procedimientos claros y mensajes que puedan ser entendidos por todos los sectores de la organización, hace que nuestro servicio resulte de alto impacto.',
     buttonText: 'Ver mas',
     imageFirst: true,
-    bgColor: 'var(--color-white)',
+    bgColor: 'var(--color-light-gray)',
     articleBgColor: 'var(--color-light-gray)'
   },
   {
@@ -46,7 +48,7 @@ const DATA_CARDS = [
 ]
 ---
 
-<section class='bannerSection'>
+<ContainerSection class='bannerSection'>
   {
     DATA_CARDS.map(
       ({
@@ -76,10 +78,11 @@ const DATA_CARDS = [
       )
     )
   }
-</section>
+</ContainerSection>
 
 <style>
   .bannerSection {
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;

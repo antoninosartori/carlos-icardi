@@ -6,6 +6,7 @@ import reaches from '../../assets/navBarBanner/reaches.svg'
 import BannerItem from './BannerItem.astro'
 
 import ColorBar from '../Header/ColorBar.astro'
+import ContainerSection from '../Container/ContainerSection.astro'
 const BANNERS = [
   {
     img: dedicated,
@@ -39,8 +40,8 @@ const BANNERS = [
   }
   .banner-container {
     margin-top: 2em;
+    margin-inline: auto;
     padding: var(--layout-padding-y) var(--layout-padding-x);
-
     display: grid;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));

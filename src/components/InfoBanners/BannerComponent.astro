@@ -1,5 +1,4 @@
 ---
-import Container from '../Container.astro'
 import { Image } from 'astro:assets'
 
 const {
@@ -12,20 +11,20 @@ const {
   bgColor,
   articleBgColor,
   image,
-  imageFirst = true,
+  imageFirst,
   list = false
 } = Astro.props
 
 const styles = {
   bannerContainer: {
-    maxWidth: 'var(--maxWidthContainer)',
-    padding: '25px 154px',
+    maxWidth: 'var(--maxWidthContent)',
+    padding: '24px',
     margin: '0 auto',
     backgroundColor: bgColor
   },
   article: {
-    backgroundColor: articleBgColor,
-    maxWidth: 'var(--maxWidthContainer)'
+    backgroundColor: articleBgColor
+    //maxWidth: 'var(--maxWidthContainer)'
   },
   imgDiv: {
     padding: '0 94px',
@@ -46,6 +45,7 @@ const styles = {
 }
 ---
 
+<!--
 <div style={styles.bannerContainer}>
   <article class='article' style={styles.article}>
     <div class:list={[{ imageFirst: imageFirst ? 'imageFirst' : '' }]}>
@@ -60,7 +60,42 @@ const styles = {
       <p class='title-section'>
         {title}
       </p>
-
+      {
+        list ? (
+          <ul>
+            {p1.map((text) => (
+              <li>> {text}</li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <p class='text-description'>{p1}</p>
+            <p class='text-description'>{p2}</p>
+            <p class='text-description'>{p3}</p>
+          </>
+        )
+      }
+      {withButton && <button style={styles.button}>{textButton}</button>}
+    </div>
+  </article>
+</div>-->
+<div style={styles.bannerContainer}>
+  <article class='article' style={styles.article}>
+    <div
+      class={`list ${imageFirst ? 'imageFirst' : ''}`}
+      style={{ order: imageFirst ? 1 : 2 }}
+    >
+      <Image
+        class='image'
+        style={styles.img}
+        src={image}
+        alt={`${title} image`}
+      />
+    </div>
+    <div class='section-data' style={{ order: imageFirst ? 2 : 1 }}>
+      <p class='title-section'>
+        {title}
+      </p>
       {
         list ? (
           <ul>
@@ -88,12 +123,21 @@ const styles = {
     border-radius: 4px;
     gap: 1em;
   }
+</style>
+
+<style>
+  .article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 4px;
+    gap: 1em;
+  }
 
   .section-data {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    aligni-tems: start;
+    align-items: start;
     flex-grow: 1;
     padding: 0 32px;
     gap: 1em;

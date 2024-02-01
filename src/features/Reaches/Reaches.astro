@@ -1,12 +1,13 @@
 ---
 import Button from '../../components/Button/Button.jsx'
 import Container from '../../components/Container/Container.astro'
+import ContainerSection from '../../components/Container/ContainerSection.astro'
 import ReachesCard from '../../components/ReachesCard/ReachesCard.astro'
 import Title from '../../components/Title.astro'
 import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
 ---
 
-<Container class='reaches-section'>
+<ContainerSection class='reaches-section'>
   <Title
     title='Alcances'
     paragraph='Nuestra empresa está dirigida a organizaciones que necesiten:'
@@ -28,7 +29,11 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
           fontFamily='var(--font-secondary)'
           fontWeight='regular'
         >
-          <Button href={item.id} padding='12px 20px ' bgColor={item.bgButtonColor} textColor={item.textButtonColor}
+          <Button
+            href={item.id}
+            padding='12px 20px '
+            bgColor={item.bgButtonColor}
+            textColor={item.textButtonColor}
           >
             Ver mas
           </Button>
@@ -36,7 +41,7 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
       ))
     }
   </section>
-</Container>
+</ContainerSection>
 
 <style>
   .reaches-section {
