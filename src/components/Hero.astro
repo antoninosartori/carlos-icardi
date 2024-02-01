@@ -16,23 +16,23 @@ import arrow from '../assets/hero/arrow_badge.svg'
     <aside class='nav-social'>
       <nav>
         <ul>
-          <li>
+          <li class='emailGroup'>
             <a href=''>
               <Email color='var(--color-white)' />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://www.linkedin.com/in/carlos-icardi-3869432a3/'>
               <LinkedIn />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://instagram.com'>
               <Instagram />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://wa.me/5493442490242?text=' Hola''>
               <Whatsapp />
             </a>
           </li>
@@ -112,6 +112,14 @@ import arrow from '../assets/hero/arrow_badge.svg'
     </button>
   </aside>
 </div>
+
+<script>
+  import { emailTo } from '../utils/emailTo'
+  const emailContainer = document.querySelector('.emailGroup')
+  emailContainer.addEventListener('click', () => {
+    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
+  })
+</script>
 
 <style>
   .hero-section {
@@ -244,6 +252,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     align-items: start;
     justify-content: center;
     width: 55%;
+    gap: 1.2em;
   }
 
   .slider-data-02 {
@@ -252,6 +261,7 @@ import arrow from '../assets/hero/arrow_badge.svg'
     align-items: start;
     justify-content: center;
     width: 80%;
+    gap: 1.2em;
   }
   .title-data p {
     text-align: start;
@@ -303,6 +313,9 @@ import arrow from '../assets/hero/arrow_badge.svg'
   }
 
   @media screen and (max-width: 768px) {
+    .container-hero {
+      margin-top: 4em;
+    }
     .container-data {
       width: 640px;
 
@@ -319,12 +332,35 @@ import arrow from '../assets/hero/arrow_badge.svg'
             display: none;
           }
         }
+        .slider-02 {
+          .slider-data-02 {
+            .title-data p {
+              font-size: 42px;
+            }
+            .p-data-02 p {
+              font-size: var(--fs-h3);
+            }
+          }
+          ,
+          .title-data {
+          }
+        }
       }
     }
 
-    .nav-social,
-    .aside-arrow-btn {
+    .nav-social {
       display: none;
+    }
+    .aside-arrow-btn {
+      /*display: none;*/
+      .arrow-btn {
+        padding: 0;
+      }
+      button {
+        img {
+          max-width: 80px;
+        }
+      }
     }
   }
 </style>
