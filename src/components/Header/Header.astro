@@ -4,7 +4,6 @@ import logo from "../../../public/logo.svg";
 import Button from "../Button/Button";
 import MenuIcon from "../../assets/icons/MenuIcon.astro";
 
-
 // const styles = {
 //   header: {
 //     display: 'flex',
@@ -14,6 +13,8 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
 //     width: 'var(--maxWidthContent)'
 //   }
 // }
+
+
 ---
 
 <header>
@@ -22,11 +23,15 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
          <figure>
             <Image src={logo} alt="Carlos Icardi Logo" />
          </figure>
-   
-         <Button class="menu-btn" bgColor="transparent" data-function='toggle_navbar'>
+
+         <Button
+            class="menu-btn"
+            bgColor="transparent"
+            data-function="toggle_navbar"
+         >
             <MenuIcon size={50} />
          </Button>
-   
+
          <ul class="menu">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Nuestros Servicios</a></li>
@@ -37,6 +42,31 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
    </div>
 </header>
 
+<script>
+   function changeBackgroundOnScroll() {
+   // Obtenemos el elemento que queremos modificar
+   const headerContainer = document.querySelector(".header-container");
+   const menu = document.querySelector('.menu')
+   // Verificamos si el cuerpo tiene desplazamiento vertical
+
+   if(menu.classList.contains('navbar-active')){
+      headerContainer.classList.add("bg-scroll");
+   }
+
+   if ((document.body.scrollTop > 0 || document.documentElement.scrollTop > 0)) {
+      // Si hay desplazamiento, agregamos la clase
+      headerContainer.classList.add("bg-scroll");
+   } else {
+      // Si no hay desplazamiento, quitamos la clase
+      headerContainer.classList.remove("bg-scroll");
+   }
+}
+
+window.onscroll = () => {
+   changeBackgroundOnScroll();
+};
+</script>
+
 <style>
    header {
       height: var(--headerHeight);
@@ -45,15 +75,20 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
       left: 0;
       z-index: 100;
       width: 100%;
+      transition: background-color .5s;
    }
 
-   .header-container{
+   .bg-scroll{
+      background-color: var(--color-secondary);
+      transition: background-color .5s;
+   }
+
+   .header-container {
       width: 100%;
       max-width: var(--maxWidthContainer);
       margin: 0 auto;
       height: 100%;
       display: flex;
-      background-color: var(--color-secondary);
    }
 
    nav {
@@ -106,15 +141,15 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
          background-color: red;
       }
 
-      nav{
+      nav {
          justify-content: space-between;
       }
 
-      figure{
+      figure {
          padding-left: 20px;
       }
 
-      .menu{
+      .menu {
          position: absolute;
          top: var(--headerHeight);
          left: 100%;
@@ -125,7 +160,7 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
          gap: 0;
          /* padding-top: 50px; */
          height: calc(100vh - var(--headerHeight));
-         transition: .4s all
+         transition: 0.4s all;
       }
 
       .menu li {
@@ -138,9 +173,9 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
          font-size: var(--fs-h2);
       }
 
-      .menu.navbar-active{
+      .menu.navbar-active {
          left: 0;
-         transition: .4s all
+         transition: 0.4s all;
       }
    }
 </style>
