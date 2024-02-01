@@ -1,17 +1,20 @@
 ---
-import BannerSection from '../components/InfoBanners/BannerSection.astro'
+import Reaches from '../features/Reaches/Reaches.astro'
 import '../index.css'
 import MainLayout from '../layouts/MainLayout.astro'
+import Hero from '../components/Hero.astro'
+import Footer from '../features/Footer/Footer.astro'
+import Banner from '../components/NavbarBanner/Banner.astro'
+import Contact from '../features/Contact/Contact.astro'
 ---
 
 <MainLayout>
-  <!-- < Hero /> -->
-  <!-- < NavBarBanner /> -->
-  <BannerSection />
+  <Hero />
+  <Banner />
   <!-- < WhatWeDo /> -->
   <!-- < WhatWeMakeDifferent /> -->
   <!-- < OurObjectives /> -->
-  <!-- < Reaches /> -->
-  <!-- < Contact /> -->
-  <!-- < Footer /> -->
+  <Reaches />
+  <Contact />
+  <Footer />
 </MainLayout>

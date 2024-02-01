@@ -1,0 +1,17 @@
+---
+import Container from '../../components/Container/Container.astro'
+import Title from '../../components/Title.astro'
+import ContactForm from './ContactForm/ContactForm.astro'
+---
+
+<Container class='contact-section'>
+  <Title title='Contactanos' colorTitle='gray' />
+
+  <ContactForm />
+</Container>
+
+<style>
+  .contact-section {
+    margin: 1em auto 2em;
+  }
+</style>

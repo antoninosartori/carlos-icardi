@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets'
+
+const { img, title } = Astro.props
+---
+
+<article>
+  <figure class='banner-logo'>
+    <Image src={img} alt={`${title} image`} width={240} />
+  </figure>
+  <div class='banner-title'>
+    <h3>{title}</h3>
+  </div>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  @media screen and (max-width: 992px) {
+    .banner-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    article {
+      display: grid;
+      place-items: center;
+      gap: 1.2em;
+      width: min-content;
+      img {
+        width: 180px;
+        height: 180px;
+      }
+      .banner-title {
+        text-wrap: pretty;
+        text-align: center;
+      }
+    }
+  }
+</style>

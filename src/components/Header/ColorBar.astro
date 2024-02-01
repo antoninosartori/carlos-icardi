@@ -1,0 +1,37 @@
+<div class='container-bar'>
+  <div class='color-bar'>
+    <div class='bar bar-1'></div>
+    <div class='bar bar-2'></div>
+    <div class='bar bar-3'></div>
+  </div>
+</div>
+
+<style>
+  .container-bar {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: -35px;
+    right: 0;
+  }
+  .color-bar {
+    display: flex;
+    justify-content: end;
+    width: 90%;
+  }
+  .bar {
+    height: 4em;
+    width: calc(90% / 3);
+  }
+  .bar-1 {
+    background-color: var(--color-orange);
+  }
+  .bar-2 {
+    background-color: var(--color-light-gray);
+  }
+  .bar-3 {
+    background-color: var(--color-dark-blue);
+  }
+</style>

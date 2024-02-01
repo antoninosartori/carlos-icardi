@@ -1,0 +1,67 @@
+---
+import dedicated from '../../assets/navBarBanner/dedicated.svg'
+import different from '../../assets/navBarBanner/different.svg'
+import objectives from '../../assets/navBarBanner/objectives.svg'
+import reaches from '../../assets/navBarBanner/reaches.svg'
+import BannerItem from './BannerItem.astro'
+
+import ColorBar from '../Header/ColorBar.astro'
+const BANNERS = [
+  {
+    img: dedicated,
+    title: '¿A qué nos dedicamos?'
+  },
+  {
+    img: different,
+    title: '¿Qué nos hace diferentes?'
+  },
+  {
+    img: objectives,
+    title: 'Nuestros objetivos'
+  },
+  {
+    img: reaches,
+    title: 'Alcances'
+  }
+]
+---
+
+<section class='banner'>
+  <div class='banner-container'>
+    {BANNERS.map((banner) => <BannerItem {...banner} />)}
+  </div>
+  <ColorBar />
+</section>
+
+<style>
+  .banner {
+    position: relative;
+  }
+  .banner-container {
+    margin-top: 2em;
+    padding: var(--layout-padding-y) var(--layout-padding-x);
+
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 96px;
+  }
+
+  .banner-container > div:nth-child(4) {
+    grid-row: span 2; /* Hacer que el cuarto div ocupe 2 filas */
+  }
+
+  @media screen and (max-width: 1272px) {
+    .banner-container {
+      grid-template-columns: 1fr 1fr;
+      margin-top: 2em;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .banner-container {
+      grid-template-columns: 1fr;
+      margin-top: 2em;
+    }
+  }
+</style>
