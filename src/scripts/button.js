@@ -9,7 +9,7 @@ const BUTTON_FUNCTIONS = {
       navbar.classList.toggle('navbar-active')
    },
    goBack_reach: () => {
-      window.location.href = './#alcances'
+      window.history.back(-1)
    },
 	 slide: () => {
 			const slider01 = document.querySelector('.slider-01');
