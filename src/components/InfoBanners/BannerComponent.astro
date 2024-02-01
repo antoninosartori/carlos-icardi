@@ -6,7 +6,9 @@ const {
   withButton = false,
   textButton,
   title,
-  text,
+  p1,
+  p2,
+  p3,
   bgColor,
   articleBgColor,
   image,
@@ -16,13 +18,14 @@ const {
 
 const styles = {
   bannerContainer: {
-    maxWidth: '1920px',
+    maxWidth: 'var(--maxWidthContainer)',
     padding: '25px 154px',
     margin: '0 auto',
     backgroundColor: bgColor
   },
   article: {
-    backgroundColor: articleBgColor
+    backgroundColor: articleBgColor,
+    maxWidth: 'var(--maxWidthContainer)'
   },
   imgDiv: {
     padding: '0 94px',
@@ -54,16 +57,23 @@ const styles = {
       />
     </div>
     <div class='section-data'>
-      <h2 class='title-section'>{title}</h2>
+      <p class='title-section'>
+        {title}
+      </p>
+
       {
         list ? (
           <ul>
-            {text.map((text) => (
+            {p1.map((text) => (
               <li>> {text}</li>
             ))}
           </ul>
         ) : (
-          <p class='text-description'>{text}</p>
+          <>
+            <p class='text-description'>{p1}</p>
+            <p class='text-description'>{p2}</p>
+            <p class='text-description'>{p3}</p>
+          </>
         )
       }
       {withButton && <button style={styles.button}>{textButton}</button>}
@@ -95,9 +105,12 @@ const styles = {
 
   .title-section {
     font-weight: bold;
+    font-family: var(--font-secondary);
     font-size: var(--fs-h1);
   }
   .text-description {
+    font-family: var(--font-secondary);
+    font-weight: regular;
     line-height: 1.5;
   }
   ul {
