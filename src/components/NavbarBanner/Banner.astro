@@ -39,27 +39,29 @@ const BANNERS = [
   }
   .banner-container {
     padding: 2em;
-    display: flex;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 96px;
   }
 
-  @media screen and (max-width: 992px) {
+  .banner-container > div:nth-child(4) {
+    grid-row: span 2; /* Hacer que el cuarto div ocupe 2 filas */
+  }
+
+  @media screen and (max-width: 1272px) {
     .banner-container {
-      display: grid;
       grid-template-columns: 1fr 1fr;
+      margin-top: 2em;
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     .banner-container {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 48px;
+      grid-template-columns: 1fr;
       margin-top: 2em;
     }
   }
