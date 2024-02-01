@@ -13,8 +13,6 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
 //     width: 'var(--maxWidthContent)'
 //   }
 // }
-
-
 ---
 
 <header>
@@ -44,27 +42,26 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
 
 <script>
    function changeBackgroundOnScroll() {
-   // Obtenemos el elemento que queremos modificar
-   const headerContainer = document.querySelector(".header-container");
-   const menu = document.querySelector('.menu')
-   // Verificamos si el cuerpo tiene desplazamiento vertical
+      const headerContainer = document.querySelector(".header-container");
+      const menu = document.querySelector(".menu");
 
-   if(menu.classList.contains('navbar-active')){
-      headerContainer.classList.add("bg-scroll");
+      if (menu.classList.contains("navbar-active")) {
+         headerContainer.classList.add("bg-scroll");
+      }
+
+      if (
+         document.body.scrollTop > 0 ||
+         document.documentElement.scrollTop > 0
+      ) {
+         headerContainer.classList.add("bg-scroll");
+      } else {
+         headerContainer.classList.remove("bg-scroll");
+      }
    }
 
-   if ((document.body.scrollTop > 0 || document.documentElement.scrollTop > 0)) {
-      // Si hay desplazamiento, agregamos la clase
-      headerContainer.classList.add("bg-scroll");
-   } else {
-      // Si no hay desplazamiento, quitamos la clase
-      headerContainer.classList.remove("bg-scroll");
-   }
-}
-
-window.onscroll = () => {
-   changeBackgroundOnScroll();
-};
+   window.onscroll = () => {
+      changeBackgroundOnScroll();
+   };
 </script>
 
 <style>
@@ -75,12 +72,14 @@ window.onscroll = () => {
       left: 0;
       z-index: 100;
       width: 100%;
-      transition: background-color .5s;
+      transition: background-color 0.5s;
    }
 
-   .bg-scroll{
-      background-color: var(--color-secondary);
-      transition: background-color .5s;
+   .bg-scroll {
+      background-color: #000000b2;
+      transition: background-color 0.5s;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
    }
 
    .header-container {

@@ -30,6 +30,8 @@
 
 	--color-primary: var(--color-orange);
 	--color-secondary: var(--color-dark-blue);
+	--color-secondary--opacity: #2b3944ee;
+
 
 	/*COMPONENTS*/
 	--headerHeight: 100px;
