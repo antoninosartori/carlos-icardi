@@ -23,7 +23,7 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
             <Image src={logo} alt="Carlos Icardi Logo" />
          </figure>
    
-         <Button bgColor="transparent" data-function='toggle_navbar'>
+         <Button class="menu-btn" bgColor="transparent" data-function='toggle_navbar'>
             <MenuIcon size={50} />
          </Button>
    
@@ -122,10 +122,20 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
          flex-direction: column;
          align-items: center;
          justify-content: flex-start;
-         gap: 50px;
-         padding-top: 50px;
+         gap: 0;
+         /* padding-top: 50px; */
          height: calc(100vh - var(--headerHeight));
          transition: .4s all
+      }
+
+      .menu li {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-grow: 1;
+         width: 100%;
+         border-bottom: 1px solid var(--color-black-opacity);
+         font-size: var(--fs-h2);
       }
 
       .menu.navbar-active{
