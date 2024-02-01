@@ -1,0 +1,101 @@
+---
+import Button from "../components/Button/Button";
+import Container from "../components/Container/Container.astro";
+import ReachesCard from "../components/ReachesCard/ReachesCard.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import { REACHES_CARDS_INFO } from "../utils/reaches-card-info";
+
+export function getStaticPaths() {
+   return [
+      { params: { reachId: "productividad" } },
+      { params: { reachId: "profesionalizar" } },
+      { params: { reachId: "reingenieria" } },
+      { params: { reachId: "comunicacion" } },
+   ];
+}
+
+const { reachId } = Astro.params;
+const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
+---
+
+<MainLayout>
+   <Container
+      class="reach-dinamic-page"
+      style={{ backgroundColor: reachCard.bgCardColor }}
+   >
+      <div class="reach-dinamic-page--content">
+         <Button
+            bgColor={reachCard.bgButtonColor}
+            textColor={reachCard.textButtonColor}
+            href="/"
+         >
+            Volver atrás
+         </Button>
+
+         <ReachesCard
+            fontFamily="var(--font-secondary)"
+            bgColor={reachCard.bgCardColor}
+            textColor={reachCard.textCardColor}
+            image={reachCard.image}
+            title={reachCard.title}
+            text={reachCard.text}
+            titleSize="var(--fs-h1)"
+         >
+            <div class="reach-card-moreInformation-container">
+               {reachCard.moreText.title && <h4 class="moreText--title">{reachCard.moreText.title}</h4>}
+
+               {
+                  reachCard.moreText.items &&
+                     reachCard.moreText.items.map((item) => (
+                        <p class="moreText--item">{`> ${item}`}</p>
+                     ))
+               }
+
+               {
+                  reachCard.moreText.description &&
+                     reachCard.moreText.description.map((description) => (
+                        <p class="moreText--description">{description}</p>
+                     ))
+               }
+            </div>
+         </ReachesCard>
+      </div>
+   </Container>
+</MainLayout>
+
+<style>
+   .reach-dinamic-page {
+      min-height: calc(100vh);
+   }
+   .reach-dinamic-page--content {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      padding-top: var(--headerHeight);
+      width: 100%;
+      margin: 0 auto;
+      max-width: var(--maxWidthContent);
+   }
+
+   .reach-card-moreInformation-container {
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+   }
+
+   .moreText--title{
+      font-size: var(--fs-h3);
+      font-family: var(--font-secondary);
+   }
+
+   .moreText--item {
+      font-size: var(--fs-body);
+      font-family: var(--font-secondary);
+   }
+
+   .moreText--description {
+      font-size: var(--fs-body);
+      font-family: var(--font-secondary);
+   }
+</style>
