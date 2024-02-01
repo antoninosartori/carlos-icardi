@@ -18,7 +18,7 @@ const { reachId } = Astro.params;
 const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
 ---
 
-<MainLayout>
+<MainLayout noHeader>
    <Container
       class="reach-dinamic-page"
       style={{ backgroundColor: reachCard.bgCardColor }}
@@ -40,6 +40,7 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
             title={reachCard.title}
             text={reachCard.text}
             titleSize="var(--fs-h1)"
+            id={reachCard.id}
          >
             <div class="reach-card-moreInformation-container">
                {reachCard.moreText.title && <h4 class="moreText--title">{reachCard.moreText.title}</h4>}

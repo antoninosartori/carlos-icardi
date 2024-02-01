@@ -9,6 +9,7 @@ const {
    textSize = "var(--fs-body)",
    fontFamily = "var(--font-primary)",
    fontWeight = "regular",
+   id
 } = Astro.props;
 
 const styles = {
@@ -32,8 +33,8 @@ const styles = {
 <article style={styles.article}>
    {
       image && (
-         <figure>
-            <img src={image} alt="icono" />
+         <figure >
+            <img transition:name={`reaches ${id} image`} src={image} alt="icono" />
          </figure>
       )
    }

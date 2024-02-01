@@ -3,8 +3,9 @@ import "@fontsource-variable/open-sans";
 import "@fontsource/poppins";
 import "../index.css";
 import Header from "../components/Header/Header.astro";
+import { ViewTransitions } from "astro:transitions";
+const { title = "Carlos Icardi", noHeader = false } = Astro.props;
 
-const { title = "Carlos Icardi" } = Astro.props;
 ---
 
 <html lang="es">
@@ -14,9 +15,10 @@ const { title = "Carlos Icardi" } = Astro.props;
       <meta name="viewport" content="width=device-width" />
       <meta name="generator" content={Astro.generator} />
       <title>{title}</title>
+      <ViewTransitions />
    </head>
    <body>
-      <Header />
+      {!noHeader && <Header />}
       <main>
          <slot />
       </main>
