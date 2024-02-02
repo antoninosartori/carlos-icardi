@@ -6,7 +6,7 @@ import reaches from '../../assets/navBarBanner/reaches.svg'
 import BannerItem from './BannerItem.astro'
 
 import ColorBar from '../Header/ColorBar.astro'
-import ContainerSection from '../Container/ContainerSection.astro'
+import Container from '@components/Container/Container.astro'
 const BANNERS = [
   {
     img: dedicated,
@@ -27,12 +27,12 @@ const BANNERS = [
 ]
 ---
 
-<section class='banner' id="servicios">
+<Container class='banner' id='servicios'>
   <div class='banner-container'>
     {BANNERS.map((banner) => <BannerItem {...banner} />)}
   </div>
   <ColorBar />
-</section>
+</Container>
 
 <style>
   .banner {
@@ -44,7 +44,7 @@ const BANNERS = [
     padding: var(--layout-padding-y) var(--layout-padding-x);
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 96px;
   }
 
@@ -54,8 +54,11 @@ const BANNERS = [
 
   @media screen and (max-width: 1272px) {
     .banner-container {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       margin-top: 2em;
+    }
+    .banner-container > div:nth-child(4) {
+      grid-row: auto; /* Reiniciar el número de filas para el cuarto div a medida que el diseño cambia */
     }
   }
 
