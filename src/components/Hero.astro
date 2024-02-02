@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets'
-import heroBackground from '../assets/hero/bgHeader.jpg'
-import Title from './Title.astro'
+// import heroBackground from '../assets/hero/bgHeader.jpg'
+// import Title from './Title.astro'
 import Email from '../assets/icons/Email.astro'
 import LinkedIn from '../assets/icons/LinkedIn.astro'
 import Instagram from '../assets/icons/Instagram.astro'
 import Whatsapp from '../assets/icons/Whatsapp.astro'
-import rectangle from '../assets/hero/tiny_points_rectangule.svg'
-import circle from '../assets/hero/tiny_points.svg'
-import arrow from '../assets/hero/arrow_badge.svg'
+// import rectangle from '../../public/assets/hero/tiny_points_rectangule.svg'
+// import circle from '../../public/assets/hero/tiny_points.svg'
+// import arrow from '../../public/assets/hero/arrow_badge.svg'
 ---
 
 <div class='hero-section'>
@@ -101,14 +101,14 @@ import arrow from '../assets/hero/arrow_badge.svg'
   </div>
 
   <div class='rectangle'>
-    <Image src={rectangle} alt='rectangle' />
+    <img src='../../public/assets/hero/tiny_points_rectangule.svg' alt='rectangle' />
   </div>
   <div class='circle'>
-    <Image src={circle} alt='rectangle' />
+    <img src='../../public/assets/hero/tiny_points.svg' alt='rectangle' />
   </div>
   <aside class='aside-arrow-btn'>
     <button data-function='slide' class='button arrow-btn'>
-      <Image src={arrow} alt='Boton siguiente' />
+      <img src='../../public/assets/hero/arrow_badge.svg' alt='Boton siguiente' />
     </button>
   </aside>
 </div>
