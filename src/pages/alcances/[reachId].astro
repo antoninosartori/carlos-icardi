@@ -1,9 +1,10 @@
 ---
-import Button from "../components/Button/Button";
-import Container from "../components/Container/Container.astro";
-import ReachesCard from "../components/ReachesCard/ReachesCard.astro";
-import MainLayout from "../layouts/MainLayout.astro";
-import { REACHES_CARDS_INFO } from "../utils/reaches-card-info";
+import LeftArrow from "@assets/icons/LeftArrow.astro";
+import Button from "@components/Button/Button.jsx";
+import Container from "../../components/Container/Container.astro";
+import ReachesCard from "../../components/ReachesCard/ReachesCard.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { REACHES_CARDS_INFO } from "../../utils/reaches-card-info";
 
 export function getStaticPaths() {
    return [
@@ -18,7 +19,7 @@ const { reachId } = Astro.params;
 const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
 ---
 
-<MainLayout>
+<MainLayout noHeader>
    <Container
       class="reach-dinamic-page"
       style={{ backgroundColor: reachCard.bgCardColor }}
@@ -27,12 +28,20 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
          <Button
             bgColor={reachCard.bgButtonColor}
             textColor={reachCard.textButtonColor}
-            href="/"
+            href='/#alcances'
+            width="100%"
+            className="reach-button-back"
+            fontSize="var(--fs-h3)"
+            padding="20px 12px"
          >
-            Volver atrás
-         </Button>
+            <LeftArrow size={30} color={reachCard.textButtonColor} />
+            <span>
+               Volver atrás
+            </span>
+         </Button>   
 
          <ReachesCard
+            transition:name={`reaches ${reachCard.id} image`}
             fontFamily="var(--font-secondary)"
             bgColor={reachCard.bgCardColor}
             textColor={reachCard.textCardColor}
@@ -40,6 +49,7 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
             title={reachCard.title}
             text={reachCard.text}
             titleSize="var(--fs-h1)"
+            id={reachCard.id}
          >
             <div class="reach-card-moreInformation-container">
                {reachCard.moreText.title && <h4 class="moreText--title">{reachCard.moreText.title}</h4>}
@@ -71,7 +81,7 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
       display: flex;
       flex-direction: column;
       gap: 50px;
-      padding-top: var(--headerHeight);
+      /* padding-top: var(--headerHeight); */
       width: 100%;
       margin: 0 auto;
       max-width: var(--maxWidthContent);
@@ -97,5 +107,11 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
    .moreText--description {
       font-size: var(--fs-body);
       font-family: var(--font-secondary);
+   }
+
+   .reach-button-back{
+      display: flex;
+      align-items: center;
+      gap: 10px;
    }
 </style>

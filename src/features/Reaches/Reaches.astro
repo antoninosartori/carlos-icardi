@@ -7,7 +7,7 @@ import Title from '../../components/Title.astro'
 import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
 ---
 
-<ContainerSection class='reaches-section'>
+<Container class='reaches-section'>
   <Title
     title='Alcances'
     paragraph='Nuestra empresa está dirigida a organizaciones que necesiten:'
@@ -15,6 +15,7 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
     colorParagraph='gray'
     fontFamily='var(--font-secondary)'
     fontWeight='bold'
+    id='alcances'
   />
 
   <section class='reaches-grid-container'>
@@ -28,9 +29,10 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
           text={item.text}
           fontFamily='var(--font-secondary)'
           fontWeight='regular'
+          id={item.id}
         >
           <Button
-            href={item.id}
+            href={`/alcances/${item.id}`}
             padding='12px 20px '
             bgColor={item.bgButtonColor}
             textColor={item.textButtonColor}
@@ -41,7 +43,7 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
       ))
     }
   </section>
-</ContainerSection>
+</Container>
 
 <style>
   .reaches-section {
