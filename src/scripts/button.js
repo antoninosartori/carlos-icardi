@@ -8,9 +8,9 @@ const BUTTON_FUNCTIONS = {
       const navbar = document.querySelector('.menu')
       navbar.classList.toggle('navbar-active')
    },
-   goBack_reach: () => {
-      window.history.back(-1)
-   },
+   // goBack_reach: () => {
+   //    window.history.back(-1)
+   // },
 	 slide: () => {
 			const slider01 = document.querySelector('.slider-01');
 			const slider02 = document.querySelector('.slider-02');
