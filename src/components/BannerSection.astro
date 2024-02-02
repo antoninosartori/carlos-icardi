@@ -1,0 +1,65 @@
+---
+const { withButton, textButton, title, text, bgColor, image, imageFirst } =
+  Astro.props
+---
+
+<div class=`bannerSectionContainer ${bgColor} imageFirst:${imageFirst}`>
+	<article>
+	  <div class={imageFirst ? 'order-0' : 'order-1'}>
+	    <img src={image} alt=`${title} image` />
+	  </div>
+	  <div class='section-data' class={!imageFirst ? 'order-0' : 'order-1'}>
+	    <h2>{title}</h2>
+	    <p>{text}</p>
+	    {withButton && <button>{textButton}</button>}
+	  </div>
+	</article>
+</div>
+
+<style>
+  .bannerSectionContainer {
+		padding: 16px 32px;
+		article{
+			background-color: var(--color-light-gray);
+			display: flex;
+			gap: 2em;
+		}
+    img {
+      width: 640px;
+      height: 100%;
+    }
+  }
+
+  .order-1{
+   order: 1;
+  }
+
+  .order-0{
+   order: 0;
+  }
+
+  .section-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4em;
+
+    button {
+      padding: 16px 32px;
+      background-color: inherit;
+			border: 1px solid black
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+  }
+
+  .imageFirst {
+    order: 1;
+  }
+
+  .tomato {
+    background-color: tomato;
+  }
+</style>
