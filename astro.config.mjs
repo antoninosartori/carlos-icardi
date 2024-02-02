@@ -4,5 +4,14 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()]
+  integrations: [react()],
+	head: {
+		link: [
+		{
+			rel: 'icon',
+			type:'image/astro',
+			href:'./public/logo.astro'
+		}
+		]
+	}
 });
