@@ -45,40 +45,6 @@ const styles = {
 }
 ---
 
-<!--
-<div style={styles.bannerContainer}>
-  <article class='article' style={styles.article}>
-    <div class:list={[{ imageFirst: imageFirst ? 'imageFirst' : '' }]}>
-      <Image
-        class='image'
-        style={styles.img}
-        src={image}
-        alt=`${title} image`
-      />
-    </div>
-    <div class='section-data'>
-      <p class='title-section'>
-        {title}
-      </p>
-      {
-        list ? (
-          <ul>
-            {p1.map((text) => (
-              <li>> {text}</li>
-            ))}
-          </ul>
-        ) : (
-          <>
-            <p class='text-description'>{p1}</p>
-            <p class='text-description'>{p2}</p>
-            <p class='text-description'>{p3}</p>
-          </>
-        )
-      }
-      {withButton && <button style={styles.button}>{textButton}</button>}
-    </div>
-  </article>
-</div>-->
 <div style={styles.bannerContainer}>
   <article class='article' style={styles.article}>
     <div
@@ -123,15 +89,6 @@ const styles = {
     border-radius: 4px;
     gap: 1em;
   }
-</style>
-
-<style>
-  .article {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 4px;
-    gap: 1em;
-  }
 
   .section-data {
     display: flex;
@@ -166,11 +123,14 @@ const styles = {
 
   @media screen and (max-width: 768px) {
     .article {
-      grid-template-columns: 1fr;
-      place-items: center;
+      /*grid-template-columns: 1fr;*/
+      /*place-items: center;*/
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
       img {
-        width: 320px;
-        height: 320px;
+        min-widthth: 160px;
+        height: auto;
       }
 
       .section-data {
