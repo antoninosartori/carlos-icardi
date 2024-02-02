@@ -18,6 +18,7 @@ const {
 const styles = {
   bannerContainer: {
     //maxWidth: 'var(--maxWidthContent)',
+    width: '100%',
     padding: '24px',
     margin: '0 auto',
     backgroundColor: bgColor
@@ -98,6 +99,9 @@ const styles = {
     flex-grow: 1;
     padding: 0 32px;
     gap: 1em;
+    p {
+      word-wrap: break-word;
+    }
   }
   ,
   .imageFirst {
@@ -136,6 +140,9 @@ const styles = {
       .section-data {
         padding: 1em;
         text-align: start;
+        .title-section {
+          font-size: 1.5em;
+        }
       }
     }
   }
