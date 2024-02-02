@@ -4,16 +4,18 @@ import Email from "../../assets/icons/Email.astro";
 import Mobile from "../../assets/icons/Mobile.astro";
 import Location from "../../assets/icons/Location.astro";
 import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton.astro";
+import { Image } from "astro:assets";
+import logo from "../../assets/logo/logo.svg"
 ---
 
 <footer>
    <WhatsAppButton />
    <Container class="footer-main-container">
       <figure class="footer-logo-container">
-         <img
+         <Image
             class="logo"
-            src='../../public/assets/logo/logo.svg'
-            alt="logo del sitio web Carlos Icardi"
+            src={logo}
+            alt="Carlos Icardi"
          />
       </figure>
 

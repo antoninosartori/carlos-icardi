@@ -1,6 +1,6 @@
 ---
-// import { Image } from "astro:assets";
-import logo from "../../../public/logo.svg";
+import { Image } from "astro:assets";
+import logo from "../../assets/logo/logo.svg";
 import Button from "../Button/Button";
 import MenuIcon from "../../assets/icons/MenuIcon.astro";
 
@@ -19,7 +19,7 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
    <div class="header-container">
       <nav>
          <figure>
-            <img src='../../public/assets/logo/logo.svg' alt="Carlos Icardi Logo" />
+            <Image src={logo} alt="Carlos Icardi" />
          </figure>
 
          <Button
