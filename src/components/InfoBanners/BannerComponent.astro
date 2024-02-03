@@ -17,7 +17,6 @@ const {
 
 const styles = {
   bannerContainer: {
-    //maxWidth: 'var(--maxWidthContent)',
     width: '100%',
     padding: '24px',
     margin: '0 auto',
@@ -25,7 +24,6 @@ const styles = {
   },
   article: {
     backgroundColor: articleBgColor
-    //maxWidth: 'var(--maxWidthContainer)'
   },
   imgDiv: {
     padding: '0 94px',
@@ -132,16 +130,16 @@ const styles = {
       display: flex;
       flex-direction: column;
       gap: 1em;
+
       img {
         min-width: 160px;
-        height: auto;
       }
 
       .section-data {
         padding: 1em;
         text-align: start;
         .title-section {
-          font-size: 1.5em;
+          font-size: var(--fs-m);
         }
       }
     }
