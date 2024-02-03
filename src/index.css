@@ -53,8 +53,11 @@
 	--fs-body: 18px;
 	--fs-small: 16px;
 	--fs-tiny: 12px;
+
+	--fs-xl: 2.5em;
 	--fs-l: 2em;
 	--fs-m: 1.5em;
+	--fs-ms: 1.25em;
 	--fs-s: 1em;
 
 }

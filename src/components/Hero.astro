@@ -111,7 +111,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
   <aside class='aside-arrow-btn'>
     <button data-function='slide' class='button arrow-btn'>
       <!--<Image src={arrow} alt='Boton siguiente' />-->
-      <Arrow />
+      <Arrow class='arrow-img' />
     </button>
   </aside>
 </div>
@@ -317,7 +317,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
 
   @media screen and (max-width: 768px) {
     .container-hero {
-      margin-top: 4em;
+      margin-top: 2em;
     }
     .container-data {
       width: 640px;
@@ -330,6 +330,12 @@ import Arrow from '../assets/hero/arrow_badge.astro'
           .slider-data {
             padding: 0 2em;
             width: auto;
+            h3 {
+              font-size: var(--fs-ms);
+            }
+            .title-data p {
+              font-size: var(--fs-xl);
+            }
           }
           .slide-number {
             display: none;
@@ -337,11 +343,14 @@ import Arrow from '../assets/hero/arrow_badge.astro'
         }
         .slider-02 {
           .slider-data-02 {
+            h3 {
+              font-size: var(--fs-ms);
+            }
             .title-data p {
-              font-size: 42px;
+              font-size: var(--fs-l);
             }
             .p-data-02 p {
-              font-size: var(--fs-h3);
+              font-size: var(--fs-l);
             }
           }
           ,
@@ -358,10 +367,12 @@ import Arrow from '../assets/hero/arrow_badge.astro'
       /*display: none;*/
       .arrow-btn {
         padding: 0;
+        height: 6em;
       }
       button {
-        img {
-          max-width: 80px;
+        svg {
+          max-height: 48px;
+          max-width: 48px;
         }
       }
     }
