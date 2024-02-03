@@ -6,36 +6,33 @@ import Email from '../assets/icons/Email.astro'
 import LinkedIn from '../assets/icons/LinkedIn.astro'
 import Instagram from '../assets/icons/Instagram.astro'
 import Whatsapp from '../assets/icons/Whatsapp.astro'
-import Header from './Header/Header.astro'
-import rectangle from '../assets/hero/tiny_points_rectangule.svg'
-import circle from '../assets/hero/tiny_points.svg'
-import arrow from '../assets/hero/arrow_badge.svg'
-import ColorBar from './Header/ColorBar.astro'
+import Rectangle from '../assets/hero/tiny_points_rectangule.astro'
+import Circle from '../assets/hero/tiny_points.astro'
+import Arrow from '../assets/hero/arrow_badge.astro'
 ---
 
 <div class='hero-section'>
-  <Header />
   <div class='container-hero'>
     <aside class='nav-social'>
       <nav>
         <ul>
-          <li>
+          <li class='emailGroup'>
             <a href=''>
-              <Email />
+              <Email color='var(--color-white)' />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://www.linkedin.com/in/carlos-icardi-3869432a3/'>
               <LinkedIn />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://instagram.com'>
               <Instagram />
             </a>
           </li>
           <li>
-            <a href=''>
+            <a href='https://wa.me/5493442490242?text=' Hola''>
               <Whatsapp />
             </a>
           </li>
@@ -51,64 +48,81 @@ import ColorBar from './Header/ColorBar.astro'
               <div>
                 <h3>NUESTRO OBJETIVO ES</h3>
               </div>
-              <Title
-                width='660px'
-                height='auto'
-                class='title-container'
-                title='organizar y mejorar procesos acelerando el camino al exito'
-                colorTitle='var(--color-white)'
-                paragraph='Te ayudamos a pensar tus estrategias comerciales para alcanzar tus nuevos objetivos'
-                colorParagraph='var(--color-white)'
-                fontSizeP='var(--fs-h4)'
-              />
+              <div class='title-data'>
+                <p>
+                  organizar y mejorar procesos <span class='transparent'
+                    >acelerando el</span
+                  >
+                  <span class='orange'>camino al exito</span>
+                </p>
+              </div>
+              <div class='p-data'>
+                <p>
+                  Te ayudamos a pensar tus estrategias comerciales para alcanzar
+                  tus nuevos objetivos
+                </p>
+              </div>
             </div>
             <div class='slide-number'>01.</div>
           </div>
           <div class='slider slider-02'>
-            <div class='slider-data'>
+            <div class='slider-data-02'>
               <div>
                 <h3>NUESTRO OBJETIVO ES</h3>
               </div>
-              <Title
-                width='660px'
-                ,
-                height='auto'
-                ,
-                class='title-container'
-                title='lograr impactar positivamente en tus resultados con los recursos existentes'
-                ,
-                colorTitle='var(--color-white)'
-                ,
-                paragraph='Potenciamos y profesionalizamos equipos de trabajo.'
-                ,
-                colorParagraph='var(--color-white)'
-                ,
-                fontSizeP='var(--fs-h4)'
-              />
+              <div class='title-data'>
+                <p>
+                  <span class='transparent'>lograr impactar</span> positivamente
+                  en tus resultados <span class='orange'
+                    >con los recursos existentes</span
+                  >
+                </p>
+              </div>
+              <div class='p-data p-data-02'>
+                <p>Potenciamos y profesionalizamos equipos de trabajo.</p>
+              </div>
+              <!--<Title
+									width='660px'
+									height='auto'
+									class='title-container'
+									title='lograr impactar positivamente en tus resultados con los recursos existentes'
+									colorTitle='var(--color-white)'
+									paragraph='Potenciamos y profesionalizamos equipos de trabajo.'
+									colorParagraph='var(--color-white)'
+									fontSizeP='var(--fs-h4)'
+								/>
+							</div>-->
             </div>
             <div class='slide-number'>02.</div>
           </div>
         </div>
       </body>
     </div>
-
-    <div class='rectangle'>
-      <Image src={rectangle} alt='rectangle' />
-    </div>
-    <div class='circle'>
-      <Image src={circle} alt='rectangle' />
-    </div>
-    <aside class='aside-arrow-btn'>
-      <button data-function='slide' class='button arrow-btn'>
-        <Image src={arrow} alt='Boton siguiente' />
-      </button>
-    </aside>
-
-    <ColorBar />
   </div>
+
+  <div class='rectangle'>
+    <Rectangle />
+    <!--<Image src={rectangle} alt='rectangle' />-->
+  </div>
+  <div class='circle'>
+    <Circle />
+    <!--<Image src={circle} alt='rectangle' />-->
+  </div>
+  <aside class='aside-arrow-btn'>
+    <button data-function='slide' class='button arrow-btn'>
+      <!--<Image src={arrow} alt='Boton siguiente' />-->
+      <Arrow class='arrow-img' />
+    </button>
+  </aside>
 </div>
 
-<script></script>
+<script>
+  import { emailTo } from '../utils/emailTo'
+  const emailContainer = document.querySelector('.emailGroup')
+  emailContainer.addEventListener('click', () => {
+    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
+  })
+</script>
 
 <style>
   .hero-section {
@@ -122,6 +136,8 @@ import ColorBar from './Header/ColorBar.astro'
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    padding-top: var(--headerHeight);
+    position: relative;
   }
 
   .container-hero {
@@ -162,8 +178,8 @@ import ColorBar from './Header/ColorBar.astro'
 
   .aside-arrow-btn {
     position: absolute;
-    top: 40%;
-    left: 1650px;
+    top: 35%;
+    right: 0px;
     transition: transform 0.3s ease; /* Agregar una transición suave */
   }
   .aside-arrow-btn:hover {
@@ -171,15 +187,13 @@ import ColorBar from './Header/ColorBar.astro'
   }
 
   .arrow-btn {
-    padding: 5em;
-    border-radius: 50%;
-    background-color: var(--color-primary);
+    padding: 1em;
     cursor: pointer;
     border: none;
-    img {
-      position: relative;
-      right: 60px;
-    }
+    background-color: var(--color-primary);
+    -moz-border-radius: 100px 100px 0 0;
+    -webkit-border-radius: 100px 100px 0 0;
+    border-radius: 100px 0px 0 100px;
   }
 
   .container-data {
@@ -240,8 +254,46 @@ import ColorBar from './Header/ColorBar.astro'
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    width: 55%;
+    gap: 1.2em;
   }
 
+  .slider-data-02 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 80%;
+    gap: 1.2em;
+  }
+  .title-data p {
+    text-align: start;
+    font-family: var(--font-secondary);
+    font-weight: bold;
+    font-size: var(--fs-h1);
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .p-data p {
+    text-align: start;
+    font-size: var(--fs-h3);
+    width: 75%;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+  .p-data-02 p {
+    width: 100%;
+  }
+
+  .transparent {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--color-white);
+  }
+  .orange {
+    color: var(--color-orange);
+    font-weight: bold;
+  }
   .slide-number {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px var(--color-white);
@@ -261,5 +313,68 @@ import ColorBar from './Header/ColorBar.astro'
     bottom: 90px;
     /*top: 100px;*/
     left: 1200px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container-hero {
+      margin-top: 2em;
+    }
+    .container-data {
+      width: 640px;
+
+      .container-slider {
+        .slider {
+          flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          .slider-data {
+            padding: 0 2em;
+            width: auto;
+            h3 {
+              font-size: var(--fs-ms);
+            }
+            .title-data p {
+              font-size: var(--fs-xl);
+            }
+          }
+          .slide-number {
+            display: none;
+          }
+        }
+        .slider-02 {
+          .slider-data-02 {
+            h3 {
+              font-size: var(--fs-ms);
+            }
+            .title-data p {
+              font-size: var(--fs-l);
+            }
+            .p-data-02 p {
+              font-size: var(--fs-l);
+            }
+          }
+          ,
+          .title-data {
+          }
+        }
+      }
+    }
+
+    .nav-social {
+      display: none;
+    }
+    .aside-arrow-btn {
+      /*display: none;*/
+      .arrow-btn {
+        padding: 0;
+        height: 6em;
+      }
+      button {
+        svg {
+          max-height: 48px;
+          max-width: 48px;
+        }
+      }
+    }
   }
 </style>

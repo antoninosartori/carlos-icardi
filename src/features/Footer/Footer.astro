@@ -1,162 +1,168 @@
 ---
-import Container from "../../components/Container/Container.astro";
-import Email from "../../assets/icons/Email.astro";
-import Mobile from "../../assets/icons/Mobile.astro";
-import Location from "../../assets/icons/Location.astro";
-import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton.astro";
+import Container from '../../components/Container/Container.astro'
+import Email from '../../assets/icons/Email.astro'
+import Mobile from '../../assets/icons/Mobile.astro'
+import Location from '../../assets/icons/Location.astro'
+import WhatsAppButton from '../../components/WhatsAppButton/WhatsAppButton.astro'
+import { Image } from 'astro:assets'
+import logo from '../../assets/logo/logo.svg'
 ---
 
 <footer>
-   <WhatsAppButton />
-   <Container class="footer-main-container">
-      <figure class="footer-logo-container">
-         <img
-            class="logo"
-            src="./logo.svg"
-            alt="logo del sitio web Carlos Icardi"
-         />
-      </figure>
+  <WhatsAppButton />
+  <Container class='footer-main-container'>
+    <figure class='footer-logo-container'>
+      <Image class='logo' src={logo} alt='Carlos Icardi' />
+    </figure>
 
-      <div class="footer-content">
-         <h4>Información Contacto</h4>
-         <div class="footer-content-items">
-            <div class="footer-content--itemGroup">
-               <Location size={30} />
-               <span>Entre Ríos</span>
-            </div>
-            <div class="footer-content--itemGroup emailGroup">
-               <Email size={30} />
-               <span>cicardi.arg@gmail.com</span>
-            </div>
-            <div class="footer-content--itemGroup">
-               <Mobile size={30} />
-               <a href=`https://wa.me/5493442490242?text='Hola'` target="_blank"
-                  >+54 9 3442490242</a
-               >
-            </div>
-         </div>
+    <div class='footer-content'>
+      <h4>Información Contacto</h4>
+      <div class='footer-content-items'>
+        <div class='footer-content--itemGroup'>
+          <Location size={30} />
+          <span>Entre Ríos</span>
+        </div>
+        <div class='footer-content--itemGroup emailGroup'>
+          <Email size={30} />
+          <span>cicardi.arg@gmail.com</span>
+        </div>
+        <div class='footer-content--itemGroup'>
+          <Mobile size={30} />
+          <a href=`https://wa.me/5493442490242?text='Hola'` target='_blank'
+            >+54 9 3442490242</a
+          >
+        </div>
       </div>
-   </Container>
+    </div>
+  </Container>
 
-   <div class="footer--last-container">
-      <span class="footer-last--copyright"
-         >© Lorem ipsum dolor sit amet, consectetuer
-      </span>
-      <span class="footer-last--privacity">Privacidad y condiciones</span>
-   </div>
+  <div class='footer--last-container'>
+    <span class='footer-last--copyright'
+      >© Lorem ipsum dolor sit amet, consectetuer
+    </span>
+    <span class='footer-last--privacity'>Privacidad y condiciones</span>
+  </div>
 </footer>
 
 <script>
-   import { emailTo } from "../../utils/emailTo";
-   const emailContainer = document.querySelector(".emailGroup");
-   emailContainer.addEventListener("click", () => {
-      emailTo("cicardi.arg@gmail.com", "Contacto desde la web");
-   });
+  import { emailTo } from '../../utils/emailTo'
+  const emailContainer = document.querySelector('.emailGroup')
+  emailContainer.addEventListener('click', () => {
+    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
+  })
 </script>
 
 <style>
-   footer {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      background-color: var(--color-dark-gray);
-      padding: 40px;
-   }
-   .footer-main-container {
-      margin: 0 auto;
-      gap: 60px;
-      color: var(--color-light-gray);
-      font-family: var(--font-secondary);
-   }
-   figure {
+  footer {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-dark-gray);
+    padding: 40px;
+  }
+  .footer-main-container {
+    margin: 0 auto;
+    gap: 60px;
+    color: var(--color-light-gray);
+    font-family: var(--font-secondary);
+  }
+  figure {
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+  }
+
+  figure img {
+    max-height: 200px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-content-items {
+    width: 100%;
+    /* flex-direction: column; */
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h4 {
+    text-align: center;
+    color: var(--color-primary);
+    font-family: var(--font-secondary);
+  }
+
+  .footer-logo-container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .footer-content-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .footer-content--itemGroup {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: var(--fs-body);
+  }
+
+  .emailGroup {
+    cursor: pointer;
+  }
+
+  .footer--last-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 992px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-last--copyright,
+  .footer-last--privacity {
+    font-family: var(--font-primary);
+    color: var(--color-light-gray);
+    font-size: var(--fs-body);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    figure .logo {
+      height: auto;
       width: 100%;
       object-fit: cover;
-      display: flex;
-      justify-content: center;
-   }
+    }
 
-   figure img{
-      max-height: 200px;
-   }
-
-   .footer-content{
-      display: flex;
+    .footer-content-items {
       flex-direction: column;
-      gap: 40px;
-   }
+    }
 
-   .footer-content-items {
-      width: 100%;
-      /* flex-direction: column; */
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
-   }
+    .footer-content--itemGroup {
+      flex-direction: column;
+    }
 
-   h4 {
-      text-align: center;
-      color: var(--color-primary);
-      font-family: var(--font-secondary);
-   }
+    .footer--last-container {
+      flex-direction: column;
+      gap: 20px;
+    }
 
-   .footer-content-items {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-   }
-
-   .footer-content--itemGroup {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      font-size: var(--fs-body);
-   }
-
-   .emailGroup {
-      cursor: pointer;
-   }
-
-   .footer--last-container {
-      width: 100%;
-      margin: 0 auto;
-      max-width: 992px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-   }
-
-   .footer-last--copyright, .footer-last--privacity{
-      font-family: var(--font-primary);
-      color: var(--color-light-gray);
-      font-size: var(--fs-body);
-   }
-
-   @media (max-width: 768px) {
-      figure .logo {
-         height: auto;
-         width: 100%;
-         object-fit: cover;
-      }
-
-      .footer-content-items {
-         flex-direction: column;
-      }
-
-      .footer-content--itemGroup {
-         flex-direction: column;
-      }
-
-      .footer--last-container {
-         flex-direction: column;
-         gap: 20px;
-      }
-
-      .footer-last--privacity {
-         order: 1;
-      }
-      .footer-last--copyright {
-         order: 2;
-      }
-   }
+    .footer-last--privacity {
+      order: 1;
+    }
+    .footer-last--copyright {
+      order: 2;
+    }
+  }
 </style>

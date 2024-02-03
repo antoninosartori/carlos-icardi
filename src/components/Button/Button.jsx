@@ -1,14 +1,15 @@
 
 export default function Button({
-   children, 
-   bgColor = 'var(--color-primary)', 
-   textColor = 'var(--color-white)', 
-   radius = '0px', 
-   width = 'max-content', 
-   padding = '8px 12px', 
+   children,
+   bgColor = 'var(--color-primary)',
+   textColor = 'var(--color-white)',
+   radius = '0px',
+   width = 'max-content',
+   padding = '8px 12px',
    fontSize = 'var(--fs-body)',
    className = '',
-   ...others}) {
+   href = null,
+   ...others }) {
 
    const styles = {
       backgroundColor: bgColor,
@@ -19,10 +20,17 @@ export default function Button({
       fontSize,
    }
    return (
-   
-   <button className={`button ${className}`}  style={styles} {...others} >
-      {children}
-   </button>
-   
+      <>
+         {!href &&
+            <button className={`button ${className}`} style={styles} {...others} >
+               {children}
+            </button>}
+
+         {href &&
+            <a className={`button ${className}`} style={styles} {...others} href={href} >
+               {children}
+            </a>
+         }
+      </>
    )
 }

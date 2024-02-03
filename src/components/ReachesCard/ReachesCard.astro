@@ -4,9 +4,12 @@ const {
   textColor = 'var(--color-white)',
   image,
   title,
+  titleSize = 'var(--fs-h3)',
   text,
+  textSize = 'var(--fs-body)',
   fontFamily = 'var(--font-primary)',
-  fontWeight = 'regular'
+  fontWeight = 'regular',
+  id
 } = Astro.props
 
 const styles = {
@@ -15,10 +18,12 @@ const styles = {
     color: textColor
   },
   h3: {
+    fontSize: titleSize,
     fontFamily: fontFamily,
     fontWeight: fontWeight
   },
   p: {
+    fontSize: textSize,
     fontFamily: fontFamily,
     fontWeight: fontWeight
   }
@@ -29,7 +34,7 @@ const styles = {
   {
     image && (
       <figure>
-        <img src={image} alt='icono' />
+        <img transition:name={`reaches ${id} image`} src={image} alt='icono' />
       </figure>
     )
   }
@@ -111,6 +116,9 @@ const styles = {
     }
 
     .reaches-card-content-container p {
+      text-align: center;
+    }
+    .reaches-card-content--texts h3 {
       text-align: center;
     }
   }

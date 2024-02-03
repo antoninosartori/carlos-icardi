@@ -6,16 +6,14 @@ import Hero from '../components/Hero.astro'
 import Footer from '../features/Footer/Footer.astro'
 import Banner from '../components/NavbarBanner/Banner.astro'
 import Contact from '../features/Contact/Contact.astro'
+import BannerSection from '@components/InfoBanners/BannerSection.astro'
 ---
 
-<>
+<MainLayout>
   <Hero />
   <Banner />
-  <!-- < NavBarBanner /> -->
-  <!-- < WhatWeDo /> -->
-  <!-- < WhatWeMakeDifferent /> -->
-  <!-- < OurObjectives /> -->
+  <BannerSection />
   <Reaches />
   <Contact />
   <Footer />
-</>
+</MainLayout>

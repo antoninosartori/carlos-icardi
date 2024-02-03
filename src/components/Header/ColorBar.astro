@@ -13,7 +13,7 @@
     position: absolute;
     width: 100%;
     height: auto;
-    bottom: -45px;
+    top: -35px;
     right: 0;
   }
   .color-bar {
@@ -33,5 +33,14 @@
   }
   .bar-3 {
     background-color: var(--color-dark-blue);
+  }
+
+  @media (width <= 768px) {
+   .color-bar{
+      width: 100dvw;
+   }
+   .bar {
+      width: calc(100% / 3);
+  }
   }
 </style>

@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets'
+
+const {
+  withButton = false,
+  textButton,
+  title,
+  p1,
+  p2,
+  p3,
+  bgColor,
+  articleBgColor,
+  image,
+  imageFirst,
+  list = false
+} = Astro.props
+
+const styles = {
+  bannerContainer: {
+    width: '100%',
+    padding: '24px',
+    margin: '0 auto',
+    backgroundColor: bgColor
+  },
+  article: {
+    backgroundColor: articleBgColor
+  },
+  imgDiv: {
+    padding: '0 94px',
+    width: '40%'
+  },
+  img: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover'
+  },
+  button: {
+    padding: '16px 32px',
+    border: '1px solid black',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    borderRadius: '4px'
+  }
+}
+---
+
+<div style={styles.bannerContainer}>
+  <article class='article' style={styles.article}>
+    <div
+      class={`list ${imageFirst ? 'imageFirst' : ''}`}
+      style={{ order: imageFirst ? 1 : 2 }}
+    >
+      <Image
+        class='image'
+        style={styles.img}
+        src={image}
+        alt={`${title} image`}
+      />
+    </div>
+    <div class='section-data' style={{ order: imageFirst ? 2 : 1 }}>
+      <p class='title-section'>
+        {title}
+      </p>
+      {
+        list ? (
+          <ul>
+            {p1.map((text) => (
+              <li>> {text}</li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <p class='text-description'>{p1}</p>
+            <p class='text-description'>{p2}</p>
+            <p class='text-description'>{p3}</p>
+          </>
+        )
+      }
+      {withButton && <button style={styles.button}>{textButton}</button>}
+    </div>
+  </article>
+</div>
+
+<style>
+  .article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 4px;
+    gap: 1em;
+  }
+
+  .section-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex-grow: 1;
+    padding: 0 32px;
+    gap: 1em;
+    p {
+      word-wrap: break-word;
+    }
+  }
+  ,
+  .imageFirst {
+    order: 1;
+  }
+
+  .title-section {
+    font-weight: bold;
+    font-family: var(--font-secondary);
+    font-size: var(--fs-h1);
+  }
+  .text-description {
+    font-family: var(--font-secondary);
+    font-weight: regular;
+    line-height: 1.5;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 2em;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .article {
+      /*grid-template-columns: 1fr;*/
+      /*place-items: center;*/
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      img {
+        min-width: 160px;
+      }
+
+      .section-data {
+        padding: 1em;
+        text-align: start;
+        .title-section {
+          font-size: var(--fs-m);
+        }
+      }
+    }
+  }
+</style>

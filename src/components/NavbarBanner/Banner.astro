@@ -5,6 +5,8 @@ import objectives from '../../assets/navBarBanner/objectives.svg'
 import reaches from '../../assets/navBarBanner/reaches.svg'
 import BannerItem from './BannerItem.astro'
 
+import ColorBar from '../Header/ColorBar.astro'
+import Container from '@components/Container/Container.astro'
 const BANNERS = [
   {
     img: dedicated,
@@ -25,36 +27,45 @@ const BANNERS = [
 ]
 ---
 
-<section class='banner'>
+<Container class='banner' id='servicios'>
   <div class='banner-container'>
     {BANNERS.map((banner) => <BannerItem {...banner} />)}
   </div>
-</section>
+  <ColorBar />
+</Container>
 
 <style>
+  .banner {
+    position: relative;
+  }
   .banner-container {
-    padding: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 2em;
+    margin-inline: auto;
+    padding: var(--layout-padding-y) var(--layout-padding-x);
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr);
     gap: 96px;
   }
 
-  @media screen and (max-width: 992px) {
+  .banner-container > div:nth-child(4) {
+    grid-row: span 2; /* Hacer que el cuarto div ocupe 2 filas */
+  }
+
+  @media screen and (max-width: 1272px) {
     .banner-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 2em;
+    }
+    .banner-container > div:nth-child(4) {
+      grid-row: auto; /* Reiniciar el número de filas para el cuarto div a medida que el diseño cambia */
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     .banner-container {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 48px;
+      grid-template-columns: 1fr;
+      margin-top: 2em;
     }
   }
 </style>

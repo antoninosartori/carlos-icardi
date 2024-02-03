@@ -1,0 +1,91 @@
+---
+import BannerComponent from './BannerComponent.astro'
+import dedicated from '../../assets/banners/dedicated.jpg'
+import different from '../../assets/banners/different.jpg'
+import objectives from '../../assets/banners/objectives.jpg'
+import Container from '../Container/Container.astro'
+const DATA_CARDS = [
+  {
+    image: dedicated,
+    title: '¿A qué nos dedicamos?',
+    p1: 'Desarrollamos y profesionalizamos las áreas productivas y administrativas para que tu empresa alcance los objetivos, sea más eficiente y obtenga los mejores resultados. Nos dedicamos a mejorar la gestión organizacional.',
+    p2: 'Trabajamos de manera multidisciplinaria para maximizar rendimientos, disminuir gastos y crear un clima laboral que permita ser reflejado en productividad.',
+    p3: 'Te ayudamos a superar inconvenientes, maximizar la rentabilidad y reducir costos operativos innecesarios.',
+    buttonText: 'Ver mas',
+    imageFirst: false,
+    bgColor: 'var(--color-dark-gray)',
+    articleBgColor: 'var(--color-light-gray)'
+  },
+  {
+    image: different,
+    title: '¿Qué nos hace diferentes?',
+    p1: 'Conocemos los desafíos actuales de la región y sabemos cómo resolver esos problemas que no son analizados y provocan desvíos que impiden lograr los objetivos.',
+    p2: 'Conocer en profundidad los puntos claves de resolución de problemas estableciendo prioridades, procedimientos claros y mensajes que puedan ser entendidos por todos los sectores de la organización, hace que nuestro servicio resulte de alto impacto.',
+    buttonText: 'Ver mas',
+    imageFirst: true,
+    bgColor: 'var(--color-light-gray)',
+    articleBgColor: 'var(--color-light-gray)'
+  },
+  {
+    image: objectives,
+    title: 'Nuestros objetivos',
+    p1: [
+      'Colaborar con la gerencia para lograr la excelencia',
+      'Detectar problemas y solucionarlos diseñando un plan de trabajo',
+      'Eliminar los costos innecesarios',
+      'Realzar la imagen de tu empresa',
+      'Maximizar las ventas y la distribución',
+      'Fidelizar a tus clientes',
+      'Desarrollar equipos de alto rendimiento'
+    ],
+    textButton: 'Ver mas',
+    imageFirst: false,
+    bgColor: 'var(--color-dark-gray)',
+    articleBgColor: 'var(--color-light-gray)',
+    list: true
+  }
+]
+---
+
+<Container class='bannerSection'>
+  {
+    DATA_CARDS.map(
+      ({
+        image,
+        title,
+        p1,
+        p2,
+        p3,
+        textButton,
+        imageFirst,
+        bgColor,
+        articleBgColor,
+        list
+      }) => (
+        <BannerComponent
+          image={image}
+          p1={p1}
+          p2={p2}
+          p3={p3}
+          title={title}
+          textButton={textButton}
+          imageFirst={imageFirst}
+          bgColor={bgColor}
+          articleBgColor={articleBgColor}
+          list={list}
+        />
+      )
+    )
+  }
+</Container>
+
+<style>
+  .bannerSection {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2em;
+  }
+</style>

@@ -2,35 +2,37 @@
 import '@fontsource-variable/open-sans'
 import '@fontsource/poppins'
 import '../index.css'
-const { title = 'Carlos Icardi' } = Astro.props
+import Header from '../components/Header/Header.astro'
+import { ViewTransitions } from 'astro:transitions'
+const { title = 'Carlos Icardi | WEB', noHeader } = Astro.props
 ---
 
 <html lang='es'>
   <head>
-    <meta charset='utf-8' />
+    <meta charset='UTF-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
+    {!noHeader && <Header />}
     <main>
       <slot />
     </main>
+    <style>
+      main {
+        max-width: var(--maxWidthContainer);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-white);
+        margin: 0 auto;
+        box-shadow: var(--box-shadow);
+      }
+    </style>
+
+    <script src='../scripts/button.js'></script>
   </body>
 </html>
-
-<style>
-  main {
-    width: 100vw;
-    max-width: var(--maxWidthContainer);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-white);
-    margin: 0 auto;
-    box-shadow: var(--box-shadow);
-  }
-</style>
-
-<script src="../scripts/button.js"></script>

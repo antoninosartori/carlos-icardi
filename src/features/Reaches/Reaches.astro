@@ -1,6 +1,7 @@
 ---
 import Button from '../../components/Button/Button.jsx'
 import Container from '../../components/Container/Container.astro'
+import ContainerSection from '../../components/Container/ContainerSection.astro'
 import ReachesCard from '../../components/ReachesCard/ReachesCard.astro'
 import Title from '../../components/Title.astro'
 import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
@@ -14,6 +15,7 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
     colorParagraph='gray'
     fontFamily='var(--font-secondary)'
     fontWeight='bold'
+    id='alcances'
   />
 
   <section class='reaches-grid-container'>
@@ -26,9 +28,15 @@ import { REACHES_CARDS_INFO } from '../../utils/reaches-card-info'
           image={item.image}
           text={item.text}
           fontFamily='var(--font-secondary)'
-          fontWeight='bold'
+          fontWeight='regular'
+          id={item.id}
         >
-          <Button bgColor={item.bgButtonColor} textColor={item.textButtonColor}>
+          <Button
+            href={`/alcances/${item.id}`}
+            padding='12px 20px '
+            bgColor={item.bgButtonColor}
+            textColor={item.textButtonColor}
+          >
             Ver mas
           </Button>
         </ReachesCard>
