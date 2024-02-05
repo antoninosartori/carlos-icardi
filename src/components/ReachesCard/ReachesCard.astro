@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+
 const {
   bgColor = 'var(--color-primary)',
   textColor = 'var(--color-white)',
@@ -34,7 +36,11 @@ const styles = {
   {
     image && (
       <figure>
-        <img transition:name={`reaches ${id} image`} src={image} alt='icono' />
+        <Image
+          transition:name={`reaches ${id} image`}
+          src={image}
+          alt='icono'
+        />
       </figure>
     )
   }
