@@ -1,0 +1,109 @@
+---
+const {
+   description = "Te ayudamos a pensar tus estrategias comerciales para alcanzar nuevos objetivos",
+   number = "01.",
+} = Astro.props;
+
+
+---
+
+<article class="hero-carousel-slide">
+   <div class="hero-carousel-content">
+      <h2 class="hero-carusel-smallTitle">NUESTRO OBJETIVO ES</h2>
+
+      <slot/>
+
+      {description && <p class="hero-carousel-description">{description}</p>}
+   </div>
+
+   {
+      number && (
+         <div class="hero-carousel-number-container">
+            <span class="carousel-slide--number">{number}</span>
+         </div>
+      )
+   }
+</article>
+
+<style>
+   .hero-carousel-slide {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      align-items: center;
+      gap: 10%;
+      padding-left: calc(var(--layout-padding-x) + 20px);
+      padding-right: calc(var(--heroCarouselChevronWidth) + 30px);
+   }
+
+   .hero-carousel-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+   }
+
+   .hero-carousel-number-container {
+      display: flex;
+      height: 100%;
+      align-items: flex-start;
+      justify-content: flex-end;
+   }
+
+   .carousel-slide--number {
+      font-size: 161px;
+      font-weight: 400;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px var(--color-light-gray);
+      font-family: var(--font-secondary);
+   }
+
+   .hero-carusel-smallTitle {
+      font-family: var(--font-primary);
+      color: var(--color-light-blue);
+      font-size: var(--fs-h3);
+   }
+
+   .hero-carousel-description {
+      font-size: var(--fs-h3);
+      color: var(--color-light-gray);
+      max-width: 40ch;
+      text-wrap: balance;
+      font-weight: 100;
+      line-height: 2rem;
+      font-family: var(--font-primary);
+   }
+
+   @media screen and (min-width: 769px) and (max-width: 1200px) {
+      .carousel-slide--number{
+         font-size: 100px;
+      }
+   }
+   
+   @media screen and (max-width: 768px) {
+      .hero-carousel-slide{
+         display: flex;
+         flex-direction: column;
+      }
+
+      .carousel-slide--number{
+         display: none;
+      }
+      .hero-carousel-number-container{
+         display: flex;
+         justify-content: flex-end;
+         width: 100%;
+      }
+      
+   }
+   
+   @media screen and (max-width:576px) {
+      .hero-carousel-slide{
+         padding-right: unset;
+         padding-left: unset;
+         padding: 0 var(--layout-padding-x);
+      }
+
+      .hero-carousel-description{
+         display: none;
+      }
+   }
+</style>

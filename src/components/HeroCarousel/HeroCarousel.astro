@@ -1,0 +1,139 @@
+---
+import ChevronRight from "@assets/icons/chevron-right.svg";
+import HeroCarouselSlide from "@components/HeroCarouselSlide/HeroCarouselSlide.astro";
+import { Image } from "astro:assets";
+---
+
+<section class="splide" aria-label="Carrusel de titulos principales">
+   <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev">
+      </button>
+      <button class="splide__arrow splide__arrow--next">
+         <Image class="chevron-right" src={ChevronRight} alt="Siguiente slide del carrusel"  />
+      </button>
+   </div>
+   <div class="splide__track">
+      <ul class="splide__list">
+         <li class="splide__slide">
+            <HeroCarouselSlide>
+               <h1 class="hero-carousel-title">
+                  <span class="outlineText">lograr impactar</span>
+                  <strong>positivamente en tus resultados</strong>
+                  <span class="colorText">con los
+                     recursos existentes.</span>
+               </h1>
+            </HeroCarouselSlide>
+         </li>
+         <li class="splide__slide">
+            <HeroCarouselSlide number="02." description="Potenciamos y profesionalizamos equipos de trabajo.">
+               <h1 class="hero-carousel-title">
+                  <strong>organizar y mejorar procesos</strong>
+                  <span class="outlineText">acelerando el</span>
+                  <span class="colorText">camino al éxito</span>
+               </h1>
+            </HeroCarouselSlide>
+         </li>
+      </ul>
+   </div>
+</section>
+
+<script>
+   import Splide from "@splidejs/splide";
+
+   new Splide(".splide").mount();
+
+   document.addEventListener("DOMContentLoaded", () => {
+      const splide = new Splide(".splide", {
+         type: "loop",
+         perPage: 1,
+         height: "max-content",
+         width: "100%",
+         classes: {
+            arrows: "splide__arrows your-class-arrows",
+            arrow: "splide__arrow your-class-arrow",
+            prev: "splide__arrow--prev your-class-prev",
+            next: "splide__arrow--next your-class-next",
+         },
+         pagination: false,
+         autoplay: true,
+         interval: 4000,
+      });
+
+      splide.mount();
+   });
+</script>
+
+<style>
+   .splide__arrow--prev {
+      display: none !important;
+   }
+   .splide__arrow--next {
+      display: grid;
+      place-items: center;
+      right: 0;
+      width: var(--heroCarouselChevronWidth);
+      height: var(--heroCarouselChevronHeight);
+      
+      background-color: var(--color-primary);
+
+      -moz-border-rgb(9, 63, 9) 250px 0px 0 250px;
+      -webkit-border-radius: 250px 0px 0 250px;
+      border-radius: 250px 0px 0 250px;
+   }
+
+   .chevron-right{
+      height: 100%;
+      width: 100%;
+      max-height: calc(var(--heroCarouselChevronHeight) / 3);
+      object-fit: cover;
+   }
+
+
+
+   .hero-carousel-title {
+      color: var(--color-light-gray);
+      font-family: var(--font-secondary);
+      max-width: 20ch;
+      text-wrap: balance;
+   }
+
+   .hero-carousel-title strong {
+      font-weight: 700;
+   }
+
+   .outlineText {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px var(--color-light-gray);
+      font-weight: 100;
+   }
+
+   .colorText {
+      color: var(--color-primary);
+   }
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+   .hero-carousel-title {
+         max-width: unset;
+      }
+}
+
+   @media screen and (max-width: 768px) {
+      .splide__arrow--next {
+         bottom: 0;
+         top:unset;
+      }
+
+      .hero-carousel-title {
+         max-width: unset;
+      }
+   }
+
+   @media screen and (max-width:576px) {
+      .splide__arrow--next {
+         display: none;
+      }
+   }
+
+
+
+</style>

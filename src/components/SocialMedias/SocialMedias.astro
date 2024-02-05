@@ -1,0 +1,52 @@
+---
+import Email from "@assets/icons/Email.astro";
+import Instagram from "@assets/icons/Instagram.astro";
+import LinkedIn from "@assets/icons/LinkedIn.astro";
+import Whatsapp from "@assets/icons/Whatsapp.astro";
+
+
+---
+
+<aside>
+   <a class="social-media-group-container">
+      <Email color='var(--color-white)' />
+   </a>
+   <a class="social-media-group-container">
+      <LinkedIn />
+   </a>
+   <a class="social-media-group-container">
+      <Instagram />
+   </a>
+   <a class="social-media-group-container">
+      <Whatsapp color='var(--color-white)' />
+   </a>
+</aside>
+
+<style>
+
+   aside{
+      display: flex;
+      flex-direction: column;
+      padding: 12px 4px;
+      gap: 10px;
+      position: absolute;
+      left: 0;
+      background-color: var(--color-primary);
+      width: var(--heroSocialMediasWidth);
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+
+   }
+
+   .social-media-group-container{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1;
+   }
+
+
+</style>
+

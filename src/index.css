@@ -21,11 +21,12 @@
 	--color-orange: #f95400;
 	--color-gray: #9d9d9c;
 	--color-dark-blue: #2b3944;
+	--color-light-blue: #a4abaf;
 	--color-dark-gray: #2e2e2e;
 	--color-light-gray: #f4f4f4;
 	--color-white: #fff;
 	--color-black: #000;
-	--color-black-opacity: #0000006;
+	--color-black-opacity: #000006;
 	--color-background-out-layout: #ffffff;
 
 
@@ -36,6 +37,10 @@
 
 	/*COMPONENTS*/
 	--headerHeight: 100px;
+
+   --heroCarouselChevronWidth: 125px;
+   --heroCarouselChevronHeight: 250px;
+
 
 	/*BORDER RADIUS*/
 	--border-radius-lg: 1.5rem;
@@ -53,10 +58,33 @@
 	--fs-body: 18px;
 	--fs-small: 16px;
 	--fs-tiny: 12px;
+   --heroSocialMediasWidth: 40px;
 
 }
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {}
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+   :root {
+		--headerHeight: 80px;
+		--layout-padding-x: 24px;
+		--layout-padding-y: 16px;
+
+		/*FONT-SIZES HEADING*/
+		--fs-h1: 48px;
+		--fs-h2: 30px;
+		--fs-h3: 23px;
+		--fs-h4: 20px;
+		--fs-h5: 18px;
+		--fs-h6: 16px;
+
+		/*FONT-SIZES BODY*/
+		--fs-body: 16px;
+		--fs-small: 14px;
+		--fs-tiny: 12px;
+
+      --heroCarouselChevronWidth: 75px;
+      --heroCarouselChevronHeight: 150px;
+	}
+}
 
 @media screen and (max-width: 768px) {
 	:root {
@@ -76,6 +104,9 @@
 		--fs-body: 16px;
 		--fs-small: 14px;
 		--fs-tiny: 12px;
+
+      --heroCarouselChevronWidth: 75px;
+      --heroCarouselChevronHeight: 150px;
 	}
 }
 

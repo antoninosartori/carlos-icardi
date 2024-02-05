@@ -1,369 +1,83 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 // import heroBackground from '../assets/hero/bgHeader.jpg'
 // import Title from './Title.astro'
-import Email from '../assets/icons/Email.astro'
-import LinkedIn from '../assets/icons/LinkedIn.astro'
-import Instagram from '../assets/icons/Instagram.astro'
-import Whatsapp from '../assets/icons/Whatsapp.astro'
-import Rectangle from '../assets/hero/tiny_points_rectangule.astro'
-import Circle from '../assets/hero/tiny_points.astro'
-import Arrow from '../assets/hero/arrow_badge.astro'
+import Email from "../assets/icons/Email.astro";
+import LinkedIn from "../assets/icons/LinkedIn.astro";
+import Instagram from "../assets/icons/Instagram.astro";
+import Whatsapp from "../assets/icons/Whatsapp.astro";
+import Rectangle from "../assets/hero/tiny_points_rectangule.astro";
+import Circle from "../assets/hero/tiny_points.astro";
+import Arrow from "../assets/hero/arrow_badge.astro";
+import Container from "./Container/Container.astro";
+import "@splidejs/splide/css";
+import HeroCarousel from "./HeroCarousel/HeroCarousel.astro";
+import HeroCarouselSlide from "./HeroCarouselSlide/HeroCarouselSlide.astro";
+import SocialMedias from '../components/SocialMedias/SocialMedias.astro'
 ---
 
-<div class='hero-section'>
-  <div class='container-hero'>
-    <aside class='nav-social'>
-      <nav>
-        <ul>
-          <li class='emailGroup'>
-            <a href=''>
-              <Email color='var(--color-white)' />
-            </a>
-          </li>
-          <li>
-            <a href='https://www.linkedin.com/in/carlos-icardi-3869432a3/'>
-              <LinkedIn />
-            </a>
-          </li>
-          <li>
-            <a href='https://instagram.com'>
-              <Instagram />
-            </a>
-          </li>
-          <li>
-            <a href='https://wa.me/5493442490242?text=' Hola''>
-              <Whatsapp />
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+<section class="hero-container">
+   <Rectangle class="rectangle" />
+   <Circle class="circle" />
+   <SocialMedias />
 
-    <div class='container-data'>
-      <body class='data-body'>
-        <div class='container-slider'>
-          <div class='slider slider-01'>
-            <div class='slider-data'>
-              <div>
-                <h3>NUESTRO OBJETIVO ES</h3>
-              </div>
-              <div class='title-data'>
-                <p>
-                  organizar y mejorar procesos <span class='transparent'
-                    >acelerando el</span
-                  >
-                  <span class='orange'>camino al exito</span>
-                </p>
-              </div>
-              <div class='p-data'>
-                <p>
-                  Te ayudamos a pensar tus estrategias comerciales para alcanzar
-                  tus nuevos objetivos
-                </p>
-              </div>
-            </div>
-            <div class='slide-number'>01.</div>
-          </div>
-          <div class='slider slider-02'>
-            <div class='slider-data-02'>
-              <div>
-                <h3>NUESTRO OBJETIVO ES</h3>
-              </div>
-              <div class='title-data'>
-                <p>
-                  <span class='transparent'>lograr impactar</span> positivamente
-                  en tus resultados <span class='orange'
-                    >con los recursos existentes</span
-                  >
-                </p>
-              </div>
-              <div class='p-data p-data-02'>
-                <p>Potenciamos y profesionalizamos equipos de trabajo.</p>
-              </div>
-              <!--<Title
-									width='660px'
-									height='auto'
-									class='title-container'
-									title='lograr impactar positivamente en tus resultados con los recursos existentes'
-									colorTitle='var(--color-white)'
-									paragraph='Potenciamos y profesionalizamos equipos de trabajo.'
-									colorParagraph='var(--color-white)'
-									fontSizeP='var(--fs-h4)'
-								/>
-							</div>-->
-            </div>
-            <div class='slide-number'>02.</div>
-          </div>
-        </div>
-      </body>
-    </div>
-  </div>
-
-  <div class='rectangle'>
-    <Rectangle />
-    <!--<Image src={rectangle} alt='rectangle' />-->
-  </div>
-  <div class='circle'>
-    <Circle />
-    <!--<Image src={circle} alt='rectangle' />-->
-  </div>
-  <aside class='aside-arrow-btn'>
-    <button data-function='slide' class='button arrow-btn'>
-      <!--<Image src={arrow} alt='Boton siguiente' />-->
-      <Arrow />
-    </button>
-  </aside>
-</div>
-
-<script>
-  import { emailTo } from '../utils/emailTo'
-  const emailContainer = document.querySelector('.emailGroup')
-  emailContainer.addEventListener('click', () => {
-    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
-  })
-</script>
+   <div class="hero-carousel-container">
+      <HeroCarousel />
+   </div>
+</section>
 
 <style>
-  .hero-section {
-    display: flex;
-    flex-direction: column;
-    background-image: url('../assets/hero/bgHeader.jpg'); /* Reemplaza 'imagen-hero.jpg' con la ruta de tu imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    padding-top: var(--headerHeight);
-    position: relative;
-  }
-
-  .container-hero {
-    display: flex;
-    /*justify-content: center;*/
-    align-items: center;
-    margin-top: 12em;
-  }
-  .nav-social {
-    position: absolute;
-    top: 40%;
-    background: var(--color-orange);
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    height: fit-content;
-    margin: auto 0;
-    nav {
+   .hero-container {
+      position: relative;
       display: flex;
       flex-direction: column;
-      text-align: center;
-      justify-content: space-between;
-      padding: 8px;
+      justify-content: center;
+      align-items: center;
+      min-height: 100dvh;
+      width: 100%;
+      background-image: url("../assets/hero/bgHeader.jpg");
+      background-position: center;
+      background-size: cover;
+   }
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        list-style: none;
-        li {
-          transition: transform 0.3s ease; /* Agregar una transición suave */
-        }
-        li:hover {
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
+   .hero-carousel-container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+   }
 
-  .aside-arrow-btn {
-    position: absolute;
-    top: 35%;
-    right: 0px;
-    transition: transform 0.3s ease; /* Agregar una transición suave */
-  }
-  .aside-arrow-btn:hover {
-    transform: scale(1.08);
-  }
+   .rectangle{
+      position: absolute;
+      top: 100px;
+      right: 10%;
+      opacity: .3;
+      left: unset;
+   }
 
-  .arrow-btn {
-    padding: 1em;
-    cursor: pointer;
-    border: none;
-    background-color: var(--color-primary);
-    -moz-border-radius: 100px 100px 0 0;
-    -webkit-border-radius: 100px 100px 0 0;
-    border-radius: 100px 0px 0 100px;
-  }
+   .circle{
+      position: absolute;
+      bottom: 100px;
+      right: 30%;
+      opacity: .3;
+   }
 
-  .container-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    margin: 0 auto;
-    width: var(--maxWidthContent);
-    /*position: relative;*/
-  }
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+   .rectangle{
+      top: 100px;
+      right: 20%;
+   }
+}
 
-  .container-slider {
-    width: 200%;
-    justify-content: start;
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-    transition: all 0.5s ease;
-    /*transform: translateX(-50%);*/
-  }
+@media screen and (max-width: 768px) {
+   .hero-container{
+      padding-top: var(--headerHeight);
+   }
 
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .slider {
-    width: calc(100% / 2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation:
-      fade 0.5s ease,
-      slideIn 0.5s ease;
-  }
-
-  .slider-02 {
-    display: none;
-  }
-  .slider-data {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 55%;
-    gap: 1.2em;
-  }
-
-  .slider-data-02 {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 80%;
-    gap: 1.2em;
-  }
-  .title-data p {
-    text-align: start;
-    font-family: var(--font-secondary);
-    font-weight: bold;
-    font-size: var(--fs-h1);
-    text-wrap: pretty;
-    overflow-wrap: break-word;
-  }
-
-  .p-data p {
-    text-align: start;
-    font-size: var(--fs-h3);
-    width: 75%;
-    text-wrap: pretty;
-    overflow-wrap: break-word;
-  }
-  .p-data-02 p {
-    width: 100%;
-  }
-
-  .transparent {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px var(--color-white);
-  }
-  .orange {
-    color: var(--color-orange);
-    font-weight: bold;
-  }
-  .slide-number {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px var(--color-white);
-    font-weight: bold;
-    font-family: var(--font-secondary);
-
-    font-size: 164px;
-  }
-
-  .rectangle {
-    position: absolute;
-    left: 1600px;
-    top: 150px;
-  }
-  .circle {
-    position: absolute;
-    bottom: 90px;
-    /*top: 100px;*/
-    left: 1200px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .container-hero {
-      margin-top: 4em;
-    }
-    .container-data {
-      width: 640px;
-
-      .container-slider {
-        .slider {
-          flex-direction: column;
-          position: relative;
-          overflow: hidden;
-          .slider-data {
-            padding: 0 2em;
-            width: auto;
-          }
-          .slide-number {
-            display: none;
-          }
-        }
-        .slider-02 {
-          .slider-data-02 {
-            .title-data p {
-              font-size: 42px;
-            }
-            .p-data-02 p {
-              font-size: var(--fs-h3);
-            }
-          }
-          ,
-          .title-data {
-          }
-        }
-      }
-    }
-
-    .nav-social {
+   .rectangle, .circle{
       display: none;
-    }
-    .aside-arrow-btn {
-      /*display: none;*/
-      .arrow-btn {
-        padding: 0;
-      }
-      button {
-        img {
-          max-width: 80px;
-        }
-      }
-    }
-  }
+   }
+}
+
 </style>
