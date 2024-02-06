@@ -1,9 +1,14 @@
+import gears from '@assets/icons/gears.svg';
+import hands from '@assets/icons/hands.svg';
+import points from '@assets/icons/points.svg';
+import persons from '@assets/icons/persons.svg';
+
 export const REACHES_CARDS_INFO = [
    {
       id: 'productividad',
       title: 'Mejorar la productividad',
       text: 'Es nuestro objetivo analizar procesos actuales para lograr reducir costos que permitan maximizar las ganancias de la compañía enfocándonos en 4 aristas de productividad',
-      image: 'src/assets/reaches/gears.svg',
+      image: gears,
       bgCardColor: 'var(--color-gray)',
       textCardColor: 'var(--color-black)',
       bgButtonColor: 'var(--color-black)',
@@ -16,7 +21,7 @@ export const REACHES_CARDS_INFO = [
       id: 'profesionalizar',
       title: 'Profesionalizar su equipo de trabajo',
       text: 'Según nuestra experiencia creemos que un trabajo en los mandos medios puede resolver inconvenientes crónicos que impiden una mejora en la productividad.',
-      image: 'src/assets/reaches/hands.svg',
+      image: hands,
       bgCardColor: 'var(--color-dark-blue)',
       textCardColor: 'var(--color-white)',
       bgButtonColor: 'var(--color-white)',
@@ -30,7 +35,7 @@ export const REACHES_CARDS_INFO = [
       id: 'reingenieria',
       title: 'Reingeniería',
       text: 'Realizamos un análisis exhaustivo de los procesos que conviven dentro de la organización, detectamos problemas, proponemos soluciones y acompañamos en la implementación, co-gestionando conjuntamente con nuestros clientes.',
-      image: 'src/assets/reaches/points.svg',
+      image: points,
       bgCardColor: 'var(--color-dark-gray)',
       textCardColor: 'var(--color-primary)',
       bgButtonColor: 'var(--color-primary)',
@@ -45,7 +50,7 @@ export const REACHES_CARDS_INFO = [
       id: 'comunicacion',
       title: 'Comunicación',
       text: 'Las empresas están conformadas por personas y los equipos son personas interactuando entre sí.',
-      image: 'src/assets/reaches/persons.svg',
+      image: persons,
       bgCardColor: 'var(--color-primary)',
       textCardColor: 'var(--color-white)',
       bgButtonColor: 'var(--color-white)',

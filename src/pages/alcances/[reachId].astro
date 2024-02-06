@@ -1,113 +1,115 @@
 ---
-import LeftArrow from "@assets/icons/LeftArrow.astro";
-import Button from "@components/Button/Button.jsx";
-import Container from "../../components/Container/Container.astro";
-import ReachesCard from "../../components/ReachesCard/ReachesCard.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
-import { REACHES_CARDS_INFO } from "../../utils/reaches-card-info";
+import LeftArrow from '@assets/icons/LeftArrow.astro'
+import Button from '@components/Button/Button.jsx'
+import Container from '../../components/Container/Container.astro'
+import ReachesCard from '../../components/ReachesCard/ReachesCard.astro'
+import MainLayout from '../../layouts/MainLayout.astro'
+import { REACHES_CARDS_INFO } from '../../features/Reaches/reaches-card-info'
 
 export function getStaticPaths() {
-   return [
-      { params: { reachId: "productividad" } },
-      { params: { reachId: "profesionalizar" } },
-      { params: { reachId: "reingenieria" } },
-      { params: { reachId: "comunicacion" } },
-   ];
+  return [
+    { params: { reachId: 'productividad' } },
+    { params: { reachId: 'profesionalizar' } },
+    { params: { reachId: 'reingenieria' } },
+    { params: { reachId: 'comunicacion' } }
+  ]
 }
 
-const { reachId } = Astro.params;
-const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
+const { reachId } = Astro.params
+const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId)
 ---
 
 <MainLayout noHeader>
-   <Container
-      class="reach-dinamic-page"
-      style={{ backgroundColor: reachCard.bgCardColor }}
-   >
-      <div class="reach-dinamic-page--content">
-         <Button
-            bgColor={reachCard.bgButtonColor}
-            textColor={reachCard.textButtonColor}
-            href='/#alcances'
-            width="100%"
-            className="reach-button-back"
-            fontSize="var(--fs-h3)"
-            padding="20px 12px"
-         >
-            <LeftArrow size={30} color={reachCard.textButtonColor} />
-            <span>
-               Volver atrás
-            </span>
-         </Button>   
+  <Container
+    class='reach-dinamic-page'
+    style={{ backgroundColor: reachCard.bgCardColor }}
+  >
+    <div class='reach-dinamic-page--content'>
+      <Button
+        bgColor={reachCard.bgButtonColor}
+        textColor={reachCard.textButtonColor}
+        href='/#alcances'
+        width='100%'
+        className='reach-button-back'
+        fontSize='var(--fs-h3)'
+        padding='20px 12px'
+      >
+        <LeftArrow size={30} color={reachCard.textButtonColor} />
+        <span> Volver atrás</span>
+      </Button>
 
-         <ReachesCard
-            transition:name={`reaches ${reachCard.id} image`}
-            fontFamily="var(--font-secondary)"
-            bgColor={reachCard.bgCardColor}
-            textColor={reachCard.textCardColor}
-            image={reachCard.image}
-            title={reachCard.title}
-            text={reachCard.text}
-            titleSize="var(--fs-h1)"
-            id={reachCard.id}
-         >
-            <div class="reach-card-moreInformation-container">
-               {reachCard.moreText.title && <h4 class="moreText--title">{reachCard.moreText.title}</h4>}
+      <ReachesCard
+        transition:name={`reaches ${reachCard.id} image`}
+        fontFamily='var(--font-secondary)'
+        bgColor={reachCard.bgCardColor}
+        textColor={reachCard.textCardColor}
+        image={reachCard.image}
+        title={reachCard.title}
+        text={reachCard.text}
+        titleSize='var(--fs-h1)'
+        id={reachCard.id}
+      >
+        <div class='reach-card-moreInformation-container'>
+          {
+            reachCard.moreText.title && (
+              <h4 class='moreText--title'>{reachCard.moreText.title}</h4>
+            )
+          }
 
-               {
-                  reachCard.moreText.items &&
-                     reachCard.moreText.items.map((item) => (
-                        <p class="moreText--item">{`> ${item}`}</p>
-                     ))
-               }
+          {
+            reachCard.moreText.items &&
+              reachCard.moreText.items.map((item) => (
+                <p class='moreText--item'>{`> ${item}`}</p>
+              ))
+          }
 
-               {
-                  reachCard.moreText.description &&
-                     reachCard.moreText.description.map((description) => (
-                        <p class="moreText--description">{description}</p>
-                     ))
-               }
-            </div>
-         </ReachesCard>
-      </div>
-   </Container>
+          {
+            reachCard.moreText.description &&
+              reachCard.moreText.description.map((description) => (
+                <p class='moreText--description'>{description}</p>
+              ))
+          }
+        </div>
+      </ReachesCard>
+    </div>
+  </Container>
 </MainLayout>
 
 <style>
-   .reach-dinamic-page {
-      min-height: calc(100vh);
-   }
-   .reach-dinamic-page--content {
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-      /* padding-top: var(--headerHeight); */
-      width: 100%;
-      margin: 0 auto;
-      max-width: var(--maxWidthContent);
-   }
+  .reach-dinamic-page {
+    min-height: calc(100vh);
+  }
+  .reach-dinamic-page--content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    /* padding-top: var(--headerHeight); */
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--maxWidthContent);
+  }
 
-   .reach-card-moreInformation-container {
-      padding-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-   }
+  .reach-card-moreInformation-container {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
-   .moreText--title{
-      font-size: var(--fs-h3);
-      font-family: var(--font-secondary);
-   }
+  .moreText--title {
+    font-size: var(--fs-h3);
+    font-family: var(--font-secondary);
+  }
 
-   .moreText--item {
-      font-size: var(--fs-body);
-      font-family: var(--font-secondary);
-   }
+  .moreText--item {
+    font-size: var(--fs-body);
+    font-family: var(--font-secondary);
+  }
 
-   .moreText--description {
-      font-size: var(--fs-body);
-      font-family: var(--font-secondary);
-   }
+  .moreText--description {
+    font-size: var(--fs-body);
+    font-family: var(--font-secondary);
+  }
 
    .reach-button-back{
       display: flex;
@@ -121,3 +123,4 @@ const reachCard = REACHES_CARDS_INFO.find((card) => card.id === reachId);
       }
    }
 </style>
+../../features/Reaches/reaches-card-info

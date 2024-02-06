@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-// import heroBackground from '../assets/hero/bgHeader.jpg'
-// import Title from './Title.astro'
+import heroBackground from '../assets/hero/bgHeader.jpg'
+import Title from './Title.astro'
 import Email from '../assets/icons/Email.astro'
 import LinkedIn from '../assets/icons/LinkedIn.astro'
 import Instagram from '../assets/icons/Instagram.astro'
@@ -111,7 +111,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
   <aside class='aside-arrow-btn'>
     <button data-function='slide' class='button arrow-btn'>
       <!--<Image src={arrow} alt='Boton siguiente' />-->
-      <Arrow />
+      <Arrow class='arrow-img' />
     </button>
   </aside>
 </div>
@@ -178,7 +178,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
 
   .aside-arrow-btn {
     position: absolute;
-    top: 35%;
+    top: 40%;
     right: 0px;
     transition: transform 0.3s ease; /* Agregar una transición suave */
   }
@@ -317,19 +317,25 @@ import Arrow from '../assets/hero/arrow_badge.astro'
 
   @media screen and (max-width: 768px) {
     .container-hero {
-      margin-top: 4em;
+      margin-top: 2em;
     }
     .container-data {
       width: 640px;
 
-      .container-slider {
-        .slider {
+      .slider {
+        .container-slider {
           flex-direction: column;
           position: relative;
           overflow: hidden;
           .slider-data {
             padding: 0 2em;
             width: auto;
+            h3 {
+              font-size: var(--fs-ms);
+            }
+            .title-data p {
+              font-size: var(--fs-xl);
+            }
           }
           .slide-number {
             display: none;
@@ -341,7 +347,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
               font-size: 42px;
             } */
             .p-data-02 p {
-              font-size: var(--fs-h3);
+              font-size: var(--fs-l);
             }
           }
           ,
@@ -358,10 +364,12 @@ import Arrow from '../assets/hero/arrow_badge.astro'
       /*display: none;*/
       .arrow-btn {
         padding: 0;
+        height: 6em;
       }
       button {
-        img {
-          max-width: 80px;
+        svg {
+          max-height: 48px;
+          max-width: 48px;
         }
       }
     }

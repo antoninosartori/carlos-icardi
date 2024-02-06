@@ -4,7 +4,6 @@ import dedicated from '../../assets/banners/dedicated.jpg'
 import different from '../../assets/banners/different.jpg'
 import objectives from '../../assets/banners/objectives.jpg'
 import Container from '../Container/Container.astro'
-import ContainerSection from '../Container/ContainerSection.astro'
 const DATA_CARDS = [
   {
     image: dedicated,
@@ -48,7 +47,7 @@ const DATA_CARDS = [
 ]
 ---
 
-<ContainerSection class='bannerSection'>
+<Container class='bannerSection'>
   {
     DATA_CARDS.map(
       ({
@@ -78,7 +77,7 @@ const DATA_CARDS = [
       )
     )
   }
-</ContainerSection>
+</Container>
 
 <style>
   .bannerSection {
