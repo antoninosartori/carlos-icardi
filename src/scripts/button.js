@@ -48,35 +48,7 @@ const BUTTON_FUNCTIONS = {
 		//			displayError(thisForm, error);
 		//		});
 		//	}
-		php_email_form_submit: (thisForm) => {
-			const action = thisForm.getAttribute('action');
-			const formData = new FormData(thisForm);
-	
-			fetch(action, {
-				method: 'POST',
-				body: formData,
-				headers: { 'X-Requested-With': 'XMLHttpRequest' },
-			})
-				.then(response => {
-					if (response.ok) {
-						return response.text();
-					} else {
-						throw new Error(`${response.status} ${response.statusText} ${response.url}`);
-					}
-				})
-				.then(data => {
-					thisForm.querySelector('.loading').classList.remove('d-block');
-					if (data) {
-						thisForm.querySelector('.sent-message').classList.add('d-block');
-						thisForm.reset();
-					} else {
-						throw new Error('Error');
-					}
-				})
-				.catch((error) => {
-					displayError(thisForm, error);
-				});
-		},
+		
 	};
 
 const Allbuttons = document.querySelectorAll('.button');
