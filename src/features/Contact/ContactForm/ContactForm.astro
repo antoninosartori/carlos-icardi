@@ -1,114 +1,157 @@
 ---
-import Button from "../../../components/Button/Button.jsx";
+import Button from '../../../components/Button/Button.jsx'
 ---
 
-<form>
-   <div class="form--content">
-      <div class="contact-form--row">
-         <div class="contact-form--inputGroup">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" />
-         </div>
-
-         <div class="contact-form--inputGroup">
-            <label for="email">Email</label>
-            <input type="text" name="email" />
-         </div>
+<form class='php-email-form'>
+  <div class='form--content'>
+    <div class='contact-form--row'>
+      <div class='contact-form--inputGroup'>
+        <label for='name'>Nombre</label>
+        <input type='text' name='name' />
       </div>
 
-      <div class="contact-form--inputGroup">
-         <label for="subject">Asunto</label>
-         <input type="text" name="subject" />
+      <div class='contact-form--inputGroup'>
+        <label for='email'>Email</label>
+        <input type='text' name='email' />
       </div>
+    </div>
 
-      <div class="contact-form--inputGroup">
-         <label for="message">Mensaje</label>
-         <textarea rows="10" name="message"></textarea>
-      </div>
-   </div>
+    <div class='contact-form--inputGroup'>
+      <label for='subject'>Asunto</label>
+      <input type='text' name='subject' />
+    </div>
 
-   <div class="contact-form-button-container">
-      <Button 
-         class="contact-form--button" 
-         width="130px"
-         padding="16px 12px"
-         bgColor="var(--color-secondary)"
-         >Enviar
-      </Button>
-   </div>
+    <div class='contact-form--inputGroup'>
+      <label for='message'>Mensaje</label>
+      <textarea rows='10' name='message'></textarea>
+    </div>
+  </div>
+
+  <div class='contact-form-button-container'>
+    <Button
+      name='enviarBtn'
+      type='submit'
+      class='contact-form--button'
+      width='130px'
+      padding='16px 12px'
+      bgColor='var(--color-secondary)'
+      id='enviarBtn'
+      data-function='php_email_form_submit'
+    >
+      Enviar
+    </Button>
+  </div>
+  <div>
+    <div class='loading'>Cargando</div>
+    <div class='error-message'>Ha ocurrido un problema, intente nuevamente</div>
+    <div class='sent-message'>Tu mensaje fue enviado, muchas gracias!</div>
+  </div>
 </form>
 
 <style>
-   form {
-      display: flex;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    font-size: var(--fs-body);
+  }
+
+  .form--content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-form--row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .contact-form--inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  input {
+    padding: 10px;
+    width: 100%;
+    font-size: var(--fs-body);
+    font-family: var(--font-secondary);
+    color: var(--color-secondary);
+  }
+
+  input:active {
+    outline: 1px solid var(--color-secondary);
+  }
+
+  textarea {
+    resize: none;
+    font-size: var(--fs-body);
+    font-family: var(--font-secondary);
+    padding: 10px;
+  }
+
+  textarea:active,
+  textarea:focus {
+    outline: 1px solid var(--color-secondary);
+  }
+
+  label {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+
+  .contact-form-button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-form--button {
+  }
+
+  .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background-color: #c31f09;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  .error-message br + br {
+    margin-top: 25px;
+  }
+
+  .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background-color: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  @media (width <= 576px) {
+    .contact-form--row {
       flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      font-size: var(--fs-body);
-   }
-
-   .form--content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-   }
-
-   .contact-form--row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-   }
-
-   .contact-form--inputGroup {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-   }
-
-   input {
-      padding: 10px;
-      width: 100%;
-      font-size: var(--fs-body);
-      font-family: var(--font-secondary);
-      color: var(--color-secondary);
-   }
-
-   input:active {
-      outline: 1px solid var(--color-secondary);
-   }
-
-   textarea {
-      resize: none;
-      font-size: var(--fs-body);
-      font-family: var(--font-secondary);
-      padding: 10px;
-   }
-
-   textarea:active, textarea:focus{
-      outline: 1px solid var(--color-secondary);
-      
-   }
-
-   label {
-      font-family: var(--font-secondary);
-      font-size: var(--fs-body);
-      font-weight: 600;
-      color: var(--color-secondary);
-   }
-
-   .contact-form-button-container{
-      display: flex;
-      justify-content: center;
-   }
-
-   .contact-form--button {
-   }
-
-   @media (width <= 576px) {
-      .contact-form--row{
-         flex-direction: column;
-      }
-   }
+    }
+  }
 </style>
