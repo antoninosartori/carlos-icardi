@@ -20,24 +20,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Create the email and send the message
     $to = 'lonardibautista@gmail.com';
-    $email_subject = "Contacto de: $formName - $subject";
-    $email_body = "Contacto recibido desde la web.\n\n" . "Detalles:\n\nNombre: $name\n\nEmail: $email_address\n\nAsunto: $subject\n\nMensaje:\n$message";
+    $email_subject = "Contacto de: $name - $subject";
+    $email_body = "Contacto recibido desde la web.\r\n" . "Detalles:\r\nNombre: $name\n\nEmail: $email_address\n\nAsunto: $subject\n\nMensaje:\n$message";
 
     ini_set('display_errors', '1');
     ini_set('display_startup_errors', '1');
 
-    $emailFrom = 'lonardibautista@gmail.com';
+    $emailFrom = 'From: lonardibautista@gmail.com';
+		$nameFrom = $name;
+
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
     $headers .= "X-Priority: 3\n";
     $headers .= "X-MSMail-Priority: Normal\n";
     $headers .= "X-Mailer: php\n";
-    $headers .= "From: $emailFrom" . "\r\n";
+    $headers .= "From: $nameFrom"."\r\n";
+		$headers .= "Reply-To: $email_address";
 
     // Send email
     if (mail($to, $email_subject, $email_body, $headers)) {
         // Email sent successfully
-        header("Location: confirmacion.html");
+        //header("Location: confirmacion.html");
+				echo "<script>alert('El contacto se ha realizado correctamente');</script>";
         exit();
     } else {
         // Failed to send email
