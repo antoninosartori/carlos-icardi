@@ -2,7 +2,7 @@
 import Button from '../../../components/Button/Button.jsx'
 ---
 
-<form class='php-email-form'>
+<form class='php-email-form' action="../contact_me.php" method="POST">
   <div class='form--content'>
     <div class='contact-form--row'>
       <div class='contact-form--inputGroup'>
@@ -36,7 +36,7 @@ import Button from '../../../components/Button/Button.jsx'
       padding='16px 12px'
       bgColor='var(--color-secondary)'
       id='enviarBtn'
-      data-function='php_email_form_submit'
+      data-function='sent_email'
     >
       Enviar
     </Button>
@@ -147,6 +147,10 @@ import Button from '../../../components/Button/Button.jsx'
     font-weight: 600;
     font-size: 18px;
     border-radius: 10px;
+  }
+
+  .d-block{
+   display: block;
   }
 
   @media (width <= 576px) {
