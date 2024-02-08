@@ -184,10 +184,13 @@ import Arrow from '../assets/hero/arrow_badge.astro'
     position: absolute;
     top: 40%;
     right: 0px;
+    opacity: .5;
     transition: transform 0.3s ease; /* Agregar una transición suave */
   }
   .aside-arrow-btn:hover {
     transform: scale(1.08);
+    opacity: 1;
+
   }
 
   .arrow-btn {
@@ -372,6 +375,7 @@ import Arrow from '../assets/hero/arrow_badge.astro'
       display: none;
     }
     .aside-arrow-btn {
+      opacity: 1;
       /*display: none;*/
       .arrow-btn {
         padding: 0;
