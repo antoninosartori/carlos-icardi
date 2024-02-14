@@ -1,39 +1,41 @@
 ---
 import Whatsapp from '../../assets/icons/Whatsapp.astro'
-
-
 ---
 
-<a class='whatsapp-button-container' target="_blank" href=`https://wa.me/5493442490242?text='Hola'` >
-   <div class="wap-content">
-      <Whatsapp color='var(--color-light-gray)' size={30}/>
-      <span>Trabajemos juntos</span>
-   </div>
+<a
+  class='whatsapp-button-container'
+  target='_blank'
+  href=`https://wa.me/5493442490242?text='Hola'`
+>
+  <div class='wap-content'>
+    <Whatsapp color='var(--color-light-gray)' size={36} />
+    <span>Trabajemos juntos</span>
+  </div>
 </a>
 
 <style>
-   .whatsapp-button-container{
-      position: absolute;
-      right: 0;
-      top: -25px;
-      background-color: var(--color-primary);
-      width: 250px;
-      padding: 10px 20px;
-      border-top-left-radius: 25px ; 
-      border-bottom-left-radius: 25px ; 
-   }
+  .whatsapp-button-container {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    background-color: var(--color-primary);
+    max-width: fit-content;
+    padding: 1em 1.5em;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
 
-   .wap-content{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
-   
-   span{
-      font-family: var(--font-secondary);
-      color: var(--color-light-gray);
-      font-size: var(--fs-small);
-      font-weight: 600;
-   }
+  .wap-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+  }
 
+  span {
+    font-family: var(--font-secondary);
+    color: var(--color-light-gray);
+    font-size: var(--fs-body);
+    font-weight: 600;
+  }
 </style>
