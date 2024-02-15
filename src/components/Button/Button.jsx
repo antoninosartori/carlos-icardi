@@ -8,6 +8,7 @@ export default function Button({
    padding = '8px 12px',
    fontSize = 'var(--fs-body)',
    className = '',
+   fontWeight = 'normal',
    href = null,
    ...others }) {
 
@@ -18,6 +19,7 @@ export default function Button({
       width,
       padding,
       fontSize,
+      fontWeight
    }
    return (
       <>
