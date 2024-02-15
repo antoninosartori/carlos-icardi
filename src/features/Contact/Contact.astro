@@ -5,8 +5,13 @@ import ContactForm from './ContactForm/ContactForm.astro'
 ---
 
 <Container class='contact-section' id='contacto'>
-  <Title title='Contactanos' colorTitle='gray' />
-
+  <!-- <Title title='Contactanos' colorTitle='gray' /> -->
+  <Title
+    title='Contactanos'
+    colorTitle='var(--color-gray)'
+    fontFamily='var(--font-secondary)'
+    fontWeight='bold'
+  />
   <ContactForm />
 </Container>
 

@@ -1,20 +1,20 @@
 ---
 import { Image } from 'astro:assets'
 
-const { img, title } = Astro.props
+const { img, title, href } = Astro.props
 ---
 
-<article>
+<a href={href}>
   <figure class='banner-logo'>
     <Image src={img} alt={`${title} image`} width={200} />
   </figure>
   <div class='banner-title'>
     <h3>{title}</h3>
   </div>
-</article>
+</a>
 
 <style>
-  article {
+  a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

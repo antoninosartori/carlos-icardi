@@ -12,10 +12,11 @@ import { REACHES_CARDS_INFO } from './reaches-card-info.js'
     title='Alcances'
     paragraph='Nuestra empresa está dirigida a organizaciones que necesiten:'
     colorTitle='var(--color-orange)'
-    colorParagraph='gray'
+    colorParagraph='var(--color-dark-blue)'
     fontFamily='var(--font-secondary)'
     fontWeight='bold'
     id='alcances'
+    gap="0"
   />
 
   <section class='reaches-grid-container'>
@@ -28,7 +29,7 @@ import { REACHES_CARDS_INFO } from './reaches-card-info.js'
           image={item.image}
           text={item.text}
           fontFamily='var(--font-secondary)'
-          fontWeight='bold'
+          
           id={item.id}
         >
           <Button
@@ -37,7 +38,7 @@ import { REACHES_CARDS_INFO } from './reaches-card-info.js'
             bgColor={item.bgButtonColor}
             textColor={item.textButtonColor}
             fontFamily='var(--font-secondary)'
-            fontWeight='bold'
+            fontWeight='normal'
           >
             VER MÁS
           </Button>

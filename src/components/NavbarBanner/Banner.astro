@@ -10,19 +10,23 @@ import Container from '@components/Container/Container.astro'
 const BANNERS = [
   {
     img: dedicated,
-    title: '¿A qué nos dedicamos?'
+    title: '¿A qué nos dedicamos?',
+    href: '#dedicamos'
   },
   {
     img: different,
-    title: '¿Qué nos hace diferentes?'
+    title: '¿Qué nos hace diferentes?',
+    href: '#diferentes'
   },
   {
     img: objectives,
-    title: 'Nuestros objetivos'
+    title: 'Nuestros objetivos',
+    href: '#objetivos'
   },
   {
     img: reaches,
-    title: 'Alcances'
+    title: 'Alcances',
+    href: '#alcances'
   }
 ]
 ---
@@ -45,7 +49,7 @@ const BANNERS = [
     margin-inline: auto;
     padding: var(--layout-padding-y) var(--layout-padding-x);
     display: grid;
-    place-items: center;
+    align-items: flex-start;
     grid-template-columns: repeat(4, 1fr);
     gap: 96px;
   }

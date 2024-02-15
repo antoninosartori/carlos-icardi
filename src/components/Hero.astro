@@ -1,87 +1,96 @@
 ---
-import { Image } from 'astro:assets'
-import heroBackground from '../assets/hero/bgHeader.jpg'
-import Title from './Title.astro'
-import Email from '../assets/icons/Email.astro'
-import LinkedIn from '../assets/icons/LinkedIn.astro'
-import Instagram from '../assets/icons/Instagram.astro'
-import Whatsapp from '../assets/icons/Whatsapp.astro'
-import Rectangle from '../assets/hero/tiny_points_rectangule.astro'
-import Circle from '../assets/hero/tiny_points.astro'
-import Arrow from '../assets/hero/arrow_badge.astro'
+import { Image } from "astro:assets";
+import heroBackground from "../assets/hero/bgHeader.jpg";
+import Title from "./Title.astro";
+import Email from "../assets/icons/Email.astro";
+import LinkedIn from "../assets/icons/LinkedIn.astro";
+import Instagram from "../assets/icons/Instagram.astro";
+import Whatsapp from "../assets/icons/Whatsapp.astro";
+import Rectangle from "../assets/hero/tiny_points_rectangule.astro";
+import Circle from "../assets/hero/tiny_points.astro";
+import Arrow from "../assets/hero/arrow_badge.astro";
 ---
 
-<div class='hero-section'>
-  <div class='container-hero'>
-    <aside class='nav-social'>
-      <nav>
-        <ul>
-          <li class='emailGroup'>
-            <a href=''>
-              <Email color='var(--color-white)' size={38} />
-            </a>
-          </li>
-          <li>
-            <a href='https://www.linkedin.com/in/carlos-icardi-3869432a3/'>
-              <LinkedIn size={38} />
-            </a>
-          </li>
-          <li>
-            <a href='https://instagram.com'>
-              <Instagram size={38} />
-            </a>
-          </li>
-          <li>
-            <a href="https://wa.me/5493442490242?text='Hola'">
-              <Whatsapp size={38} />
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+<div class="hero-section">
+   <!-- <div class="seperate-line-container">
+      <div class="seperate-line--big"></div>
+      <div class="seperate-line--tiny"></div>
+   </div> -->
 
-    <div class='container-data'>
-      <body class='data-body'>
-        <div class='container-slider'>
-          <div class='slider slider-01'>
-            <div class='slider-data'>
-              <div>
-                <h3>NUESTRO OBJETIVO ES</h3>
-              </div>
-              <div class='title-data'>
-                <p>
-                  organizar y mejorar procesos <span class='transparent'
-                    >acelerando el</span
+   <div class="container-hero">
+      <aside class="nav-social">
+         <nav>
+            <ul>
+               <li class="emailGroup">
+                  <a href="">
+                     <Email color="var(--color-white)" size={38} />
+                  </a>
+               </li>
+               <li>
+                  <a
+                     href="https://www.linkedin.com/in/carlos-icardi-3869432a3/"
                   >
-                  <span class='orange'>camino al éxito</span>
-                </p>
-              </div>
-              <div class='p-data'>
-                <p>
-                  Te ayudamos a pensar tus estrategias comerciales para alcanzar
-                  tus nuevos objetivos
-                </p>
-              </div>
-            </div>
-            <div class='slide-number'>01.</div>
-          </div>
-          <div class='slider slider-02'>
-            <div class='slider-data-02'>
-              <div>
-                <h3>NUESTRO OBJETIVO ES</h3>
-              </div>
-              <div class='title-data'>
-                <p>
-                  <span class='transparent'>lograr impactar</span> positivamente
-                  en tus resultados <span class='orange'
-                    >con los recursos existentes</span
-                  >
-                </p>
-              </div>
-              <div class='p-data p-data-02'>
-                <p>Potenciamos y profesionalizamos equipos de trabajo.</p>
-              </div>
-              <!--<Title
+                     <LinkedIn size={38} />
+                  </a>
+               </li>
+               <li>
+                  <a href="https://instagram.com">
+                     <Instagram size={38} />
+                  </a>
+               </li>
+               <li>
+                  <a href="https://wa.me/5493442490242?text='Hola'">
+                     <Whatsapp size={38} />
+                  </a>
+               </li>
+            </ul>
+         </nav>
+      </aside>
+
+      <div class="container-data">
+         <body class="data-body">
+            <div class="container-slider">
+               <div class="slider slider-01">
+                  <div class="slider-data">
+                     <div>
+                        <h3>NUESTRO OBJETIVO ES</h3>
+                     </div>
+                     <div class="title-data">
+                        <p>
+                           organizar y mejorar procesos <span
+                              class="transparent">acelerando el</span
+                           >
+                           <span class="orange">camino al éxito</span>
+                        </p>
+                     </div>
+                     <div class="p-data">
+                        <p>
+                           Te ayudamos a pensar tus estrategias comerciales para
+                           alcanzar tus nuevos objetivos
+                        </p>
+                     </div>
+                  </div>
+                  <div class="slide-number">01.</div>
+               </div>
+               <div class="slider slider-02">
+                  <div class="slider-data-02">
+                     <div>
+                        <h3>NUESTRO OBJETIVO ES</h3>
+                     </div>
+                     <div class="title-data">
+                        <p>
+                           <span class="transparent">lograr impactar</span> positivamente
+                           en tus resultados <span class="orange"
+                              >con los recursos existentes</span
+                           >
+                        </p>
+                     </div>
+                     <div class="p-data p-data-02">
+                        <p>
+                           Potenciamos y profesionalizamos equipos de trabajo.
+                        </p>
+                     </div>
+                     <!--<Title
 									width='660px'
 									height='auto'
 									class='title-container'
@@ -92,330 +101,352 @@ import Arrow from '../assets/hero/arrow_badge.astro'
 									fontSizeP='var(--fs-h4)'
 								/>
 							</div>-->
+                  </div>
+                  <div class="slide-number">02.</div>
+               </div>
             </div>
-            <div class='slide-number'>02.</div>
-          </div>
-        </div>
-      </body>
-    </div>
-  </div>
+         </body>
+      </div>
+   </div>
 
-  <div class='rectangle'>
-    <Rectangle />
-    <!--<Image src={rectangle} alt='rectangle' />-->
-  </div>
-  <div class='circle'>
-    <Circle />
-    <!--<Image src={circle} alt='rectangle' />-->
-  </div>
-  <aside class='aside-arrow-btn'>
-    <button data-function='slide' class='button arrow-btn'>
-      <!--<Image src={arrow} alt='Boton siguiente' />-->
-      <Arrow class='arrow-img' />
-    </button>
-  </aside>
+   <div class="rectangle">
+      <Rectangle />
+      <!--<Image src={rectangle} alt='rectangle' />-->
+   </div>
+   <div class="circle">
+      <Circle />
+      <!--<Image src={circle} alt='rectangle' />-->
+   </div>
+   <aside class="aside-arrow-btn">
+      <button data-function="slide" class="button arrow-btn">
+         <!--<Image src={arrow} alt='Boton siguiente' />-->
+         <Arrow class="arrow-img" />
+      </button>
+   </aside>
 </div>
 
 <script>
-  import { emailTo } from '../utils/emailTo'
-  const emailContainer = document.querySelector('.emailGroup')
-  emailContainer.addEventListener('click', () => {
-    emailTo('cicardi.arg@gmail.com', 'Contacto desde la web')
-  })
+   import { emailTo } from "../utils/emailTo";
+   const emailContainer = document.querySelector(".emailGroup");
+   emailContainer.addEventListener("click", () => {
+      emailTo("cicardi.arg@gmail.com", "Contacto desde la web");
+   });
 </script>
 
 <style>
-  .hero-section {
-    display: flex;
-    flex-direction: column;
-    background-image: url('../assets/hero/bgHeader.jpg'); /* Reemplaza 'imagen-hero.jpg' con la ruta de tu imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    padding-top: var(--headerHeight);
-    position: relative;
-  }
-
-  .container-hero {
-    display: flex;
-    /*justify-content: center;*/
-    align-items: center;
-    margin-top: 12em;
-  }
-  .nav-social {
-    position: absolute;
-    top: 40%;
-    left: 0;
-    background: var(--color-orange);
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    height: fit-content;
-    width: fit-content;
-    margin: auto 0;
-    nav {
+   .hero-section {
       display: flex;
       flex-direction: column;
+      background-image: url("../assets/hero/bgHeader.jpg"); /* Reemplaza 'imagen-hero.jpg' con la ruta de tu imagen de fondo */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
       text-align: center;
-      justify-content: space-between;
-      padding: 8px;
       width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      padding-top: var(--headerHeight);
+      position: relative;
+   }
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        list-style: none;
-        li {
-          transition: transform 0.3s ease; /* Agregar una transición suave */
-        }
-        li:hover {
-          transform: scale(1.2);
-        }
+   .seperate-line-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      display: flex;
+      z-index: 10;
+   }
+
+   .seperate-line--tiny {
+      height: 5px;
+      flex-grow: 1;
+      background-color: var(--color-primary);
+   }
+
+   .seperate-line--big {
+      height: 20px;
+      width: 150px;
+      background-color: var(--color-primary);
+   }
+
+   .container-hero {
+      display: flex;
+      /*justify-content: center;*/
+      align-items: center;
+      margin-top: 12em;
+   }
+   .nav-social {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      background: var(--color-orange);
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: fit-content;
+      width: fit-content;
+      margin: auto 0;
+      nav {
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+         justify-content: space-between;
+         padding: 8px;
+         width: 100%;
+
+         ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            list-style: none;
+            li {
+               transition: transform 0.3s ease; /* Agregar una transición suave */
+            }
+            li:hover {
+               transform: scale(1.2);
+            }
+         }
       }
-    }
-  }
+   }
 
-  .aside-arrow-btn {
-    position: absolute;
-    top: 40%;
-    right: 0px;
-    height: 300px;
-    width: 150px;
-    opacity: 0.4;
-    transition: transform 0.3s ease; /* Agregar una transición suave */
-  }
-  .aside-arrow-btn:hover {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-
-  .arrow-btn {
-   height: 100%;
-   width: 100%;
-    padding: 1em;
-    cursor: pointer;
-    border: none;
-    background-color: var(--color-primary);
-    -moz-border-radius: 150px 150px 0 0;
-    -webkit-border-radius: 150px 150px 0 0;
-    border-radius: 150px 0px 0 150px;
-  }
-
-  .container-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    margin: 0 auto;
-    width: var(--maxWidthContent);
-    /*position: relative;*/
-  }
-
-  .container-slider {
-    width: 200%;
-    justify-content: start;
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-    transition: all 0.5s ease;
-    /*transform: translateX(-50%);*/
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
+   .aside-arrow-btn {
+      position: absolute;
+      top: 40%;
+      right: 0px;
+      height: 300px;
+      width: 150px;
+      opacity: 0.4;
+      transition: transform 0.3s ease; /* Agregar una transición suave */
+   }
+   .aside-arrow-btn:hover {
+      transform: scale(1.08);
       opacity: 1;
-    }
-  }
+   }
 
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+   .arrow-btn {
+      height: 100%;
+      width: 100%;
+      padding: 1em;
+      cursor: pointer;
+      border: none;
+      background-color: var(--color-primary);
+      -moz-border-radius: 150px 150px 0 0;
+      -webkit-border-radius: 150px 150px 0 0;
+      border-radius: 150px 0px 0 150px;
+   }
 
-  .slider {
-    width: calc(100% / 2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation:
-      fade 0.5s ease,
-      slideIn 0.5s ease;
-  }
+   .container-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      margin: 0 auto;
+      width: var(--maxWidthContent);
+      /*position: relative;*/
+   }
 
-  .slider-02 {
-    display: none;
-  }
-  .slider-data {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 55%;
-    gap: 1.2em;
-  }
+   .container-slider {
+      width: 200%;
+      justify-content: start;
+      align-items: center;
+      display: flex;
+      flex-flow: row nowrap;
+      transition: all 0.5s ease;
+      /*transform: translateX(-50%);*/
+   }
 
-  .slider-data-02 {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 80%;
-    gap: 1.2em;
-  }
-  .title-data p {
-    text-align: start;
-    font-family: var(--font-secondary);
-    font-weight: bold;
-    font-size: var(--fs-h1);
-    text-wrap: pretty;
-    overflow-wrap: break-word;
-  }
+   @keyframes fade {
+      from {
+         opacity: 0;
+      }
+      to {
+         opacity: 1;
+      }
+   }
 
-  .p-data p {
-    text-align: start;
-    font-size: var(--fs-h3);
-    width: 75%;
-    text-wrap: pretty;
-    overflow-wrap: break-word;
-  }
-  .p-data-02 p {
-    width: 100%;
-  }
+   @keyframes slideIn {
+      from {
+         transform: translateX(-100%);
+         opacity: 0;
+      }
+      to {
+         transform: translateX(0);
+         opacity: 1;
+      }
+   }
 
-  .transparent {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 5px var(--color-white);
-    text-stroke: 5px var(--color-white);
-  }
-  .orange {
-    color: var(--color-orange);
-    font-weight: bold;
-  }
-  .slide-number {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 10px var(--color-white);
-    font-weight: bold;
-    font-family: var(--font-secondary);
-    font-size: 164px;
-  }
+   .slider {
+      width: calc(100% / 2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation:
+         fade 0.5s ease,
+         slideIn 0.5s ease;
+   }
 
-  .rectangle {
-    position: absolute;
-    left: 1600px;
-    top: 150px;
-  }
-  .circle {
-    position: absolute;
-    bottom: 90px;
-    /*top: 100px;*/
-    left: 1200px;
-  }
+   .slider-02 {
+      display: none;
+   }
+   .slider-data {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      width: 55%;
+      gap: 1.2em;
+   }
 
-  @media screen and (min-width: 769px) and (max-width: 1440px) {
-    .hero-section {
-      padding: var(--layout-padding-y) var(--layout-padding-x);
-    }
+   .slider-data-02 {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      width: 80%;
+      gap: 1.2em;
+   }
+   .title-data p {
+      text-align: start;
+      font-family: var(--font-secondary);
+      font-weight: bold;
+      font-size: var(--fs-h1);
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+   }
 
-    .title-data p {
-      font-size: 34px;
-    }
-  }
+   .p-data p {
+      text-align: start;
+      font-size: var(--fs-h3);
+      width: 75%;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+   }
+   .p-data-02 p {
+      width: 100%;
+   }
 
-  @media screen and (max-width: 768px) {
-    .container-hero {
-      margin-top: 2em;
-    }
-    .container-data {
-      width: 640px;
+   .transparent {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px var(--color-white);
+      text-stroke: 1px var(--color-white);
+      font-weight: 100;
+   }
+   .orange {
+      color: var(--color-orange);
+      font-weight: bold;
+   }
+   .slide-number {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 3px var(--color-white);
+      font-weight: 300;
+      font-family: var(--font-secondary);
+      font-size: 164px;
+   }
 
-      .slider {
-        .container-slider {
-          flex-direction: column;
-          position: relative;
-          overflow: hidden;
-          .slider-data {
-            padding: 0 2em;
-            width: auto;
-            h3 {
-              font-size: var(--fs-ms);
+   .rectangle {
+      position: absolute;
+      left: 1600px;
+      top: 150px;
+   }
+   .circle {
+      position: absolute;
+      bottom: 90px;
+      /*top: 100px;*/
+      left: 1200px;
+   }
+
+   @media screen and (min-width: 769px) and (max-width: 1440px) {
+      .hero-section {
+         padding: var(--layout-padding-y) var(--layout-padding-x);
+      }
+
+      .title-data p {
+         font-size: 34px;
+      }
+   }
+
+   @media screen and (max-width: 768px) {
+      .container-hero {
+         margin-top: 2em;
+      }
+      .container-data {
+         width: 640px;
+
+         .slider {
+            .container-slider {
+               flex-direction: column;
+               position: relative;
+               overflow: hidden;
+               .slider-data {
+                  padding: 0 2em;
+                  width: auto;
+                  h3 {
+                     font-size: var(--fs-ms);
+                  }
+                  .title-data p {
+                     font-size: var(--fs-xl);
+                  }
+               }
             }
-            .title-data p {
-              font-size: var(--fs-xl);
-            }
-          }
-        }
-        .slider-02 {
-          .slider-data-02 {
-            /* .title-data p {
+            .slider-02 {
+               .slider-data-02 {
+                  /* .title-data p {
               font-size: 42px;
             } */
-            .p-data-02 p {
-              font-size: var(--fs-l);
+                  .p-data-02 p {
+                     font-size: var(--fs-l);
+                  }
+               }
+
+               .title-data {
+               }
             }
-          }
-
-          .title-data {
-          }
-        }
+         }
       }
-    }
 
-    .nav-social {
-      display: none;
-    }
-    .aside-arrow-btn {
-      opacity: 1;
-      /*display: none;*/
-      .arrow-btn {
-        padding: 0;
-        height: 6em;
+      .nav-social {
+         display: none;
       }
-      button {
-        svg {
-          max-height: 48px;
-          max-width: 48px;
-        }
+      .aside-arrow-btn {
+         opacity: 1;
+         /*display: none;*/
+         .arrow-btn {
+            padding: 0;
+            height: 6em;
+         }
+         button {
+            svg {
+               max-height: 48px;
+               max-width: 48px;
+            }
+         }
       }
-    }
 
-    .p-data {
-      display: none;
-    }
+      .p-data {
+         display: none;
+      }
 
-    .title-data p {
-      font-size: 32px;
-    }
+      .title-data p {
+         font-size: 32px;
+      }
 
-    .slider-data {
-      width: 100%;
-    }
+      .slider-data {
+         width: 100%;
+      }
 
-    .aside-arrow-btn {
-      top: unset;
-      bottom: 40px;
-    }
+      .aside-arrow-btn {
+         top: unset;
+         bottom: 40px;
+      }
 
-    .slide-number {
-      display: none;
-    }
+      .slide-number {
+         display: none;
+      }
 
-    .hero-section {
-      padding: var(--layout-padding-y) var(--layout-padding-x);
-      justify-content: center;
-    }
-  }
+      .hero-section {
+         padding: var(--layout-padding-y) var(--layout-padding-x);
+         justify-content: center;
+      }
+   }
 </style>
