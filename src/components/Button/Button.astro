@@ -1,41 +1,42 @@
 ---
-
 /*
- * @example 
+ * @example
  * <Button bgColor="yellow" textColor="black" radius="30px" >
  *    Iniciar
  * </Button>
  */
 
-const { 
-   bgColor = 'var(--color-primary)', 
-   textColor = 'var(--color-white)',
-   radius = '0px',
-   width = 'max-content',
-   padding = '8px 12px',
-   fontSize = 'var(--fs-body)',
-   ...others
+const {
+  bgColor = 'var(--color-primary)',
+  textColor = 'var(--color-white)',
+  radius = '0px',
+  width = 'max-content',
+  padding = '8px 12px',
+  fontSize = 'var(--fs-body)',
+  fontFamily = 'var(--font-primary)',
+  fontWeight = 'regular',
+  ...others
 } = Astro.props
 
 const styles = {
-   backgroundColor: bgColor,
-   color: textColor,
-   borderRadius: radius,
-   width,
-   padding,
-   fontSize
+  backgroundColor: bgColor,
+  color: textColor,
+  borderRadius: radius,
+  width: width,
+  padding: padding,
+  fontSize: fontSize,
+  fontFamily: fontFamily,
+  fontWeight: fontWeight
 }
-
 ---
 
-<button style={styles} {...others} >
-   <slot />
+<button style={styles} {...others}>
+  <slot />
 </button>
 
 <style>
-   button{
-      font-family: var(--font-primary);
-      border: none;
-      cursor: pointer;
-   }
+  button {
+    border: none;
+    cursor: pointer;
+  }
 </style>
