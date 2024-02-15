@@ -17,6 +17,10 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
 
 <header>
    <div class="header-container">
+      <div class="seperate-line-container">
+         <div class="seperate-line--big"></div>
+         <div class="seperate-line--tiny"></div>
+      </div>
       <nav>
          <figure>
             <Image src={logo} alt="Carlos Icardi" />
@@ -37,7 +41,7 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
             <li><a href="#contacto">Contactanos</a></li>
          </ul>
       </nav>
-   </div>
+   </hr>
 </header>
 
 <script>
@@ -83,6 +87,7 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
    }
 
    .header-container {
+      position: relative;
       width: 100%;
       padding: 20px;
       max-width: var(--maxWidthContainer);
@@ -90,6 +95,29 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
       height: 100%;
       display: flex;
    }
+
+   .seperate-line-container{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      display: flex;
+   }
+
+   .seperate-line--tiny{
+      height: 5px;
+      flex-grow: 1;
+      background-color: var(--color-primary);
+
+   }
+
+   .seperate-line--big{
+      height: 20px;
+      width: 150px;
+      background-color: var(--color-primary);
+
+   }
+
 
    nav {
       display: flex;
@@ -143,6 +171,9 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
    }
 
    @media (width <= 768px) {
+      .seperate-line-container{
+      display: none;
+   }
       button {
          display: block;
          background-color: red;
