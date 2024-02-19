@@ -6,9 +6,9 @@
 // import { validateLogin } from "./validate-form";
 
 export function displayError(thisForm, error) {
-   thisForm.querySelector('.loading').classList.remove('d-block');
-   // thisForm.querySelector('.error-message').innerHTML = error;
-   thisForm.querySelector('.error-message').classList.add('d-block');
+	thisForm.querySelector('.loading').style.display = 'none';
+	thisForm.querySelector('.error-message').style.display = 'block';
+	thisForm.querySelector('.error-message').innerHTML = error;
 }
 
 const BUTTON_FUNCTIONS = {
@@ -47,9 +47,9 @@ const BUTTON_FUNCTIONS = {
 						 return;
 					}
  
-					document.querySelector('.loading').classList.add('d-block');
-					document.querySelector('.error-message').classList.remove('d-block');
-					document.querySelector('.sent-message').classList.remove('d-block');
+					document.querySelector('.loading').style.display = 'block';
+					document.querySelector('.error-message').style.display = 'none';
+					document.querySelector('.sent-message').style.display = 'none';
  
 					let formData = new FormData(thisForm);
  
@@ -95,9 +95,10 @@ const BUTTON_FUNCTIONS = {
 						 }
 					})
 					.then(data => {
-						 thisForm.querySelector('.loading').classList.remove('d-block');
+						 thisForm.querySelector('.loading').style.display = 'none';
+
 						 if (data) {
-								thisForm.querySelector('.sent-message').classList.add('d-block');
+								thisForm.querySelector('.sent-message').style.display = 'block';
 								thisForm.reset();
 						 } else {
 								throw new Error('Error');
