@@ -68,9 +68,9 @@ const BANNERS = [
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     .banner-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       margin-top: 2em;
     }
   }
