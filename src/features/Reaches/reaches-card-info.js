@@ -1,7 +1,7 @@
 import gears from '@assets/icons/gears.svg';
 import hands from '@assets/icons/hands.svg';
-import points from '@assets/icons/points.svg';
-import persons from '@assets/icons/persons.svg';
+import points from '@assets/icons/points2.svg';
+import persons from '@assets/icons/persons2.svg';
 
 export const REACHES_CARDS_INFO = [
    {
