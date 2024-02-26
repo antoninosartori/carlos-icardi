@@ -1,6 +1,7 @@
 ---
-const width = '160'
-const height = '160'
+
+
+const {width = '160', height = '160', ...others} = Astro.props
 ---
 
 <!--?xml version="1.0" encoding="utf-8"?--><!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -16,6 +17,7 @@ const height = '160'
   height={height}
   style='enable-background:new 0 0 82 170;'
   xml:space='preserve'
+  {...others}
 >
   <style type='text/css'>
     .st0 {

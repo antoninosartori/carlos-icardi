@@ -60,7 +60,7 @@ import Arrow from "../assets/hero/arrow_badge.astro";
                <div class="slider slider-01">
                   <div class="slider-data">
                      <div>
-                        <h3>NUESTRO OBJETIVO ES</h3>
+                        <h3 class="slide-data-small-title">NUESTRO OBJETIVO ES</h3>
                      </div>
                      <div class="title-data">
                         <p>
@@ -82,7 +82,7 @@ import Arrow from "../assets/hero/arrow_badge.astro";
                <div class="slider slider-02">
                   <div class="slider-data-02">
                      <div>
-                        <h3>NUESTRO OBJETIVO ES</h3>
+                        <h3 class="slide-data-small-title">NUESTRO OBJETIVO ES</h3>
                      </div>
                      <div class="title-data">
                         <p>
@@ -117,11 +117,11 @@ import Arrow from "../assets/hero/arrow_badge.astro";
    </div>
 
    <div class="rectangle">
-      <Rectangle />
+      <Rectangle class="rectangle--svg" />
       <!--<Image src={rectangle} alt='rectangle' />-->
    </div>
    <div class="circle">
-      <Circle />
+      <Circle class="circle--svg" />
       <!--<Image src={circle} alt='rectangle' />-->
    </div>
    <aside class="aside-arrow-btn">
@@ -305,6 +305,10 @@ import Arrow from "../assets/hero/arrow_badge.astro";
       gap: 1.2em;
    }
 
+   .slide-data-small-title{
+      font-family: var(--font-secondary);
+   }
+
    .slider-data-02 {
       display: flex;
       flex-direction: column;
@@ -353,14 +357,14 @@ import Arrow from "../assets/hero/arrow_badge.astro";
 
    .rectangle {
       position: absolute;
-      left: 1600px;
+      right: 100px;
       top: 150px;
    }
    .circle {
       position: absolute;
       bottom: 90px;
       /*top: 100px;*/
-      left: 1200px;
+      right: 100px;
    }
 
    @media screen and (min-width: 769px) and (max-width: 1440px) {
@@ -381,6 +385,8 @@ import Arrow from "../assets/hero/arrow_badge.astro";
          width: 640px;
 
          .slider {
+            flex-direction: column;
+            align-items: flex-start;
             .container-slider {
                flex-direction: column;
                position: relative;
@@ -416,11 +422,16 @@ import Arrow from "../assets/hero/arrow_badge.astro";
          display: none;
       }
       .aside-arrow-btn {
+         height: 150px;
+         width: 75px;
          opacity: 1;
          /*display: none;*/
          .arrow-btn {
             padding: 0;
-            height: 6em;
+            
+            -moz-border-radius: 75px 75px 0 0;
+            -webkit-border-radius: 75px 75px 0 0;
+            border-radius: 75px 0px 0 75px;
          }
          button {
             svg {
@@ -428,6 +439,19 @@ import Arrow from "../assets/hero/arrow_badge.astro";
                max-width: 48px;
             }
          }
+      }
+
+      .rectangle{
+         right: 15px;
+      }
+
+      .circle{
+         left: 10px;
+      }
+
+      .rectangle--svg, .circle--svg{
+         height: 110px;
+         width: 110px;
       }
 
       .p-data {
@@ -444,11 +468,12 @@ import Arrow from "../assets/hero/arrow_badge.astro";
 
       .aside-arrow-btn {
          top: unset;
-         bottom: 40px;
+         bottom: 10%;
       }
 
       .slide-number {
-         display: none;
+      font-size: 82px;
+        
       }
 
       .hero-section {
