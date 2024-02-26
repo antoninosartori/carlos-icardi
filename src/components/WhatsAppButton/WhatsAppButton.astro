@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import Whatsapp from '../../assets/icons/Whatsapp.astro'
+import WhatsappImage from '../../assets/icons/whatsapp.png'
 ---
 
 <a
@@ -8,7 +10,10 @@ import Whatsapp from '../../assets/icons/Whatsapp.astro'
   href=`https://wa.me/5493442490242?text='Hola'`
 >
   <div class='wap-content'>
-    <Whatsapp color='var(--color-light-gray)' size={36} />
+    <!-- <Whatsapp color='var(--color-light-gray)' size={36} /> -->
+    <figure class="wap-image-container">
+      <Image class='wap--image' src={WhatsappImage} alt=""/>
+    </figure>
     <span>Trabajemos juntos</span>
   </div>
 </a>
@@ -32,10 +37,22 @@ import Whatsapp from '../../assets/icons/Whatsapp.astro'
     gap: 0.5em;
   }
 
+  .wap-image-container{
+   height: 40px;
+   width: 40px;
+  }
+  .wap--image{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+
+  }
   span {
     font-family: var(--font-secondary);
     color: var(--color-light-gray);
     font-size: var(--fs-body);
     font-weight: 600;
   }
+
+  
 </style>
