@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../../assets/logo/logo.svg";
-import Button from "../Button/Button";
-import MenuIcon from "../../assets/icons/MenuIcon.astro";
+import { Image } from 'astro:assets'
+import logo from '../../assets/logo/logo.svg'
+import Button from '../Button/Button'
+import MenuIcon from '../../assets/icons/MenuIcon.astro'
 
 // const styles = {
 //   header: {
@@ -16,205 +16,236 @@ import MenuIcon from "../../assets/icons/MenuIcon.astro";
 ---
 
 <header>
-   <div class="header-container">
-      <div class="seperate-line-container">
-         <div class="seperate-line--big"></div>
-         <div class="seperate-line--tiny"></div>
-      </div>
-      <nav>
-         <figure>
-            <Image src={logo} alt="Carlos Icardi" />
-         </figure>
+  <div class='header-container'>
+    <div class='seperate-line-container'>
+      <div class='seperate-line--big'></div>
+      <div class='seperate-line--tiny'></div>
+    </div>
+    <nav>
+      <figure>
+        <Image src={logo} alt='Carlos Icardi' />
+      </figure>
 
-         <Button
-            class="menu-btn"
-            bgColor="transparent"
-            data-function="toggle_navbar"
-         >
-            <MenuIcon size={50} />
-         </Button>
+      <Button
+        class='menu-btn'
+        bgColor='transparent'
+        data-function='toggle_navbar'
+      >
+        <MenuIcon size={50} />
+      </Button>
 
-         <ul class="menu">
-            <li><a href="#!">Inicio</a></li>
-            <li><a href="#servicios">Nuestros Servicios</a></li>
-            <li><a href="#alcances">Alcances</a></li>
-            <li><a href="#contacto">Contactanos</a></li>
-         </ul>
-      </nav>
-   </hr>
+      <ul class='menu'>
+        <li>
+          <a data-function='toggle_navbar' class='navBar-anchor' href='#!'
+            >Inicio</a
+          >
+        </li>
+
+        <li>
+          <a
+            data-function='toggle_navbar'
+            class='navBar-anchor'
+            href='#servicios'>Nuestros Servicios</a
+          >
+        </li>
+
+        <li>
+          <a
+            data-function='toggle_navbar'
+            class='navBar-anchor'
+            href='#alcances'>Alcances</a
+          >
+        </li>
+
+        <li>
+          <a
+            data-function='toggle_navbar'
+            class='navBar-anchor'
+            href='#contacto'>Contactanos</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <script>
-   function changeBackgroundOnScroll() {
-      const headerContainer = document.querySelector(".header-container");
-      const menu = document.querySelector(".menu");
+  function changeBackgroundOnScroll() {
+    const headerContainer = document.querySelector('.header-container')
+    const menu = document.querySelector('.menu')
 
-      if (menu.classList.contains("navbar-active")) {
-         headerContainer.classList.add("bg-scroll");
-      }
+    if (menu.classList.contains('navbar-active')) {
+      headerContainer.classList.add('bg-scroll')
+    }
 
-      if (
-         document.body.scrollTop > 0 ||
-         document.documentElement.scrollTop > 0
-      ) {
-         headerContainer.classList.add("bg-scroll");
-      } else {
-         headerContainer.classList.remove("bg-scroll");
-      }
-   }
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+      headerContainer.classList.add('bg-scroll')
+    } else {
+      headerContainer.classList.remove('bg-scroll')
+    }
+  }
 
-   window.onscroll = () => {
-      changeBackgroundOnScroll();
-   };
+  window.onscroll = () => {
+    changeBackgroundOnScroll()
+  }
 </script>
 
 <style>
-   header {
-      /* height: var(--headerHeight); */
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      width: 100%;
-      transition: background-color 0.5s;
-   }
+  header {
+    /* height: var(--headerHeight); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    transition: background-color 0.5s;
+  }
 
-   .bg-scroll {
-      background-color: #000000b2;
-      transition: background-color 0.5s;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-   }
+  .bg-scroll {
+    background-color: #000000b2;
+    transition: background-color 0.5s;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
 
-   .header-container {
-      position: relative;
-      width: 100%;
-      padding: 20px;
-      max-width: var(--maxWidthContainer);
-      margin: 0 auto;
+  .header-container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    /*max-width: var(--maxWidthContainer);*/
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+  }
+
+  .seperate-line-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    display: flex;
+  }
+
+  .seperate-line--tiny {
+    height: 5px;
+    flex-grow: 1;
+    background-color: var(--color-primary);
+  }
+
+  .seperate-line--big {
+    height: 20px;
+    width: 150px;
+    background-color: var(--color-primary);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: var(--maxWidthContent);
+    margin: 0 auto;
+  }
+
+  figure {
+    max-width: 250px;
+    width: 100%;
+  }
+
+  figure img {
+    height: 80%;
+    /* width: auto; */
+    width: 400px;
+    object-fit: cover;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    /* gap: 64px; */
+    list-style: none;
+    gap: 5%;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+  li {
+    text-wrap: nowrap;
+    color: var(--color-white);
+    font-size: var(--fs-body);
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Agregar una transición suave */
+  }
+  li:hover {
+    transform: scale(1.2);
+  }
+
+  button {
+    display: none;
+  }
+
+  @media (width <= 992px) {
+    figure img {
+      width: 200px;
+    }
+  }
+
+  @media (width <= 768px) {
+    .seperate-line-container {
+      display: none;
+    }
+    button {
+      display: block;
       height: 100%;
-      display: flex;
-   }
+      box-sizing: border-box;
+    }
 
-   .seperate-line-container{
+    nav {
+      justify-content: space-between;
+    }
+
+    figure {
+      padding-left: 20px;
+    }
+
+    .menu {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      display: flex;
-   }
+      /* antes estaba var(--headerHeight) */
+      top: 110px;
+      left: 100%;
+      background-color: var(--color-third);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      /* padding-top: 50px; */
+      height: calc(100vh - var(--headerHeight));
+      transition: 0.4s all;
+      overflow: hidden;
+    }
 
-   .seperate-line--tiny{
-      height: 5px;
-      flex-grow: 1;
-      background-color: var(--color-primary);
-
-   }
-
-   .seperate-line--big{
-      height: 20px;
-      width: 150px;
-      background-color: var(--color-primary);
-
-   }
-
-
-   nav {
+    .menu li {
       display: flex;
       align-items: center;
-      width: 100%;
-      height: 100%;
-      max-width: var(--maxWidthContent);
-      margin: 0 auto;
-   }
-
-   figure {
-      max-width: 250px;
-      width: 100%;
-   }
-
-   figure img {
-      height: 80%;
-      /* width: auto; */
-      width: 400px;
-      object-fit: cover;
-   }
-
-   .menu {
-      width: 100%;
-      display: flex;
-      /* gap: 64px; */
-      list-style: none;
-      gap: 5%;
+      justify-content: center;
       flex-grow: 1;
-      justify-content: flex-end;
-   }
-   li {
-      text-wrap: nowrap;
-      color: var(--color-white);
-      font-size: var(--fs-body);
-      font-weight: bold;
-      transition: transform 0.3s ease; /* Agregar una transición suave */
-   }
-   li:hover {
-      transform: scale(1.2);
-   }
+      width: 100%;
+      border-bottom: 1px solid var(--color-black-opacity);
+      border-bottom: 1px solid var(--color-dark-blue);
+      box-shadow: inset 0px 0px 16px 2px #000;
+    }
+    li a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 2px 1px var(--color-secondary);
+      font-size: var(--fs-h3);
+      height: 100%;
+      width: 100%;
+    }
 
-   button {
-      display: none;
-   }
-
-   @media (width <= 992px) {
-      figure img {
-         width: 200px;
-      }
-   }
-
-   @media (width <= 768px) {
-      .seperate-line-container{
-      display: none;
-   }
-      button {
-         display: block;
-         background-color: red;
-      }
-
-      nav {
-         justify-content: space-between;
-      }
-
-      figure {
-         padding-left: 20px;
-      }
-
-      .menu {
-         position: absolute;
-         /* antes estaba var(--headerHeight) */
-         top: 110px;
-         left: 100%;
-         background-color: var(--color-dark-gray);
-         flex-direction: column;
-         align-items: center;
-         justify-content: flex-start;
-         gap: 0;
-         /* padding-top: 50px; */
-         height: calc(100vh - var(--headerHeight));
-         transition: 0.4s all;
-      }
-
-      .menu li {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         flex-grow: 1;
-         width: 100%;
-         border-bottom: 1px solid var(--color-black-opacity);
-         font-size: var(--fs-h2);
-      }
-
-      .menu.navbar-active {
-         left: 0;
-         transition: 0.4s all;
-      }
-   }
+    .menu.navbar-active {
+      left: 0;
+      transition: 0.4s all;
+    }
+  }
 </style>
