@@ -1,6 +1,6 @@
 ---
-import '@fontsource-variable/open-sans'
-import '@fontsource/poppins'
+//import '@fontsource-variable/open-sans'
+//import '@fontsource/poppins'
 import '../index.css'
 import Header from '../components/Header/Header.astro'
 import { ViewTransitions } from 'astro:transitions'
@@ -11,6 +11,12 @@ const { title = 'Carlos Icardi | WEB', noHeader } = Astro.props
   <head>
     <meta charset='UTF-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@400;500;600;700;800;900&display=swap'
+      rel='stylesheet'
+    />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
