@@ -24,6 +24,7 @@ const BUTTON_FUNCTIONS = {
    //    window.history.back(-1)
    // },
    slide: () => {
+			console.log('click slide')
       const slider01 = document.querySelector('.slider-01');
       const slider02 = document.querySelector('.slider-02');
       if (slider01.style.display !== 'none') {
@@ -130,17 +131,38 @@ const LI_FUNCTIONS = {
   },
 };
 
-const Allbuttons = document.querySelectorAll('.button');
-Allbuttons.forEach(btn => {
-   btn.addEventListener('click', () => {
+//const Allbuttons = document.querySelectorAll('.button');
+//Allbuttons.forEach(btn => {
+//   btn.addEventListener('click', () => {
+//      const functionName = btn.dataset.function;
+//      if (BUTTON_FUNCTIONS[functionName]) {
+//         BUTTON_FUNCTIONS[functionName]();
+//      } else {
+//         console.error(`Function ${functionName} is not defined in BUTTON_FUNCTIONS`);
+//      }
+//   });
+//});
+
+function asignarEventListeners() {
+  const Allbuttons = document.querySelectorAll('.button');
+  Allbuttons.forEach(btn => {
+    btn.addEventListener('click', () => {
       const functionName = btn.dataset.function;
       if (BUTTON_FUNCTIONS[functionName]) {
-         BUTTON_FUNCTIONS[functionName]();
+        BUTTON_FUNCTIONS[functionName]();
       } else {
-         console.error(`Function ${functionName} is not defined in BUTTON_FUNCTIONS`);
+        //console.error(`Function ${functionName} is not defined in BUTTON_FUNCTIONS`);
+				return
       }
-   });
-});
+    });
+  });
+}
+
+// Llama a asignarEventListeners al cargar la página inicialmente y al volver a "Home"
+document.addEventListener('DOMContentLoaded', asignarEventListeners);
+document.addEventListener('astro:loaded', asignarEventListeners);
+document.addEventListener('astro:after-swap', asignarEventListeners);
+
 
 const AllLiElements = document.querySelectorAll('.navBar-anchor');
 
