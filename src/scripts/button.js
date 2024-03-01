@@ -164,16 +164,23 @@ document.addEventListener('astro:loaded', asignarEventListeners);
 document.addEventListener('astro:after-swap', asignarEventListeners);
 
 
-const AllLiElements = document.querySelectorAll('.navBar-anchor');
 
-AllLiElements.forEach(li => {
-  li.addEventListener('click', () => {
-    const functionName = li.dataset.function;
-		//console.log({li})
-    if (LI_FUNCTIONS[functionName]) {
-      LI_FUNCTIONS[functionName]();
-    } else {
-      console.error(`Function ${functionName} is not defined in LI_FUNCTIONS`);
-    }
-  });
-});
+function asignarEventListenersLi(){
+	const AllLiElements = document.querySelectorAll('.navBar-anchor');
+
+	AllLiElements.forEach(li => {
+		li.addEventListener('click', () => {
+			const functionName = li.dataset.function;
+			//console.log({li})
+			if (LI_FUNCTIONS[functionName]) {
+				LI_FUNCTIONS[functionName]();
+			} else {
+				console.error(`Function ${functionName} is not defined in LI_FUNCTIONS`);
+			}
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', asignarEventListenersLi);
+document.addEventListener('astro:loaded', asignarEventListenersLi);
+document.addEventListener('astro:after-swap', asignarEventListenersLi);
