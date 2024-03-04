@@ -68,7 +68,7 @@
 
 @media screen and (max-width: 768px) {
 	:root {
-		--headerHeight: 80px;
+		--headerHeight: 109px;
 		--layout-padding-x: 24px;
 		--layout-padding-y: 16px;
 
