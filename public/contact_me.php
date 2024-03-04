@@ -19,14 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = strip_tags(htmlspecialchars($_POST['message']));
 
     // Create the email and send the message
-    $to = 'lonardibautista@gmail.com';
+    $to = 'cicardi.arg@gmail.com';
     $email_subject = "Contacto de: $name - $subject";
     $email_body = "Contacto recibido desde la web.\r\n" . "Detalles:\r\nNombre: $name\n\nEmail: $email_address\n\nAsunto: $subject\n\nMensaje:\n$message";
 
     ini_set('display_errors', '1');
     ini_set('display_startup_errors', '1');
 
-    $emailFrom = 'From: lonardibautista@gmail.com';
+    $emailFrom = 'From: cicardi.arg@gmail.com';
 		$nameFrom = $name;
 
     $headers = 'MIME-Version: 1.0' . "\r\n";
