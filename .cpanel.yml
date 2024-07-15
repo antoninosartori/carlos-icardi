@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ipoweljp/public_html/
-    - /bin/rsync -av --delete /home/ipoweljp/repositories/carlos-icardi/dist/ $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
