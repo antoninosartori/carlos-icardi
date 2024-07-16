@@ -1,6 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ipoweljp/public_html/
-    - bin/usr/bin/rsync -avi --delete --include="*.html" dist $DEPLOYPATH
-
+    - export DEPLOYPATH=/home/ipoweljp/public_html/carlosicardi.com.ar/
+    - /bin/rsync -av dist/ $DEPLOYPATH
