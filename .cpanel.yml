@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ipoweljp/public_html/
-    - /usr/bin/rsync -av --delete dist/ $DEPLOYPATH
+    - /usr/bin/rsync -avi --delete --include="*.html" dist/ $DEPLOYPATH
+
